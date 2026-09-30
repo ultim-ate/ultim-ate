@@ -41,7 +41,7 @@ export function Header() {
                 isScrolled ? "text-foreground" : "text-white"
               }`}
             >
-              ELLADA
+              Greek Steps
             </span>
           </Link>
 

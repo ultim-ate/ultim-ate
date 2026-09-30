@@ -41,7 +41,7 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-8 lg:mb-0">
             <h3 className="text-2xl font-semibold tracking-wide mb-4">
-              ELLADA
+              Greek Steps
             </h3>
             <p className="text-background/70 font-sans text-sm leading-relaxed max-w-xs">
               Crafting unforgettable Greek journeys since 2010. Your gateway to
@@ -76,7 +76,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             {/* Copyright */}
             <p className="text-background/50 font-sans text-sm">
-              &copy; {new Date().getFullYear()} Ellada Travel. All rights
+              &copy; {new Date().getFullYear()} Greek Steps. All rights
               reserved.
             </p>
 

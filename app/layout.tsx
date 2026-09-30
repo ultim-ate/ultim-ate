@@ -15,8 +15,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Discover Greece | Unforgettable Mediterranean Journeys',
-  description: 'Experience the magic of Greece - from ancient ruins to pristine beaches, from vibrant cities to serene islands. Plan your perfect Greek adventure today.',
+  title: 'Greek Steps | Unforgettable Mediterranean Journeys',
+  description: 'Greek Steps helps you experience the magic of Greece - from ancient ruins to pristine beaches, vibrant cities, and serene islands. Plan your perfect Greek adventure today.',
+  openGraph: {
+    title: 'Greek Steps | Unforgettable Mediterranean Journeys',
+    description: 'Experience the magic of Greece with Greek Steps, from ancient ruins to pristine beaches, vibrant cities, and serene islands.',
+    siteName: 'Greek Steps',
+    type: 'website',
+  },
   generator: 'v0.app',
   icons: {
     icon: [
