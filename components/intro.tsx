@@ -3,7 +3,7 @@ export function Intro() {
     <section id="intro" className="py-24 md:py-32 px-6 bg-background">
       <div className="mx-auto max-w-4xl text-center">
         <p className="text-sm font-sans font-medium tracking-[0.3em] uppercase text-primary mb-6">
-          Welcome to Ellada
+          Welcome to Greek Steps
         </p>
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-8 text-balance">
           A Land of Myth, Beauty & Endless Discovery
