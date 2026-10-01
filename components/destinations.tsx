@@ -100,6 +100,13 @@ export function Destinations() {
                     hoveredIndex === index ? "scale-110" : "scale-100"
                   }`}
                 />
+                {destination.name === "Santorini" && (
+                  <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-black/70 via-black/25 to-transparent px-6 pb-16 pt-6">
+                    <h3 className="text-2xl font-bold text-sky-300 md:text-3xl">
+                      Santorini - un tablou grecesc
+                    </h3>
+                  </div>
+                )}
               </div>
             </div>
           ))}
