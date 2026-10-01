@@ -8,7 +8,7 @@ const destinations = [
   {
     name: "Santorini",
     description:
-      "Iconic sunsets, volcanic beaches, and whitewashed villages perched on dramatic cliffs.",
+      "Santorini – Un tablou grecesc\n\nCând te gândești la Grecia, poate că primul lucru care îți vine în minte este imaginea aceea alb-albastră: case luminoase, bisericuțe cu cupole albastre și marea întinsă până la orizont. Santorini este locul în care această imagine prinde viață.\nAșezată în mijlocul Mării Egee, insula se întinde în jurul unei caldere vulcanice impresionante, oferind priveliști spectaculoase la fiecare pas.\nÎn Oia (Οία), casele albe se întind de-a lungul stâncilor, iar priveliștea spre Marea Egee este una dintre cele mai cunoscute imagini ale Greciei. La apus, φως (fos) – lumina – schimbă treptat culorile insulei și creează o atmosferă aparte.\nDar Santorini nu înseamnă doar fotografii perfecte. Vulcanul a modelat insula și a lăsat în urmă stânci spectaculoase, plaje cu nisip vulcanic și un peisaj cu totul diferit de cel al altor insule grecești.\nPrintre străduțele înguste găsești mici biserici, terase cu vedere spre mare și locuri în care poți simți ελληνική φιλοξενία – ospitalitatea grecească. Iar o vacanță aici poate fi și o ocazie de a descoperi, puțin câte puțin, limba și cultura Greciei.\nLa Greek Steps, credem că astfel de locuri sunt mai frumoase atunci când le înțelegi și povestea. Santorini poate fi începutul unei călătorii, dar și un pas spre Grecia – o țară pe care o descoperi prin limbă, cultură, oameni și experiențe.",
     image: "/images/hero-santorini.jpg",
     tag: "Islands",
   },
