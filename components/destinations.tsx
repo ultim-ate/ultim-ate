@@ -88,19 +88,6 @@ export function Destinations() {
                     hoveredIndex === index ? "scale-110" : "scale-100"
                   }`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              </div>
-
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                <span className="inline-block px-3 py-1 text-xs font-sans font-medium tracking-wide uppercase bg-white/20 text-white backdrop-blur-sm mb-4">
-                  {destination.tag}
-                </span>
-                <h3 className="text-2xl md:text-3xl font-light text-white mb-2">
-                  {destination.name}
-                </h3>
-                <p className="text-white/80 text-sm md:text-base font-sans leading-relaxed max-w-md">
-                  {destination.description}
-                </p>
               </div>
             </div>
           ))}
