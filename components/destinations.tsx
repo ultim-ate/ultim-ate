@@ -1,14 +1,14 @@
 "use client"
 
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, X } from "lucide-react"
 import { useState } from "react"
 
 const destinations = [
   {
     name: "Santorini",
     description:
-      "Iconic sunsets, volcanic beaches, and whitewashed villages perched on dramatic cliffs.",
+      "Când te gândești la Grecia, poate că primul lucru care îți vine în minte este imaginea aceea alb-albastră: case luminoase, bisericuțe cu cupole albastre și marea întinsă până la orizont. Santorini este locul în care această imagine prinde viață.\nAșezată în mijlocul Mării Egee, insula se întinde în jurul unei caldere vulcanice impresionante, oferind priveliști spectaculoase la fiecare pas.\nÎn Oia (Οία), casele albe se întind de-a lungul stâncilor, iar priveliștea spre Marea Egee este una dintre cele mai cunoscute imagini ale Greciei. La apus, φως (fos) – lumina – schimbă treptat culorile insulei și creează o atmosferă aparte.\nDar Santorini nu înseamnă doar fotografii perfecte. Vulcanul a modelat insula și a lăsat în urmă stânci spectaculoase, plaje cu nisip vulcanic și un peisaj cu totul diferit de cel al altor insule grecești.\nPrintre străduțele înguste găsești mici biserici, terase cu vedere spre mare și locuri în care poți simți ελληνική φιλοξενία – ospitalitatea grecească. Iar o vacanță aici poate fi și o ocazie de a descoperi, puțin câte puțin, limba și cultura Greciei.\nLa Greek Steps, credem că astfel de locuri sunt mai frumoase atunci când le înțelegi și povestea. Santorini poate fi începutul unei călătorii, dar și un pas spre Grecia – o țară pe care o descoperi prin limbă, cultură, oameni și experiențe.",
     image: "/images/hero-santorini.jpg",
     tag: "Islands",
   },
@@ -35,8 +35,23 @@ const destinations = [
   },
 ]
 
+function renderSantoriniDescription(text: string) {
+  return text.split(/(Οία|φως \(fos\)|ελληνική φιλοξενία|Greek Steps)/g).map((part, index) =>
+    /^(Οία|φως \(fos\)|ελληνική φιλοξενία|Greek Steps)$/.test(part) ? (
+      <strong key={`${part}-${index}`} className="font-semibold text-foreground">
+        {part}
+      </strong>
+    ) : (
+      part
+    ),
+  )
+}
+
 export function Destinations() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [selectedDestination, setSelectedDestination] = useState(
+    null as (typeof destinations)[number] | null,
+  )
 
   return (
     <section id="destinations" className="py-24 md:py-32 px-6 bg-secondary">
@@ -64,6 +79,15 @@ export function Destinations() {
             <div
               key={destination.name}
               className="group relative overflow-hidden cursor-pointer"
+              role="button"
+              tabIndex={0}
+              onClick={() => destination.name === "Santorini" && setSelectedDestination(destination)}
+              onKeyDown={(event) => {
+                if ((event.key === "Enter" || event.key === " ") && destination.name === "Santorini") {
+                  event.preventDefault()
+                  setSelectedDestination(destination)
+                }
+              }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
@@ -76,24 +100,47 @@ export function Destinations() {
                     hoveredIndex === index ? "scale-110" : "scale-100"
                   }`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              </div>
-
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                <span className="inline-block px-3 py-1 text-xs font-sans font-medium tracking-wide uppercase bg-white/20 text-white backdrop-blur-sm mb-4">
-                  {destination.tag}
-                </span>
-                <h3 className="text-2xl md:text-3xl font-light text-white mb-2">
-                  {destination.name}
-                </h3>
-                <p className="text-white/80 text-sm md:text-base font-sans leading-relaxed max-w-md">
-                  {destination.description}
-                </p>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {selectedDestination && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-6"
+          role="presentation"
+          onClick={() => setSelectedDestination(null)}
+        >
+          <div
+            className="relative max-h-[85vh] w-full max-w-3xl overflow-y-auto bg-background p-8 md:p-12"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="destination-dialog-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="absolute right-4 top-4 p-2 text-muted-foreground transition-colors hover:text-foreground"
+              aria-label="Close destination details"
+              onClick={() => setSelectedDestination(null)}
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <h2
+              id="destination-dialog-title"
+              className="mb-6 text-3xl font-bold text-sky-400 md:text-4xl"
+            >
+              Santorini – Un tablou grecesc
+            </h2>
+            <div className="whitespace-pre-line text-base leading-relaxed text-muted-foreground">
+              {selectedDestination.name === "Santorini"
+                ? renderSantoriniDescription(selectedDestination.description)
+                : selectedDestination.description}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
