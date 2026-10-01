@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, X } from "lucide-react"
 import { useState } from "react"
 
 const destinations = [
@@ -37,6 +37,9 @@ const destinations = [
 
 export function Destinations() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [selectedDestination, setSelectedDestination] = useState(
+    null as (typeof destinations)[number] | null,
+  )
 
   return (
     <section id="destinations" className="py-24 md:py-32 px-6 bg-secondary">
@@ -64,6 +67,15 @@ export function Destinations() {
             <div
               key={destination.name}
               className="group relative overflow-hidden cursor-pointer"
+              role="button"
+              tabIndex={0}
+              onClick={() => destination.name === "Santorini" && setSelectedDestination(destination)}
+              onKeyDown={(event) => {
+                if ((event.key === "Enter" || event.key === " ") && destination.name === "Santorini") {
+                  event.preventDefault()
+                  setSelectedDestination(destination)
+                }
+              }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
@@ -94,6 +106,40 @@ export function Destinations() {
           ))}
         </div>
       </div>
+
+      {selectedDestination && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-6"
+          role="presentation"
+          onClick={() => setSelectedDestination(null)}
+        >
+          <div
+            className="relative max-h-[85vh] w-full max-w-3xl overflow-y-auto bg-background p-8 md:p-12"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="destination-dialog-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="absolute right-4 top-4 p-2 text-muted-foreground transition-colors hover:text-foreground"
+              aria-label="Close destination details"
+              onClick={() => setSelectedDestination(null)}
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <p className="mb-4 text-sm font-sans font-medium uppercase tracking-[0.3em] text-primary">
+              {selectedDestination.name}
+            </p>
+            <h2 id="destination-dialog-title" className="mb-6 text-3xl font-light md:text-4xl">
+              Santorini – Un tablou grecesc
+            </h2>
+            <div className="whitespace-pre-line text-base leading-relaxed text-muted-foreground">
+              {selectedDestination.description}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
