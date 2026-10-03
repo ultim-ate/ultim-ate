@@ -15,7 +15,7 @@ const destinations = [
   {
     name: "Athens",
     description:
-      "The cradle of Western civilization, where ancient wonders meet vibrant modern culture.",
+      "Αθήνα este orașul în care trecutul nu a rămas în muzee, ci continuă să facă parte din viața de zi cu zi.\nDeasupra orașului se află Acropole, unul dintre cele mai cunoscute simboluri ale Greciei. Parthenonul, construit în Antichitate în cinstea zeiței Atena, amintește de perioada în care orașul a devenit unul dintre marile centre ale lumii grecești. Privind Atena de aici, poți vedea cât de mult s-a schimbat orașul și, în același timp, cât de puternic și-a păstrat legătura cu trecutul.\nLa poalele Acropolei, cartiere precum Pláka te poartă printre străzi colorate, case neoclasice, mici magazine și taverne. Aici poți descoperi o parte mai relaxată a orașului, unde tradițiile grecești se întâlnesc cu viața modernă.\nAtena este și un oraș al gusturilor și al întâlnirilor. O cafea băută încet, o masă într-o tavernă și un simplu καλημέρα (kaliméra) pot deveni parte din experiența de a descoperi viața grecească.\nDar poate cel mai interesant lucru la Atena este că nu trebuie să alegi între istorie și prezent. Le poți descoperi împreună, în aceeași zi: dimineața printre temple antice, după-amiaza prin piețele orașului, iar seara privind luminile Atenei de pe o terasă.\nLa Greek Steps, credem că a cunoaște Grecia înseamnă mai mult decât a-i vizita locurile. Înseamnă să îi descoperi istoria, limba, oamenii și felul de a trăi.",
     image: "/images/athens-acropolis.jpg",
     tag: "History",
   },
@@ -36,15 +36,18 @@ const destinations = [
 ]
 
 function renderDestinationDescription(text: string) {
-  return text.split(/(Οία|φως \(fos\)|ελληνική φιλοξενία|καλημέρα|φιλοξενία \(filoxenía\)|Greek Steps)/g).map((part, index) =>
-    /^(Οία|φως \(fos\)|ελληνική φιλοξενία|καλημέρα|φιλοξενία \(filoxenía\)|Greek Steps)$/.test(part) ? (
-      <strong key={`${part}-${index}`} className="font-semibold text-foreground">
-        {part}
-      </strong>
-    ) : (
-      part
-    ),
-  )
+  return text.split(/(Αθήνα|Οία|φως \(fos\)|ελληνική φιλοξενία|καλημέρα \(\(kaliméra\)|καλημέρα|φιλοξενία \(filoxenía\)|Greek Steps)/g).map((part, index) => {
+    const boldWords = ['Αθήνα', 'καλημέρα', 'Greek Steps'];
+    if (/^(Αθήνα|Οία|φως \(fos\)|ελληνική φιλοξενία|καλημέρα \(\(kaliméra\)|καλημέρα|φιλοξενία \(filoxenía\)|Greek Steps)$/.test(part)) {
+      const isBold = boldWords.some(word => part.includes(word));
+      return (
+        <span key={index} className={isBold ? "font-semibold text-gray-800" : "font-semibold text-gray-900"}>
+          {part}
+        </span>
+      );
+    }
+    return part;
+  });
 }
 
 export function Destinations() {
