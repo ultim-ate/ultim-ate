@@ -105,7 +105,7 @@ export function Destinations() {
                     <h3 className="text-2xl font-bold text-sky-300 md:text-3xl">
                       {destination.name === "Santorini"
                         ? "Santorini - un tablou grecesc"
-                        : "Καλός ήρθατε στην Κρήτη! – Bine ați venit în Creta!"}
+                        : "Creta - insula care te cheama inapoi"}
                     </h3>
                   </div>
                 )}
