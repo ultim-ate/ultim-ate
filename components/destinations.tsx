@@ -29,15 +29,15 @@ const destinations = [
   {
     name: "Crete",
     description:
-      "Greece&apos;s largest island offers pristine beaches, rugged mountains, and ancient palaces.",
+      "Cea mai mare insulă a Greciei, Creta păstrează urmele uneia dintre cele mai vechi civilizații europene, cea minoică și oferă călătorilor ocazia de a descoperi Grecia într-un mod autentic.\nDe la Knossos și Heraklion, până la străduțele venețiene din Chania și satele tradiționale din interiorul insulei, fiecare loc spune o poveste.\nPentru cei care ajung în Creta, vacanța poate deveni și o experiență culturală: să descoperi ce înseamnă καλημέρα, să guști preparate tradiționale, să afli poveștile din spatele obiceiurilor locale și să înțelegi mai bine felul în care trăiesc și comunică grecii.\nDar pentru a înțelege cu adevărat insula trebuie să descoperi și φιλοξενία (filoxenía) – ospitalitatea grecească. O masă tradițională, o cafea savurată încet și o conversație cu localnicii pot spune uneori mai multe despre Grecia decât orice.\nLa Greek Steps credem că o vacanță în Grecia poate fi și un pas spre cultura ei. Când înveți câteva cuvinte în greacă, înțelegi o tradiție sau afli povestea unui loc, Grecia începe să se simtă mai aproape.",
     image: "/images/crete-beach.jpg",
     tag: "Adventure",
   },
 ]
 
-function renderSantoriniDescription(text: string) {
-  return text.split(/(Οία|φως \(fos\)|ελληνική φιλοξενία|Greek Steps)/g).map((part, index) =>
-    /^(Οία|φως \(fos\)|ελληνική φιλοξενία|Greek Steps)$/.test(part) ? (
+function renderDestinationDescription(text: string) {
+  return text.split(/(Οία|φως \(fos\)|ελληνική φιλοξενία|καλημέρα|φιλοξενία \(filoxenía\)|Greek Steps)/g).map((part, index) =>
+    /^(Οία|φως \(fos\)|ελληνική φιλοξενία|καλημέρα|φιλοξενία \(filoxenía\)|Greek Steps)$/.test(part) ? (
       <strong key={`${part}-${index}`} className="font-semibold text-foreground">
         {part}
       </strong>
@@ -81,9 +81,15 @@ export function Destinations() {
               className="group relative overflow-hidden cursor-pointer"
               role="button"
               tabIndex={0}
-              onClick={() => destination.name === "Santorini" && setSelectedDestination(destination)}
+              onClick={() =>
+                (destination.name === "Santorini" || destination.name === "Crete") &&
+                setSelectedDestination(destination)
+              }
               onKeyDown={(event) => {
-                if ((event.key === "Enter" || event.key === " ") && destination.name === "Santorini") {
+                if (
+                  (event.key === "Enter" || event.key === " ") &&
+                  (destination.name === "Santorini" || destination.name === "Crete")
+                ) {
                   event.preventDefault()
                   setSelectedDestination(destination)
                 }
@@ -140,12 +146,12 @@ export function Destinations() {
               id="destination-dialog-title"
               className="mb-6 text-3xl font-bold text-sky-400 md:text-4xl"
             >
-              Santorini – Un tablou grecesc
+              {selectedDestination.name === "Santorini"
+                ? "Santorini – Un tablou grecesc"
+                : "Creta - insula care te cheama inapoi"}
             </h2>
             <div className="whitespace-pre-line text-base leading-relaxed text-muted-foreground">
-              {selectedDestination.name === "Santorini"
-                ? renderSantoriniDescription(selectedDestination.description)
-                : selectedDestination.description}
+              {renderDestinationDescription(selectedDestination.description)}
             </div>
           </div>
         </div>
