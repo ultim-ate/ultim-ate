@@ -140,6 +140,20 @@ export function Destinations() {
               </div>
             </div>
           ))}
+          <a href="/rhodos" className="group relative block overflow-hidden">
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src="/images/rhodos.png"
+                alt="Lindos și Acropola deasupra golfului din Rhodos"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-black/70 via-black/25 to-transparent px-6 pb-16 pt-6">
+                <h3 className="text-2xl font-bold text-sky-300 md:text-3xl">Rhodos – O poveste la malul mării</h3>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
 
