@@ -120,14 +120,17 @@ export function Destinations() {
                 />
                 {(destination.name === "Santorini" ||
                   destination.name === "Athens" ||
-                  destination.name === "Crete") && (
+                  destination.name === "Crete" ||
+                  destination.name === "Mykonos") && (
                   <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-black/70 via-black/25 to-transparent px-6 pb-16 pt-6">
                     <h3 className="text-2xl font-bold text-sky-300 md:text-3xl">
                       {destination.name === "Santorini"
                         ? "Santorini - un tablou grecesc"
                         : destination.name === "Athens"
                           ? "Atena – Între trecut și prezent"
-                          : "Creta - insula care te cheama inapoi"}
+                          : destination.name === "Crete"
+                            ? "Creta - insula care te cheama inapoi"
+                            : "Mykonos – Insula care nu doarme"}
                     </h3>
                   </div>
                 )}
