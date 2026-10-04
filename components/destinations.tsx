@@ -35,6 +35,13 @@ const destinations = [
   },
 ]
 
+const rhodos = {
+  name: "Rhodos",
+  image: "/images/rhodos.png",
+  tag: "Islands",
+  description: "Rhodos este una dintre acele destinații în care nu trebuie să alegi între o vacanță la mare și o călătorie prin istorie. Le găsești pe amândouă în același loc.\nInsula are un farmec aparte încă de la prima plimbare prin Orașul Vechi. Porți monumentale, ziduri medievale și străzi pietruite păstrează poveștile cavalerilor care au trecut pe aici cu sute de ani în urmă.\nÎn Lindos, casele albe și străduțele pietruite urcă spre Acropola antică, iar priveliștea asupra mării se deschide treptat pe măsură ce înaintezi. Lindos este cunoscut și pentru plimbările cu măgăruși, o imagine devenită parte din atmosfera locului, deși pentru o experiență mai plăcută și responsabilă merită să alegi să explorezi satul pe jos. Aici, printre casele tradiționale, mici magazine și taverne, descoperi o altă față a insulei, mai liniștită și mai autentică.\nPentru zilele de vacanță, Rodos oferă plaje pentru toate gusturile, de la golfuri mai retrase până la zone animate. θάλασσα (thálassa) – marea – este parte din viața insulei, iar serile sunt perfecte pentru o plimbare pe faleză sau o cină într-o tavernă.\nDar poate că Rhodos se simte cel mai autentic în momentele simple: o masă tradițională, un καλησπέρα (kalispéra) spus unui localnic și atmosfera unei seri grecești în care nimeni nu pare să se grăbească.\nLa Greek Steps credem că o vacanță în Grecia poate fi și un pas spre cultura ei. Când înveți câteva cuvinte în greacă, descoperi o tradiție sau afli povestea unui loc, Grecia începe să se simtă mai aproape",
+}
+
 function renderDestinationDescription(text: string) {
   const emphasizedWords = [
     'Αθήνα',
@@ -46,6 +53,8 @@ function renderDestinationDescription(text: string) {
     'μεζέδες',
     'ανεμόμυλοι',
     'διασκέδαση',
+    'θάλασσα',
+    'καλησπέρα',
     'Greek Steps',
   ]
   const pattern = new RegExp(`(${emphasizedWords.map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g')
@@ -140,7 +149,19 @@ export function Destinations() {
               </div>
             </div>
           ))}
-          <a href="/rhodos" className="group relative block overflow-hidden">
+          <a
+            href="/rhodos"
+            className="group relative block overflow-hidden"
+            onContextMenu={(event) => {
+              event.preventDefault()
+              setSelectedDestination(rhodos)
+            }}
+            onClick={(event) => {
+              if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return
+              event.preventDefault()
+              setSelectedDestination(rhodos)
+            }}
+          >
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src="/images/rhodos.png"
@@ -188,7 +209,9 @@ export function Destinations() {
                   ? "Atena – Între trecut și prezent"
                   : selectedDestination.name === "Mykonos"
                     ? "Mykonos – Insula care nu doarme"
-                    : "Creta - insula care te cheama inapoi"}
+                    : selectedDestination.name === "Rhodos"
+                      ? "Rhodos – O poveste la malul mării"
+                      : "Creta - insula care te cheama inapoi"}
             </h2>
             <div className="whitespace-pre-line text-base leading-relaxed text-muted-foreground">
               {renderDestinationDescription(selectedDestination.description)}
