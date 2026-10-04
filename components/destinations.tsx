@@ -22,7 +22,7 @@ const destinations = [
   {
     name: "Mykonos",
     description:
-      "Cosmopolitan charm with windmills, labyrinthine streets, and legendary nightlife.",
+      "Mykonos este una dintre cele mai cunoscute insule ale Greciei, un loc în care plajele, casele albe și energia străduțelor se întâlnesc într-o atmosferă care îi aparține doar ei.\nÎn Chora străduțele înguste te poartă printre casele albe cu ferestre și uși colorate, mici magazine, taverne și biserici. Celebrele mori de vânt, ανεμόμυλοι (anemómiloi) au devenit unul dintre simbolurile insulei și păstrează legătura dintre Mykonosul de astăzi și viața tradițională de odinioară.\nMykonos este cunoscută și pentru plajele sale, apa limpede și atmosfera de vacanță. Este un loc în care διασκέδαση (diaskedási) – distracția – face parte din experiență.\nDar dincolo de partea vibrantă, Mykonos are și un farmec tradițional. O tavernă mică, o masă grecească, o conversație cu localnicii și celebra φιλοξενία (filoxenía) – ospitalitatea grecească – îți arată o altă față a insulei.\nLa Greek Steps credem că o vacanță poate fi mai mult decât o colecție de fotografii frumoase. Când descoperi câteva cuvinte în greacă, afli povestea unui loc sau înțelegi o tradiție, începi să vezi Grecia cu alți ochi.",
     image: "/images/mykonos.jpg",
     tag: "Islands",
   },
@@ -44,9 +44,11 @@ function renderDestinationDescription(text: string) {
     'καλημέρα',
     'φιλοξενία (filoxenía)',
     'μεζέδες',
+    'ανεμόμυλοι',
+    'διασκέδαση',
     'Greek Steps',
   ]
-  const pattern = new RegExp(`(${emphasizedWords.map((word) => word.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&')).join('|')})`, 'g')
+  const pattern = new RegExp(`(${emphasizedWords.map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g')
 
   return text.split(pattern).map((part, index) =>
     emphasizedWords.includes(part) ? (
@@ -93,15 +95,16 @@ export function Destinations() {
               className="group relative overflow-hidden cursor-pointer"
               role="button"
               tabIndex={0}
-              onClick={() =>
-                (destination.name === "Santorini" || destination.name === "Athens" || destination.name === "Crete") &&
-                setSelectedDestination(destination)
-              }
+              onClick={() => setSelectedDestination(destination)}
+              onContextMenu={(event) => {
+                if (destination.name === "Mykonos") {
+                  event.preventDefault()
+                  setSelectedDestination(destination)
+                }
+              }}
               onKeyDown={(event) => {
-                if (
-                  (event.key === "Enter" || event.key === " ") &&
-                  (destination.name === "Santorini" || destination.name === "Athens" || destination.name === "Crete")
-                ) {
+                if (event.nativeEvent.isComposing || event.keyCode === 229) return
+                if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault()
                   setSelectedDestination(destination)
                 }
@@ -169,7 +172,9 @@ export function Destinations() {
                 ? "Santorini – Un tablou grecesc"
                 : selectedDestination.name === "Athens"
                   ? "Atena – Între trecut și prezent"
-                  : "Creta - insula care te cheama inapoi"}
+                  : selectedDestination.name === "Mykonos"
+                    ? "Mykonos – Insula care nu doarme"
+                    : "Creta - insula care te cheama inapoi"}
             </h2>
             <div className="whitespace-pre-line text-base leading-relaxed text-muted-foreground">
               {renderDestinationDescription(selectedDestination.description)}
