@@ -42,6 +42,13 @@ const rhodos = {
   description: "Rhodos este una dintre acele destinații în care nu trebuie să alegi între o vacanță la mare și o călătorie prin istorie. Le găsești pe amândouă în același loc.\nInsula are un farmec aparte încă de la prima plimbare prin Orașul Vechi. Porți monumentale, ziduri medievale și străzi pietruite păstrează poveștile cavalerilor care au trecut pe aici cu sute de ani în urmă.\nÎn Lindos, casele albe și străduțele pietruite urcă spre Acropola antică, iar priveliștea asupra mării se deschide treptat pe măsură ce înaintezi. Lindos este cunoscut și pentru plimbările cu măgăruși, o imagine devenită parte din atmosfera locului, deși pentru o experiență mai plăcută și responsabilă merită să alegi să explorezi satul pe jos. Aici, printre casele tradiționale, mici magazine și taverne, descoperi o altă față a insulei, mai liniștită și mai autentică.\nPentru zilele de vacanță, Rodos oferă plaje pentru toate gusturile, de la golfuri mai retrase până la zone animate. θάλασσα (thálassa) – marea – este parte din viața insulei, iar serile sunt perfecte pentru o plimbare pe faleză sau o cină într-o tavernă.\nDar poate că Rhodos se simte cel mai autentic în momentele simple: o masă tradițională, un καλησπέρα (kalispéra) spus unui localnic și atmosfera unei seri grecești în care nimeni nu pare să se grăbească.\nLa Greek Steps credem că o vacanță în Grecia poate fi și un pas spre cultura ei. Când înveți câteva cuvinte în greacă, descoperi o tradiție sau afli povestea unui loc, Grecia începe să se simtă mai aproape",
 }
 
+const skiathos = {
+  name: "Skiathos",
+  image: "/images/skiathos.png",
+  tag: "Islands",
+  description: "Skiathos este una dintre acele insule grecești care te cuceresc prin simplitate: păduri verzi, ape limpezi și plaje care par ascunse între dealuri. Aici, θάλασσα (thálassa) – marea – este mereu aproape, iar atmosfera insulei te îndeamnă să încetinești și să te bucuri de fiecare zi.\nInsula este cunoscută pentru numeroasele sale plaje, fiecare cu propriul farmec.\nKoukounaries, una dintre cele mai apreciate, este înconjurată de pini și oferă un peisaj în care verdele pădurii întâlnește albastrul Mării Egee. Pentru o experiență mai liniștită, micile golfuri și plajele mai retrase sunt perfecte pentru a descoperi frumusețea naturală a insulei.\nÎn orașul Skiathos casele albe, străduțele și micile porturi creează atmosfera unei adevărate νησί (nisí) – insule grecești. Tavernele, cafenelele și magazinele locale dau viață orașului, mai ales seara, când portul devine locul perfect pentru o plimbare.\nSkiathos are și un farmec mai discret: păduri de pini, poteci umbrite și mici capele care te îndeamnă să descoperi insula dincolo de plajele sale.\nLa Greek Steps credem că o vacanță în Grecia poate fi și un pas spre cultura ei. Când înveți câteva cuvinte în greacă, descoperi o tradiție sau afli povestea unui loc, Grecia începe să se simtă mai aproape.",
+}
+
 function renderDestinationDescription(text: string) {
   const emphasizedWords = [
     'Αθήνα',
@@ -54,6 +61,7 @@ function renderDestinationDescription(text: string) {
     'ανεμόμυλοι',
     'διασκέδαση',
     'θάλασσα',
+    'νησί',
     'καλησπέρα',
     'Greek Steps',
   ]
@@ -175,6 +183,39 @@ export function Destinations() {
               </div>
             </div>
           </a>
+          <article
+            className="group relative overflow-hidden cursor-pointer"
+            role="button"
+            tabIndex={0}
+            aria-haspopup="dialog"
+            onClick={() => setSelectedDestination(skiathos)}
+            onContextMenu={(event) => {
+              event.preventDefault()
+              setSelectedDestination(skiathos)
+            }}
+            onKeyDown={(event) => {
+              if (event.nativeEvent.isComposing || event.keyCode === 229) return
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault()
+                setSelectedDestination(skiathos)
+              }
+            }}
+          >
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src="/images/skiathos.png"
+                alt="Vase colorate în portul Skiathos, pe apă turcoaz, cu vegetație verde pe mal"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-black/70 via-black/25 to-transparent px-6 pb-16 pt-6">
+                <h3 className="text-2xl font-bold text-sky-300 md:text-3xl">
+                  Skiathos – Grecia în nuanțe de albastru și verde
+                </h3>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
 
@@ -211,7 +252,9 @@ export function Destinations() {
                     ? "Mykonos – Insula care nu doarme"
                     : selectedDestination.name === "Rhodos"
                       ? "Rhodos – O poveste la malul mării"
-                      : "Creta - insula care te cheama inapoi"}
+                      : selectedDestination.name === "Skiathos"
+                        ? "Skiathos – Grecia în nuanțe de albastru și verde"
+                        : "Creta - insula care te cheama inapoi"}
             </h2>
             <div className="whitespace-pre-line text-base leading-relaxed text-muted-foreground">
               {renderDestinationDescription(selectedDestination.description)}
