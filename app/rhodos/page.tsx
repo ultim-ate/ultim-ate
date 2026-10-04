@@ -21,7 +21,7 @@ export default function RhodesPage() {
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
           Înapoi la destinații
         </Link>
-        <h1 className="mb-8 text-4xl font-bold text-sky-400 md:text-5xl">Rhodos</h1>
+        <h1 className="mb-8 text-4xl font-bold text-sky-400 md:text-5xl">Rhodos – O poveste la malul mării</h1>
         <div className="relative aspect-[4/3] overflow-hidden md:aspect-[16/9]">
           <Image src="/images/rhodos.png" alt="Imagine reprezentativă a satului Lindos, cu Acropola pe colină și golful turcoaz din Rhodos" fill priority sizes="(max-width: 1024px) 100vw, 1024px" className="object-cover" />
         </div>

@@ -150,7 +150,7 @@ export function Destinations() {
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-black/70 via-black/25 to-transparent px-6 pb-16 pt-6">
-                <h3 className="text-2xl font-bold text-sky-300 md:text-3xl">Rhodos</h3>
+                <h3 className="text-2xl font-bold text-sky-300 md:text-3xl">Rhodos – O poveste la malul mării</h3>
               </div>
             </div>
           </a>
