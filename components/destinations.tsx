@@ -175,6 +175,22 @@ export function Destinations() {
               </div>
             </div>
           </a>
+          <article className="group relative overflow-hidden">
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src="/images/skiathos.png"
+                alt="Vase colorate în portul Skiathos, pe apă turcoaz, cu vegetație verde pe mal"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-black/70 via-black/25 to-transparent px-6 pb-16 pt-6">
+                <h3 className="text-2xl font-bold text-sky-300 md:text-3xl">
+                  Skiathos – Grecia în nuanțe de albastru și verde
+                </h3>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
 
