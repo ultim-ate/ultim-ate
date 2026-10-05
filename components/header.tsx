@@ -12,6 +12,7 @@ const navLinks = [
   { name: "Plan Your Trip", href: "#contact" },
   { name: "Grecia Altfel", href: "/grecia-altfel" },
   { name: "Cursuri limba greacă", href: "/cursuri-limba-greaca" },
+  { name: "Contact", href: "/contact" },
 ]
 
 export function Header({ solid = false }: { solid?: boolean }) {
