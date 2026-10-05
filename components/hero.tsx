@@ -42,7 +42,7 @@ export function Hero() {
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <span className="block text-balance">Greece</span>
+          <span className="block text-balance text-[var(--culture-heading)]">Greece</span>
         </h1>
 
         <div
