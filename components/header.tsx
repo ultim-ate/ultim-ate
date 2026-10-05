@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Heart, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { LanguageSwitcher } from "@/components/language-switcher"
 
@@ -15,6 +15,19 @@ const navLinks = [
   { name: "Cursuri limba greacă", href: "/cursuri-limba-greaca" },
   { name: "Contact", href: "/contact" },
 ]
+
+const stairWidths = ["w-3", "w-5", "w-7", "w-9", "w-11", "w-14"]
+
+function LogoStairs() {
+  return (
+    <span className="flex w-14 flex-col items-end gap-px" aria-hidden="true">
+      <Heart className="mr-px size-2.5 fill-(--logo-heart) text-(--logo-heart)" />
+      {stairWidths.map((width, i) => (
+        <span key={width} className={`h-[3px] ${width} ${i % 2 === 0 ? "bg-(--logo-navy)" : "bg-(--logo-sky)"}`} />
+      ))}
+    </span>
+  )
+}
 
 export function Header({ solid = false }: { solid?: boolean }) {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -39,13 +52,19 @@ export function Header({ solid = false }: { solid?: boolean }) {
       <nav className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between lg:h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span
-              className={`text-2xl font-semibold tracking-wide transition-colors duration-300 ${
-                (solid || isScrolled) ? "text-foreground" : "text-white"
-              }`}
-            >
-              Greek Steps
+          <Link href="/" className="flex flex-col items-start gap-1" aria-label="Greek Steps - Language, Culture, Travel">
+            <span className="flex items-end gap-2">
+              <span className="text-2xl font-bold uppercase leading-none tracking-wide">
+                <span className="text-(--logo-navy)">Greek</span>
+                <span className="text-(--logo-sky)">Steps</span>
+              </span>
+              <LogoStairs />
+            </span>
+            <span className="flex w-full items-center gap-2">
+              <span className="text-[10px] font-extrabold uppercase leading-none tracking-[0.25em] text-(--logo-navy)">
+                {"Language - Culture - Travel"}
+              </span>
+              <span className="h-px flex-1 bg-(--logo-sky)" aria-hidden="true" />
             </span>
           </Link>
 
@@ -79,7 +98,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden lg:flex lg:h-12 lg:items-center lg:justify-between lg:gap-6">
+        <ul className="hidden lg:mt-4 lg:flex lg:h-12 lg:items-center lg:justify-between lg:gap-6">
           {navLinks.map((link) => (
             <li key={link.name}>
               <Link
