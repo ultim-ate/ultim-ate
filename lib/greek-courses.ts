@@ -10,7 +10,7 @@ export const greekCourses: GreekCourse[] = [
   {
     slug: "mazi-sta-ellinika",
     greek: "ΜΑΖΙ ΣΤΑ ΕΛΛΗΝΙΚΑ",
-    lines: ["Împreună în limba greacă"],
+    lines: ["Cursuri pentru elevii de gimnaziu și liceu care studiază limba greacă la școală"],
     lead: "Pentru elevii de gimnaziu și liceu care studiază limba greacă la școală și vor să o înțeleagă mai bine.",
     body: "Gramatică explicată mai simplu, vocabular, conversație, înțelegerea textului și exprimare scrisă, cu pregătire adaptată materiei de la școală și nivelului fiecărui elev.",
   },
