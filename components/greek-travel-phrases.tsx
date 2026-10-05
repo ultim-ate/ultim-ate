@@ -19,7 +19,7 @@ export function GreekTravelPhrases() {
   return (
     <article>
       <h1 className="mb-10 text-balance text-xl font-extrabold text-[var(--culture-heading)] md:text-2xl">
-        <span lang="el" className="font-semibold">Ελληνικά για ταξίδι (Elliniká gia taxídi)</span> – Greacă pentru călătorie
+        <span lang="el">Ελληνικά για ταξίδι (Elliniká gia taxídi)</span> – Greacă pentru călătorie
       </h1>
       <ul className="flex flex-col gap-4">
         {phrases.map((phrase) => (
