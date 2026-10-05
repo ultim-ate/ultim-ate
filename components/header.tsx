@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { LanguageSwitcher } from "@/components/language-switcher"
 
 const navLinks = [
   { name: "Destinații", href: "#destinations" },
@@ -47,6 +48,10 @@ export function Header({ solid = false }: { solid?: boolean }) {
               Greek Steps
             </span>
           </Link>
+
+          <div className="ml-auto mr-4 lg:mr-6">
+            <LanguageSwitcher />
+          </div>
 
           <div className="hidden lg:flex lg:items-center">
             <Button

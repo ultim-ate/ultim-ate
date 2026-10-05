@@ -132,3 +132,20 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Hide Google Translate's default banner/tooltip; the custom LanguageSwitcher drives it */
+.goog-te-banner-frame,
+iframe.skiptranslate,
+.goog-te-gadget,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}
+font[style] {
+  background: transparent !important;
+  box-shadow: none !important;
+}
