@@ -7,9 +7,9 @@ export function GreciaCuriosities() {
 
   return (
     <section id="curiozitati" aria-labelledby="curiosities-title" className="scroll-mt-28">
-      <h2 id="curiosities-title" className="mb-10 text-balance text-xl font-bold text-[var(--culture-heading)] md:text-2xl">
+      <h1 id="curiosities-title" className="mb-10 text-balance text-xl font-bold text-[var(--culture-heading)] md:text-2xl">
         7 curiozități cu parfum elen
-      </h2>
+      </h1>
       <div className="flex flex-col gap-10">
         {entries.map((entry) => {
           const [title, ...lines] = entry.split("\n")
