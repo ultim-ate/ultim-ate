@@ -10,7 +10,8 @@ const navLinks = [
   { name: "Experiences", href: "#experiences" },
   { name: "Cuisine", href: "#cuisine" },
   { name: "Plan Your Trip", href: "#contact" },
-  { name: "Grecia altfel", href: "/grecia-altfel" },
+  { name: "Grecia Altfel", href: "/grecia-altfel" },
+  { name: "Cursuri limba greacă", href: "/cursuri-limba-greaca" },
 ]
 
 export function Header({ solid = false }: { solid?: boolean }) {
