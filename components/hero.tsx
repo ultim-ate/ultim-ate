@@ -16,7 +16,7 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-santorini-turquoise.jpg"
+          src="/images/hero-santorini-light.jpg"
           alt="Santorini sunset view with iconic blue domes"
           fill
           className="object-cover"
