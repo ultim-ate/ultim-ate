@@ -39,13 +39,22 @@ export function Header({ solid = false }: { solid?: boolean }) {
       <nav className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between lg:h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span
-              className={`text-2xl font-semibold tracking-wide transition-colors duration-300 ${
-                (solid || isScrolled) ? "text-foreground" : "text-white"
-              }`}
-            >
-              Greek Steps
+          <Link
+            href="/"
+            className={`flex flex-col items-start gap-1 transition-colors duration-300 ${
+              (solid || isScrolled) ? "text-foreground" : "text-white"
+            }`}
+          >
+            <span className="flex items-end gap-2">
+              <span className="text-2xl font-semibold leading-none tracking-wide">Greek Steps</span>
+              <img src="/images/greek-steps-icon.png" alt="" aria-hidden="true" className="h-7 w-auto" />
+            </span>
+            <span className="flex w-full items-center gap-2">
+              <span className="h-px flex-1 bg-sky-400" aria-hidden="true" />
+              <span className="text-[10px] font-medium uppercase leading-none tracking-[0.25em]">
+                {"Language - Culture - Travel"}
+              </span>
+              <span className="h-px flex-1 bg-sky-400" aria-hidden="true" />
             </span>
           </Link>
 
