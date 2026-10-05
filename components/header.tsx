@@ -10,9 +10,10 @@ const navLinks = [
   { name: "Experiences", href: "#experiences" },
   { name: "Cuisine", href: "#cuisine" },
   { name: "Plan Your Trip", href: "#contact" },
+  { name: "Grecia altfel", href: "/grecia-altfel" },
 ]
 
-export function Header() {
+export function Header({ solid = false }: { solid?: boolean }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -27,7 +28,7 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
+        (solid || isScrolled)
           ? "bg-background/95 backdrop-blur-md shadow-sm"
           : "bg-transparent"
       }`}
@@ -38,7 +39,7 @@ export function Header() {
           <Link href="/" className="flex items-center gap-2">
             <span
               className={`text-2xl font-semibold tracking-wide transition-colors duration-300 ${
-                isScrolled ? "text-foreground" : "text-white"
+                (solid || isScrolled) ? "text-foreground" : "text-white"
               }`}
             >
               Greek Steps
@@ -50,9 +51,9 @@ export function Header() {
             {navLinks.map((link) => (
               <Link
                 key={link.name}
-                href={link.href}
+                href={solid && link.href.startsWith("#") ? `/${link.href}` : link.href}
                 className={`text-sm font-medium tracking-wide transition-colors duration-300 hover:opacity-70 ${
-                  isScrolled ? "text-foreground" : "text-white"
+                  (solid || isScrolled) ? "text-foreground" : "text-white"
                 }`}
               >
                 {link.name}
@@ -61,7 +62,7 @@ export function Header() {
             <Button
               variant="outline"
               className={`rounded-none border-2 px-6 py-2 text-sm font-medium tracking-wide transition-all duration-300 ${
-                isScrolled
+                (solid || isScrolled)
                   ? "border-foreground text-foreground hover:bg-foreground hover:text-background"
                   : "border-white text-white hover:bg-white hover:text-foreground"
               }`}
@@ -74,7 +75,7 @@ export function Header() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`md:hidden transition-colors duration-300 ${
-              isScrolled ? "text-foreground" : "text-white"
+              (solid || isScrolled) ? "text-foreground" : "text-white"
             }`}
             aria-label="Toggle menu"
           >
@@ -89,7 +90,7 @@ export function Header() {
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
-                  href={link.href}
+                  href={solid && link.href.startsWith("#") ? `/${link.href}` : link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-lg font-medium text-foreground py-2 hover:text-primary transition-colors"
                 >
