@@ -57,12 +57,12 @@ export function Hero() {
             Pentru noi, cei care avem suflet elen, Grecia este mai mult decât o
             destinație, este o stare de spirit, o chemare, libertate.
           </p>
-          <p className="text-sm md:text-base leading-relaxed text-white/90 text-pretty">
+          <p className="text-base md:text-lg leading-relaxed text-white/90 text-pretty">
             Suntem aici să construim o punte culturală către tot ce are Grecia
             mai frumos. Dacă vrei să vorbești ca un localnic sau să descoperi
             locuri autentice, fă primul pas alături de noi.
           </p>
-          <p className="text-sm md:text-base leading-relaxed text-white">
+          <p className="text-base md:text-lg leading-relaxed text-white/90 text-pretty">
             <span lang="el" className="font-semibold">
               Ξεκίνα το ταξίδι σου!
             </span>{" "}
