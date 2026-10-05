@@ -98,7 +98,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden lg:flex lg:h-12 lg:items-center lg:justify-between lg:gap-6">
+        <ul className="hidden lg:mt-4 lg:flex lg:h-12 lg:items-center lg:justify-between lg:gap-6">
           {navLinks.map((link) => (
             <li key={link.name}>
               <Link
