@@ -18,12 +18,7 @@ export default function GreciaAltfelPage() {
     <>
       <Header solid />
       <main lang="ro" className="mx-auto max-w-4xl px-6 pb-20 pt-32 font-sans lg:px-8">
-        <h1 className="mb-6 text-4xl font-bold text-[var(--culture-heading)] md:text-5xl">Grecia altfel</h1>
-        <nav aria-label="Rubrici" className="mb-12 border-b border-border pb-6">
-          <a href="#curiozitati" className="text-lg font-semibold text-[var(--culture-heading)] underline underline-offset-4">
-            7 curiozități cu parfum elen
-          </a>
-        </nav>
+        <h1 className="mb-6 text-2xl font-bold text-[var(--culture-heading)] md:text-3xl">Grecia altfel</h1>
         <GreciaCuriosities />
       </main>
     </>
