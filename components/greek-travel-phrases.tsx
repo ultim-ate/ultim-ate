@@ -18,9 +18,14 @@ const phrases = [
 export function GreekTravelPhrases() {
   return (
     <article>
-      <h1 className="mb-10 text-balance text-xl font-extrabold text-[var(--culture-heading)] md:text-2xl">
-        <span lang="el">Ελληνικά για ταξίδι (Elliniká gia taxídi)</span> – Greacă pentru călătorie
-      </h1>
+      <header className="mb-10 flex flex-col gap-2">
+        <h1 className="text-balance text-xl font-extrabold text-[var(--culture-heading)] md:text-2xl">
+          Greacă pentru călătorie
+        </h1>
+        <p lang="el" className="text-base italic leading-relaxed text-[var(--culture-heading)]">
+          Ελληνικά για ταξίδι (Elliniká gia taxídi)
+        </p>
+      </header>
       <ul className="flex flex-col gap-4">
         {phrases.map((phrase) => (
           <li key={phrase} lang="el" className="text-base leading-relaxed text-foreground">
