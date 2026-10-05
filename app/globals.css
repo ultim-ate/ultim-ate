@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --culture-heading: #16436b;
   /* Mediterranean-inspired palette: warm sand, azure blue, terracotta */
   --background: oklch(0.98 0.005 80);
   --foreground: oklch(0.2 0.02 50);
