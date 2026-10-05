@@ -24,7 +24,7 @@ export function Featured() {
             <p className="text-sm font-sans font-medium tracking-[0.3em] uppercase text-primary mb-4">
               Featured Destination
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-balance">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-balance text-sky-400">
               Meteora – Grecia între cer și pământ
             </h2>
             <div className="flex flex-col gap-4 text-muted-foreground text-base leading-relaxed mb-10 text-pretty">
@@ -38,7 +38,7 @@ export function Featured() {
                 În centrul Greciei, formațiunile stâncoase ale Meteorei creează
                 un peisaj spectaculos. Pe vârfurile lor se află mănăstiri
                 ortodoxe vechi de secole, care par suspendate între cer și
-                pământ. De aici vine și numele <em lang="el" translate="no" className="notranslate">Μετέωρα</em>,
+                pământ. De aici vine și numele <em lang="el" translate="no" className="notranslate font-bold text-foreground">Μετέωρα</em>,
                 asociat cu ideea de „suspendat în aer”.
               </p>
               <p>
@@ -50,11 +50,11 @@ export function Featured() {
                 liniște. Pe măsură ce urci printre stânci, peisajul se schimbă,
                 iar priveliștea asupra văilor și munților devine tot mai
                 impresionantă. Este un loc în care{" "}
-                <em lang="el" translate="no" className="notranslate">ηρεμία</em> (iremía) – liniștea – pare să facă
+                <em lang="el" translate="no" className="notranslate font-bold text-foreground">ηρεμία</em> (iremía) – liniștea – pare să facă
                 parte din peisaj.
               </p>
               <p>
-                La Greek Steps credem că a descoperi Grecia înseamnă și a-i
+                La <strong translate="no" className="notranslate font-bold text-foreground">Greek Steps</strong> credem că a descoperi Grecia înseamnă și a-i
                 înțelege poveștile. Iar Meteora este una dintre acele experiențe
                 care îți arată că Grecia înseamnă mult mai mult decât insule și
                 plaje: înseamnă istorie, tradiție și locuri care au rămas în
