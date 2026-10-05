@@ -53,7 +53,7 @@ export function Hero() {
           <p className="font-serif text-xl md:text-2xl italic text-white text-balance">
             Grec nu doar te naști, poți să devii.
           </p>
-          <p className="text-sm md:text-base leading-relaxed text-white/90 text-pretty">
+          <p className="text-base md:text-lg leading-relaxed text-white/90 text-pretty">
             Pentru noi, cei care avem suflet elen, Grecia este mai mult decât o
             destinație, este o stare de spirit, o chemare, libertate.
           </p>
