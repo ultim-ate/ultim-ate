@@ -4,10 +4,10 @@ import { Header } from "@/components/header"
 import { GreciaCuriosities } from "@/components/grecia-curiosities"
 
 export const metadata: Metadata = {
-  title: "7 curiozități cu parfum elen | Greek Steps",
+  title: "7 Curiozități cu parfum elen | Greek Steps",
   description: "Descoperă limba, tradițiile și viața de zi cu zi din Grecia cu Greek Steps.",
   openGraph: {
-    title: "7 curiozități cu parfum elen | Greek Steps",
+    title: "7 Curiozități cu parfum elen | Greek Steps",
     description: "Descoperă limba, tradițiile și viața de zi cu zi din Grecia.",
     siteName: "Greek Steps",
     type: "article",
