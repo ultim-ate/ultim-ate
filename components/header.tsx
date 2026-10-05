@@ -78,7 +78,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
             <li key={link.name}>
               <Link
                 href={solid && link.href.startsWith("#") ? `/${link.href}` : link.href}
-                className={`whitespace-nowrap text-base font-semibold uppercase tracking-wider transition-colors duration-300 hover:opacity-70 xl:text-lg ${
+                className={`whitespace-nowrap text-sm font-semibold uppercase tracking-wider transition-colors duration-300 hover:opacity-70 xl:text-[15px] ${
                   (solid || isScrolled) ? "text-foreground" : "text-white"
                 }`}
               >
@@ -97,7 +97,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
                   key={link.name}
                   href={solid && link.href.startsWith("#") ? `/${link.href}` : link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-semibold uppercase tracking-wide text-foreground py-2 hover:text-primary transition-colors"
+                  className="text-base font-semibold uppercase tracking-wide text-foreground py-2 hover:text-primary transition-colors"
                 >
                   {link.name}
                 </Link>
