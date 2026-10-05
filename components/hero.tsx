@@ -16,7 +16,7 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-santorini.jpg"
+          src="/images/hero-santorini-turquoise.jpg"
           alt="Santorini sunset view with iconic blue domes"
           fill
           className="object-cover"
@@ -32,7 +32,7 @@ export function Hero() {
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <p className="mb-4 text-sm font-medium tracking-[0.3em] uppercase font-sans">
+          <p className="mb-4 text-base md:text-lg font-medium tracking-[0.3em] uppercase font-sans">
             Discover the Magic of
           </p>
         </div>
