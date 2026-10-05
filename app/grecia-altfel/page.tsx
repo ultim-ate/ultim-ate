@@ -22,9 +22,14 @@ export default function GreciaAltfelPage() {
         <Image src="/images/ionian-sea.png" alt="" fill priority sizes="100vw" className="-z-10 object-cover" />
         <div className="mx-auto max-w-4xl px-6 pb-20 pt-32 lg:px-8">
         <h1 className="mb-6 text-2xl font-bold text-[var(--culture-heading)] md:text-3xl">Grecia altfel</h1>
-        <Link href="/grecia-altfel/7-curiozitati-cu-parfum-elen" className="text-xl font-bold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
-          7 curiozități cu parfum elen
-        </Link>
+        <nav aria-label="Rubrici" className="flex flex-col items-start gap-6">
+          <Link href="/grecia-altfel/7-curiozitati-cu-parfum-elen" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
+            7 Curiozități cu parfum elen
+          </Link>
+          <Link href="/grecia-altfel/traditii-care-merg-mai-departe" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
+            Tradiții care merg mai departe
+          </Link>
+        </nav>
         </div>
       </main>
     </>
