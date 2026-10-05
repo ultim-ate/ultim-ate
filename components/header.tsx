@@ -61,7 +61,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
               <LogoStairs />
             </span>
             <span className="flex w-full items-center gap-2">
-              <span className="text-[10px] font-semibold uppercase leading-none tracking-[0.25em] text-(--logo-navy)">
+              <span className="text-[10px] font-extrabold uppercase leading-none tracking-[0.25em] text-(--logo-navy)">
                 {"Language - Culture - Travel"}
               </span>
               <span className="h-px flex-1 bg-(--logo-sky)" aria-hidden="true" />
