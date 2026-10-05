@@ -30,7 +30,7 @@ export default function GreciaAltfelPage() {
             Tradiții care merg mai departe
           </Link>
           <Link href="/grecia-altfel/greaca-pentru-calatorie" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
-            <span lang="el">Ελληνικά για ταξίδι (Elliniká gia taxídi)</span> – Greacă pentru călătorie
+            <span lang="el" className="font-medium">Ελληνικά για ταξίδι (Elliniká gia taxídi)</span> – Greacă pentru călătorie
           </Link>
         </nav>
         </div>
