@@ -17,7 +17,7 @@ export function ContactForm() {
 
   if (state.status === "success") {
     return (
-      <p role="status" className="rounded-md bg-[var(--contact-field)] p-6 text-lg leading-relaxed text-[var(--contact-ink)]">
+      <p role="status" className="rounded-md bg-[var(--contact-field)] p-6 text-base leading-relaxed text-[var(--contact-ink)]">
         {state.message}
       </p>
     )
@@ -30,7 +30,7 @@ export function ContactForm() {
           const error = state.errors?.[field.name]
           return (
             <div key={field.name} className="flex flex-col gap-2">
-              <label htmlFor={field.name} className="text-base font-semibold uppercase tracking-wider">
+              <label htmlFor={field.name} className="text-sm font-semibold uppercase tracking-wider">
                 {field.label}
               </label>
               <input
@@ -41,7 +41,7 @@ export function ContactForm() {
                 required
                 aria-invalid={Boolean(error)}
                 aria-describedby={error ? `${field.name}-error` : undefined}
-                className="h-12 rounded-md border-2 border-transparent bg-[var(--contact-field)] px-4 text-lg text-[var(--contact-ink)] outline-none transition-colors focus:border-[var(--contact-ink)] aria-[invalid=true]:border-destructive"
+                className="h-11 rounded-md border-2 border-transparent bg-[var(--contact-field)] px-4 text-base text-[var(--contact-ink)] outline-none transition-colors focus:border-[var(--contact-ink)] aria-[invalid=true]:border-destructive"
               />
               {error && (
                 <p id={`${field.name}-error`} className="text-sm font-semibold">
@@ -54,7 +54,7 @@ export function ContactForm() {
       </div>
 
       {state.status === "error" && state.message && (
-        <p role="alert" className="text-base font-semibold">
+        <p role="alert" className="text-sm font-semibold">
           {state.message}
         </p>
       )}
@@ -62,7 +62,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isPending}
-        className="mt-2 h-12 self-start rounded-md bg-[var(--contact-ink)] px-10 text-base font-semibold uppercase tracking-wider text-[var(--contact-field)] transition-opacity hover:opacity-90 disabled:opacity-60"
+        className="mt-2 h-11 self-start rounded-md bg-[var(--contact-ink)] px-8 text-sm font-semibold uppercase tracking-wider text-[var(--contact-field)] transition-opacity hover:opacity-90 disabled:opacity-60"
       >
         {isPending ? "Se trimite..." : "Trimite"}
       </button>
