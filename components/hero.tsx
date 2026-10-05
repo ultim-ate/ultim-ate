@@ -38,22 +38,37 @@ export function Hero() {
         </div>
         
         <h1
-          className={`text-6xl md:text-8xl lg:text-9xl font-light tracking-tight mb-6 transition-all duration-1000 delay-500 ${
+          className={`text-6xl md:text-7xl lg:text-8xl font-light tracking-tight mb-4 transition-all duration-1000 delay-500 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <span className="block text-balance">Greece</span>
         </h1>
 
-        <p
-          className={`max-w-2xl text-lg md:text-xl font-light leading-relaxed text-white/90 mb-10 transition-all duration-1000 delay-700 ${
+        <div
+          className={`flex max-w-2xl flex-col gap-3 mb-8 font-sans transition-all duration-1000 delay-700 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          Where ancient history meets breathtaking beauty. Experience the azure
-          waters, timeless architecture, and warm hospitality of the
-          Mediterranean.
-        </p>
+          <p className="font-serif text-xl md:text-2xl italic text-white text-balance">
+            Grec nu doar te naști, poți să devii.
+          </p>
+          <p className="text-sm md:text-base leading-relaxed text-white/90 text-pretty">
+            Pentru noi, cei care avem suflet elen, Grecia este mai mult decât o
+            destinație, este o stare de spirit, o chemare, libertate.
+          </p>
+          <p className="text-sm md:text-base leading-relaxed text-white/90 text-pretty">
+            Suntem aici să construim o punte culturală către tot ce are Grecia
+            mai frumos. Dacă vrei să vorbești ca un localnic sau să descoperi
+            locuri autentice, fă primul pas alături de noi.
+          </p>
+          <p className="text-sm md:text-base leading-relaxed text-white">
+            <span lang="el" className="font-semibold">
+              Ξεκίνα το ταξίδι σου!
+            </span>{" "}
+            – Începe-ți călătoria!
+          </p>
+        </div>
 
         <div
           className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-900 ${
