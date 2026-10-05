@@ -10,7 +10,7 @@ export function Featured() {
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image
                 src="/images/meteora.jpg"
-                alt="Meteora monasteries perched on rock pillars"
+                alt="Mănăstirile Meteora construite pe vârfurile stâncilor"
                 fill
                 className="object-cover"
               />
@@ -24,29 +24,43 @@ export function Featured() {
             <p className="text-sm font-sans font-medium tracking-[0.3em] uppercase text-primary mb-4">
               Featured Destination
             </p>
-            <h2 className="text-4xl md:text-5xl font-light mb-6 leading-tight">
-              Meteora: Monasteries in the Sky
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-balance text-sky-400">
+              Meteora – Grecia între cer și pământ
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Rising dramatically from the Thessalian plain, the towering rock
-              formations of Meteora host ancient monasteries that seem to float
-              among the clouds. This UNESCO World Heritage site offers a
-              spiritual experience unlike any other, where Byzantine art meets
-              natural wonder.
-            </p>
-            <ul className="space-y-4 mb-10">
-              {[
-                "Six active monasteries open for visitors",
-                "Breathtaking sunrise and sunset viewpoints",
-                "Rich Byzantine history and architecture",
-                "Hiking trails with panoramic vistas",
-              ].map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 flex-shrink-0" />
-                  <span className="text-foreground font-sans">{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="flex flex-col gap-4 text-muted-foreground text-base leading-relaxed mb-10 text-pretty">
+              <p>
+                Există locuri în Grecia care impresionează prin mare și plaje,
+                dar Meteora impresionează prin ceva cu totul diferit: stânci
+                uriașe care se ridică spre cer, iar deasupra lor, mănăstiri
+                construite parcă într-un loc imposibil.
+              </p>
+              <p>
+                În centrul Greciei, formațiunile stâncoase ale Meteorei creează
+                un peisaj spectaculos. Pe vârfurile lor se află mănăstiri
+                ortodoxe vechi de secole, care par suspendate între cer și
+                pământ. De aici vine și numele <em lang="el" translate="no" className="notranslate font-bold text-foreground">Μετέωρα</em>,
+                asociat cu ideea de „suspendat în aer”.
+              </p>
+              <p>
+                Printre cele mai cunoscute se numără Mănăstirea Megalo Meteoro,
+                cea mai mare dintre mănăstirile complexului.
+              </p>
+              <p>
+                Meteora nu este doar un loc de vizitat, ci unul de admirat în
+                liniște. Pe măsură ce urci printre stânci, peisajul se schimbă,
+                iar priveliștea asupra văilor și munților devine tot mai
+                impresionantă. Este un loc în care{" "}
+                <em lang="el" translate="no" className="notranslate font-bold text-foreground">ηρεμία</em> (iremía) – liniștea – pare să facă
+                parte din peisaj.
+              </p>
+              <p>
+                La <strong translate="no" className="notranslate font-bold text-foreground">Greek Steps</strong> credem că a descoperi Grecia înseamnă și a-i
+                înțelege poveștile. Iar Meteora este una dintre acele experiențe
+                care îți arată că Grecia înseamnă mult mai mult decât insule și
+                plaje: înseamnă istorie, tradiție și locuri care au rămas în
+                memoria oamenilor timp de secole.
+              </p>
+            </div>
             <a
               href="#contact"
               className="inline-block px-10 py-4 bg-primary text-primary-foreground font-sans text-sm font-medium tracking-wide hover:bg-primary/90 transition-colors"
