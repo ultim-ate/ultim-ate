@@ -16,11 +16,11 @@ const navLinks = [
   { name: "Contact", href: "/contact" },
 ]
 
-const stairWidths = ["w-4", "w-7", "w-10", "w-13", "w-16", "w-20"]
+const stairWidths = ["w-2.5", "w-4", "w-6", "w-8", "w-10", "w-12"]
 
 function LogoStairs() {
   return (
-    <span className="flex w-20 flex-col items-end gap-px" aria-hidden="true">
+    <span className="flex w-12 flex-col items-end gap-px" aria-hidden="true">
       <Heart className="mr-0.5 size-3 fill-(--logo-heart) text-(--logo-heart)" />
       {stairWidths.map((width, i) => (
         <span key={width} className={`h-1 ${width} ${i % 2 === 0 ? "bg-(--logo-navy)" : "bg-(--logo-sky)"}`} />
