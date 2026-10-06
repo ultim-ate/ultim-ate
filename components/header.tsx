@@ -52,7 +52,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
       <nav className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-24 items-center justify-between lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex flex-col items-center gap-1" aria-label="Greek Steps - Language, Culture, Travel">
+          <Link href="/" className="flex flex-col items-start gap-1" aria-label="Greek Steps - Language, Culture, Travel">
             <LogoStairs />
             <span className="text-base font-black uppercase leading-none tracking-[0.16em] text-(--logo-navy) [-webkit-text-stroke:0.4px_currentColor]">
               {"Language - Culture - Travel"}
