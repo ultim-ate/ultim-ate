@@ -16,14 +16,14 @@ const navLinks = [
   { name: "Contact", href: "/contact" },
 ]
 
-const stairWidths = ["w-3", "w-5", "w-7", "w-9", "w-11", "w-14"]
+const stairWidths = ["w-4", "w-7", "w-10", "w-13", "w-16", "w-20"]
 
 function LogoStairs() {
   return (
-    <span className="flex w-14 flex-col items-end gap-px" aria-hidden="true">
-      <Heart className="mr-px size-2.5 fill-(--logo-heart) text-(--logo-heart)" />
+    <span className="flex w-20 flex-col items-end gap-px" aria-hidden="true">
+      <Heart className="mr-0.5 size-3 fill-(--logo-heart) text-(--logo-heart)" />
       {stairWidths.map((width, i) => (
-        <span key={width} className={`h-[3px] ${width} ${i % 2 === 0 ? "bg-(--logo-navy)" : "bg-(--logo-sky)"}`} />
+        <span key={width} className={`h-1 ${width} ${i % 2 === 0 ? "bg-(--logo-navy)" : "bg-(--logo-sky)"}`} />
       ))}
     </span>
   )
@@ -50,21 +50,12 @@ export function Header({ solid = false }: { solid?: boolean }) {
       }`}
     >
       <nav className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between lg:h-16">
+        <div className="flex h-24 items-center justify-between lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex flex-col items-start gap-1" aria-label="Greek Steps - Language, Culture, Travel">
-            <span className="flex items-end gap-2">
-              <span className="text-2xl font-bold uppercase leading-none tracking-wide">
-                <span className="text-(--logo-navy)">Greek</span>
-                <span className="text-(--logo-sky)">Steps</span>
-              </span>
-              <LogoStairs />
-            </span>
-            <span className="flex w-full items-center gap-2">
-              <span className="text-xs font-black uppercase leading-none tracking-[0.22em] text-(--logo-navy)">
-                {"Language - Culture - Travel"}
-              </span>
-              <span className="h-px flex-1 bg-(--logo-sky)" aria-hidden="true" />
+          <Link href="/" className="flex flex-col items-center gap-1" aria-label="Greek Steps - Language, Culture, Travel">
+            <LogoStairs />
+            <span className="text-base font-black uppercase leading-none tracking-[0.16em] text-(--logo-navy) [-webkit-text-stroke:0.4px_currentColor]">
+              {"Language - Culture - Travel"}
             </span>
           </Link>
 
