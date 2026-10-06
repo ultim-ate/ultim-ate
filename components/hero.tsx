@@ -19,10 +19,11 @@ export function Hero() {
           src="/images/hero-santorini-light.jpg"
           alt="Santorini sunset view with iconic blue domes"
           fill
-          className="object-cover"
+          className="object-cover saturate-150 contrast-110"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-(--logo-heart)/55 via-(--logo-heart)/15 to-(--logo-navy)/70 mix-blend-soft-light" />
+        <div className="absolute inset-0 bg-gradient-to-b from-(--logo-heart)/25 via-transparent to-(--logo-navy)/55" />
       </div>
 
       {/* Content */}

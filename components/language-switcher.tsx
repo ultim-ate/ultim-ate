@@ -1,17 +1,12 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import Script from "next/script"
-import { ChevronDown } from "lucide-react"
 
 const languages = [
-  { code: "ro", label: "Română" },
-  { code: "en", label: "English" },
-  { code: "el", label: "Ελληνικά" },
-  { code: "fr", label: "Français" },
-  { code: "de", label: "Deutsch" },
-  { code: "it", label: "Italiano" },
-  { code: "es", label: "Español" },
+  { code: "ro", short: "RO", label: "Română" },
+  { code: "en", short: "EN", label: "English" },
+  { code: "el", short: "EL", label: "Ελληνικά" },
 ]
 
 declare global {
@@ -42,84 +37,49 @@ function setTranslateCookie(value: string | null) {
 
 export function LanguageSwitcher({ className = "" }: { className?: string }) {
   const [current, setCurrent] = useState("ro")
-  const [open, setOpen] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setCurrent(readCurrentLanguage())
     window.googleTranslateElementInit = () => {
       if (!window.google) return
       new window.google.translate.TranslateElement(
-        { pageLanguage: "ro", includedLanguages: "en,el,fr,de,it,es", autoDisplay: false },
+        { pageLanguage: "ro", includedLanguages: "en,el", autoDisplay: false },
         "google_translate_element",
       )
     }
   }, [])
 
-  useEffect(() => {
-    if (!open) return
-    const handleClick = (event: MouseEvent) => {
-      if (!containerRef.current?.contains(event.target as Node)) setOpen(false)
-    }
-    const handleKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false)
-    }
-    document.addEventListener("mousedown", handleClick)
-    document.addEventListener("keydown", handleKey)
-    return () => {
-      document.removeEventListener("mousedown", handleClick)
-      document.removeEventListener("keydown", handleKey)
-    }
-  }, [open])
-
   const selectLanguage = (code: string) => {
-    setOpen(false)
     if (code === current) return
     setTranslateCookie(code === "ro" ? null : `/ro/${code}`)
     window.location.reload()
   }
 
-  const currentLabel = languages.find((l) => l.code === current)?.label ?? "Română"
-
   return (
-    <div ref={containerRef} className={`relative notranslate ${className}`} translate="no">
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        aria-haspopup="listbox"
-        aria-expanded={open}
-        aria-label={`Limba: ${currentLabel}`}
-        className="flex items-center gap-3 rounded-xl bg-[#14285c] px-4 py-2 font-sans text-sm font-semibold text-[#ffffff] shadow-md transition-colors hover:bg-[#1b3474]"
-      >
-        {currentLabel}
-        <ChevronDown
-          size={18}
-          className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-          aria-hidden="true"
-        />
-      </button>
-
-      {open && (
-        <ul
-          role="listbox"
-          aria-label="Alege limba"
-          className="absolute right-0 top-full z-50 mt-2 flex min-w-44 flex-col gap-1 rounded-xl bg-[#14285c] p-2 shadow-xl"
-        >
-          {languages.map((language) => (
-            <li key={language.code} role="option" aria-selected={language.code === current}>
-              <button
-                type="button"
-                onClick={() => selectLanguage(language.code)}
-                className={`w-full rounded-lg px-3 py-2 text-left font-sans text-sm font-semibold text-[#ffffff] transition-colors ${
-                  language.code === current ? "bg-[#2a5bb0]" : "hover:bg-[#1f3c80]"
-                }`}
-              >
-                {language.label}
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
+    <div
+      role="group"
+      aria-label="Alege limba"
+      className={`notranslate flex items-center gap-1 rounded-xl bg-[#14285c] p-1 shadow-md ${className}`}
+      translate="no"
+    >
+      {languages.map((language) => {
+        const active = language.code === current
+        return (
+          <button
+            key={language.code}
+            type="button"
+            onClick={() => selectLanguage(language.code)}
+            aria-pressed={active}
+            aria-label={language.label}
+            title={language.label}
+            className={`rounded-lg px-3 py-1.5 font-sans text-sm font-semibold text-[#ffffff] transition-colors ${
+              active ? "bg-[#2a5bb0]" : "hover:bg-[#1f3c80]"
+            }`}
+          >
+            {language.short}
+          </button>
+        )
+      })}
 
       <div id="google_translate_element" className="hidden" aria-hidden="true" />
       <Script
