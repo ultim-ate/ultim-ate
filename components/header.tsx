@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { LanguageSwitcher } from "@/components/language-switcher"
 
 const navLinks = [
+  { name: "Home", href: "/" },
   { name: "Destinații", href: "#destinations" },
   { name: "Experiențe", href: "#experiences" },
   { name: "Planifică vacanța", href: "#contact" },
@@ -21,7 +22,9 @@ const stairWidths = ["w-2.5", "w-4", "w-6", "w-8", "w-10", "w-12"]
 function LogoStairs() {
   return (
     <span className="flex w-12 flex-col items-end gap-px" aria-hidden="true">
-      <Heart className="mr-0.5 size-3 fill-(--logo-heart) text-(--logo-heart)" />
+      <span className="flex w-2.5 justify-center">
+        <Heart className="size-3 shrink-0 fill-(--logo-heart) text-(--logo-heart)" />
+      </span>
       {stairWidths.map((width, i) => (
         <span key={width} className={`h-1 ${width} ${i % 2 === 0 ? "bg-(--logo-navy)" : "bg-(--logo-sky)"}`} />
       ))}

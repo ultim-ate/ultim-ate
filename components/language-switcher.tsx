@@ -5,13 +5,9 @@ import Script from "next/script"
 import { ChevronDown } from "lucide-react"
 
 const languages = [
-  { code: "ro", label: "Română" },
-  { code: "en", label: "English" },
-  { code: "el", label: "Ελληνικά" },
-  { code: "fr", label: "Français" },
-  { code: "de", label: "Deutsch" },
-  { code: "it", label: "Italiano" },
-  { code: "es", label: "Español" },
+  { code: "ro", short: "RO", label: "Română" },
+  { code: "en", short: "EN", label: "English" },
+  { code: "el", short: "EL", label: "Ελληνικά" },
 ]
 
 declare global {
@@ -46,55 +42,54 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (!open) return
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!containerRef.current?.contains(event.target as Node)) setOpen(false)
+    }
+    document.addEventListener("pointerdown", handlePointerDown)
+    return () => document.removeEventListener("pointerdown", handlePointerDown)
+  }, [open])
+
+  useEffect(() => {
     setCurrent(readCurrentLanguage())
     window.googleTranslateElementInit = () => {
       if (!window.google) return
       new window.google.translate.TranslateElement(
-        { pageLanguage: "ro", includedLanguages: "en,el,fr,de,it,es", autoDisplay: false },
+        { pageLanguage: "ro", includedLanguages: "en,el", autoDisplay: false },
         "google_translate_element",
       )
     }
   }, [])
 
-  useEffect(() => {
-    if (!open) return
-    const handleClick = (event: MouseEvent) => {
-      if (!containerRef.current?.contains(event.target as Node)) setOpen(false)
-    }
-    const handleKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false)
-    }
-    document.addEventListener("mousedown", handleClick)
-    document.addEventListener("keydown", handleKey)
-    return () => {
-      document.removeEventListener("mousedown", handleClick)
-      document.removeEventListener("keydown", handleKey)
-    }
-  }, [open])
-
   const selectLanguage = (code: string) => {
-    setOpen(false)
     if (code === current) return
     setTranslateCookie(code === "ro" ? null : `/ro/${code}`)
     window.location.reload()
   }
 
-  const currentLabel = languages.find((l) => l.code === current)?.label ?? "Română"
+  const active = languages.find((language) => language.code === current) ?? languages[0]
+  const others = languages.filter((language) => language.code !== active.code)
 
   return (
-    <div ref={containerRef} className={`relative notranslate ${className}`} translate="no">
+    <div
+      ref={containerRef}
+      className={`notranslate relative ${className}`}
+      translate="no"
+      onKeyDown={(event) => {
+        if (event.key === "Escape") setOpen(false)
+      }}
+    >
       <button
         type="button"
-        onClick={() => setOpen((o) => !o)}
+        onClick={() => setOpen((value) => !value)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-label={`Limba: ${currentLabel}`}
-        className="flex items-center gap-3 rounded-xl bg-[#14285c] px-4 py-2 font-sans text-sm font-semibold text-[#ffffff] shadow-md transition-colors hover:bg-[#1b3474]"
+        aria-label={`Limba: ${active.label}`}
+        className="flex items-center gap-1.5 rounded-xl bg-[#14285c] px-3 py-2 font-sans text-sm font-semibold text-[#ffffff] shadow-md transition-colors hover:bg-[#1f3c80]"
       >
-        {currentLabel}
+        {active.short}
         <ChevronDown
-          size={18}
-          className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`}
           aria-hidden="true"
         />
       </button>
@@ -103,18 +98,17 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
         <ul
           role="listbox"
           aria-label="Alege limba"
-          className="absolute right-0 top-full z-50 mt-2 flex min-w-44 flex-col gap-1 rounded-xl bg-[#14285c] p-2 shadow-xl"
+          className="absolute right-0 top-full z-50 mt-2 flex min-w-full flex-col gap-1 rounded-xl bg-[#14285c] p-1 shadow-lg"
         >
-          {languages.map((language) => (
-            <li key={language.code} role="option" aria-selected={language.code === current}>
+          {others.map((language) => (
+            <li key={language.code} role="option" aria-selected={false}>
               <button
                 type="button"
                 onClick={() => selectLanguage(language.code)}
-                className={`w-full rounded-lg px-3 py-2 text-left font-sans text-sm font-semibold text-[#ffffff] transition-colors ${
-                  language.code === current ? "bg-[#2a5bb0]" : "hover:bg-[#1f3c80]"
-                }`}
+                title={language.label}
+                className="w-full rounded-lg px-3 py-1.5 text-left font-sans text-sm font-semibold text-[#ffffff] transition-colors hover:bg-[#2a5bb0]"
               >
-                {language.label}
+                {language.short}
               </button>
             </li>
           ))}

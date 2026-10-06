@@ -1,7 +1,9 @@
 import Image from "next/image"
+import { RomaniaGallery } from "@/components/romania-gallery"
 
 export function Featured() {
   return (
+    <>
     <section className="relative py-24 md:py-32 px-6">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -71,5 +73,7 @@ export function Featured() {
         </div>
       </div>
     </section>
+    <RomaniaGallery />
+    </>
   )
 }

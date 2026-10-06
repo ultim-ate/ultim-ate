@@ -26,7 +26,7 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 pt-36 md:pt-48 text-center text-white">
         <div
           className={`transition-all duration-1000 delay-300 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
