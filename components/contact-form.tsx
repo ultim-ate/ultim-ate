@@ -53,6 +53,27 @@ export function ContactForm() {
         })}
       </div>
 
+      <div className="flex flex-col gap-2">
+        <label htmlFor="mesaj" className="text-sm font-semibold uppercase tracking-wider">
+          Mesaj
+        </label>
+        <textarea
+          id="mesaj"
+          name="mesaj"
+          rows={5}
+          required
+          maxLength={2000}
+          aria-invalid={Boolean(state.errors?.mesaj)}
+          aria-describedby={state.errors?.mesaj ? "mesaj-error" : undefined}
+          className="resize-y rounded-md border-2 border-transparent bg-[var(--contact-field)] px-4 py-3 text-base leading-relaxed text-[var(--contact-ink)] outline-none transition-colors focus:border-[var(--contact-ink)] aria-[invalid=true]:border-destructive"
+        />
+        {state.errors?.mesaj && (
+          <p id="mesaj-error" className="text-sm font-semibold">
+            {state.errors.mesaj}
+          </p>
+        )}
+      </div>
+
       {state.status === "error" && state.message && (
         <p role="alert" className="text-sm font-semibold">
           {state.message}

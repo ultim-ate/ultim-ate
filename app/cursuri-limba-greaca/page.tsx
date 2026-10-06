@@ -78,7 +78,7 @@ export default function CursuriLimbaGreacaPage() {
               Învață greaca și apropie-te și mai mult de locul pe care îl iubești!
             </p>
             <p className="text-base leading-relaxed">
-              <span className="font-semibold">Înscrieri în grupe noi</span> –{" "}
+              <span className="font-semibold">Informații și înscrieri</span> –{" "}
               <a
                 href="mailto:contact@greeksteps.ro"
                 className="font-semibold text-[var(--culture-heading)] underline underline-offset-4"
