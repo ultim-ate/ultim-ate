@@ -5,6 +5,9 @@
 
 :root {
   --culture-heading: #16436b;
+  --logo-navy: #0b3a80;
+  --logo-sky: #1a9fdc;
+  --logo-heart: #e6338f;
   --course-surface: #eaf5fb;
   --course-text: #1d2b36;
   --contact-surface: #d6f3f0;
@@ -132,4 +135,21 @@
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
+}
+
+/* Hide Google Translate's default banner/tooltip; the custom LanguageSwitcher drives it */
+.goog-te-banner-frame,
+iframe.skiptranslate,
+.goog-te-gadget,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}
+font[style] {
+  background: transparent !important;
+  box-shadow: none !important;
 }

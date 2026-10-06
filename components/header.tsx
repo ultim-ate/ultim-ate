@@ -2,18 +2,32 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Heart, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { LanguageSwitcher } from "@/components/language-switcher"
 
 const navLinks = [
-  { name: "Destinations", href: "#destinations" },
-  { name: "Experiences", href: "#experiences" },
-  { name: "Cuisine", href: "#cuisine" },
-  { name: "Plan Your Trip", href: "#contact" },
+  { name: "Destinații", href: "#destinations" },
+  { name: "Experiențe", href: "#experiences" },
+  { name: "Planifică vacanța", href: "#contact" },
+  { name: "Călătoriile mele", href: "#intro" },
   { name: "Grecia Altfel", href: "/grecia-altfel" },
   { name: "Cursuri limba greacă", href: "/cursuri-limba-greaca" },
   { name: "Contact", href: "/contact" },
 ]
+
+const stairWidths = ["w-3", "w-5", "w-7", "w-9", "w-11", "w-14"]
+
+function LogoStairs() {
+  return (
+    <span className="flex w-14 flex-col items-end gap-px" aria-hidden="true">
+      <Heart className="mr-px size-2.5 fill-(--logo-heart) text-(--logo-heart)" />
+      {stairWidths.map((width, i) => (
+        <span key={width} className={`h-[3px] ${width} ${i % 2 === 0 ? "bg-(--logo-navy)" : "bg-(--logo-sky)"}`} />
+      ))}
+    </span>
+  )
+}
 
 export function Header({ solid = false }: { solid?: boolean }) {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -36,31 +50,29 @@ export function Header({ solid = false }: { solid?: boolean }) {
       }`}
     >
       <nav className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-20 items-center justify-between lg:h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span
-              className={`text-2xl font-semibold tracking-wide transition-colors duration-300 ${
-                (solid || isScrolled) ? "text-foreground" : "text-white"
-              }`}
-            >
-              Greek Steps
+          <Link href="/" className="flex flex-col items-start gap-1" aria-label="Greek Steps - Language, Culture, Travel">
+            <span className="flex items-end gap-2">
+              <span className="text-2xl font-bold uppercase leading-none tracking-wide">
+                <span className="text-(--logo-navy)">Greek</span>
+                <span className="text-(--logo-sky)">Steps</span>
+              </span>
+              <LogoStairs />
+            </span>
+            <span className="flex w-full items-center gap-2">
+              <span className="text-xs font-black uppercase leading-none tracking-[0.22em] text-(--logo-navy)">
+                {"Language - Culture - Travel"}
+              </span>
+              <span className="h-px flex-1 bg-(--logo-sky)" aria-hidden="true" />
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={solid && link.href.startsWith("#") ? `/${link.href}` : link.href}
-                className={`text-sm font-medium tracking-wide transition-colors duration-300 hover:opacity-70 ${
-                  (solid || isScrolled) ? "text-foreground" : "text-white"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+          <div className="ml-auto mr-4 lg:mr-6">
+            <LanguageSwitcher />
+          </div>
+
+          <div className="hidden lg:flex lg:items-center">
             <Button
               variant="outline"
               className={`rounded-none border-2 px-6 py-2 text-sm font-medium tracking-wide transition-all duration-300 ${
@@ -76,7 +88,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden transition-colors duration-300 ${
+            className={`lg:hidden transition-colors duration-300 ${
               (solid || isScrolled) ? "text-foreground" : "text-white"
             }`}
             aria-label="Toggle menu"
@@ -85,16 +97,32 @@ export function Header({ solid = false }: { solid?: boolean }) {
           </button>
         </div>
 
+        {/* Desktop Navigation */}
+        <ul className="hidden lg:mt-4 lg:flex lg:h-12 lg:items-center lg:justify-between lg:gap-6">
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <Link
+                href={solid && link.href.startsWith("#") ? `/${link.href}` : link.href}
+                className={`whitespace-nowrap text-sm font-semibold uppercase tracking-wider transition-colors duration-300 hover:opacity-70 xl:text-[15px] ${
+                  (solid || isScrolled) ? "text-foreground" : "text-white"
+                }`}
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-background/98 backdrop-blur-md absolute top-20 left-0 right-0 border-t border-border">
+          <div className="lg:hidden bg-background/98 backdrop-blur-md absolute top-20 left-0 right-0 border-t border-border">
             <div className="flex flex-col py-6 px-6 gap-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={solid && link.href.startsWith("#") ? `/${link.href}` : link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-foreground py-2 hover:text-primary transition-colors"
+                  className="text-base font-semibold uppercase tracking-wide text-foreground py-2 hover:text-primary transition-colors"
                 >
                   {link.name}
                 </Link>
