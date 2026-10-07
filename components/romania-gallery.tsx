@@ -129,8 +129,8 @@ function PlaceCard({ place }: { place: Place }) {
   if (!hasStory) {
     return (
       <li className="flex flex-col gap-3">
-        {image}
         <h3 className="text-xl font-bold text-sky-400">{place.title}</h3>
+        {image}
       </li>
     )
   }
@@ -144,7 +144,6 @@ function PlaceCard({ place }: { place: Place }) {
         aria-controls={storyId}
         className="group flex flex-col gap-3 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
       >
-        {image}
         <span className="flex items-center justify-between gap-4">
           <h3 className="text-balance text-xl font-bold text-sky-400">{place.title}</h3>
           <ChevronDown
@@ -152,6 +151,7 @@ function PlaceCard({ place }: { place: Place }) {
             aria-hidden="true"
           />
         </span>
+        {image}
       </button>
       {expanded && (
         <div id={storyId} className="flex flex-col gap-4 text-base leading-relaxed text-foreground/85">
