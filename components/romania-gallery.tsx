@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
 
 function Greek({ children }: { children: ReactNode }) {
   return (
-    <strong translate="no" className="notranslate font-bold">
+    <strong translate="no" className="notranslate font-semibold">
       {children}
     </strong>
   )
@@ -15,7 +15,7 @@ function Greek({ children }: { children: ReactNode }) {
 
 function Brand() {
   return (
-    <strong translate="no" className="notranslate font-bold">
+    <strong translate="no" className="notranslate font-semibold">
       Greek Steps
     </strong>
   )
@@ -92,8 +92,21 @@ const places: Place[] = [
   {
     src: "/images/romania-bran.png",
     name: "Bran",
-    title: "Bran",
+    title: "Bran – Între castel, sate și munți",
     alt: "Castelul Bran pe stânca sa, înconjurat de păduri",
+    story: [
+      "Pentru mulți, Bran înseamnă înainte de toate Castelul Bran. Turnuri, legende, povești cu Dracula și imaginea aceea pe care o recunoști imediat. Castelul rămâne, desigur, simbolul locului, dar adevărata surpriză este tot ceea ce se află în jurul lui.",
+      <>
+        În satele din jur, <Greek>παράδοση (parádosi)</Greek> – tradiția – se regăsește în gospodării, în
+        meșteșuguri, în mâncarea locală și în felul în care oamenii trăiesc încă aproape de natură.
+      </>,
+      "Aici regăsești și simplitatea vieții de munte: aer rece dimineața, miros de lemn și iarbă, drumuri care urcă spre munte și sentimentul că orașul a rămas undeva departe.",
+      "Branul își arată adevăratul farmec atunci când te îndepărtezi puțin de imaginea lui cea mai cunoscută, iar in jur ramane acea atmosferă care te face să privești locul cu alți ochi.",
+      <>
+        La <Brand /> credem că uneori cele mai frumoase călătorii încep exact acolo unde se termină imaginea de pe
+        cartea poștală. Branul este unul dintre acele locuri.
+      </>,
+    ],
   },
   {
     src: "/images/romania-sibiu.png",
