@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { CourseBackdrop } from "@/components/course-backdrop"
+import { GuideDownload } from "@/components/guide-download"
 import { greekCourses } from "@/lib/greek-courses"
 
 export const metadata: Metadata = {
@@ -88,32 +89,36 @@ export default function CursuriLimbaGreacaPage() {
             </p>
           </section>
 
-          <section
-            aria-labelledby="mini-ghid"
-            className="flex flex-col items-start gap-4 rounded-lg border border-[var(--culture-heading)]/20 bg-background/70 p-6 shadow-md md:p-8"
-          >
-            <h2 id="mini-ghid" className="text-xl font-bold text-[var(--culture-heading)] md:text-2xl">
-              Înveți limba greacă la gimnaziu sau la liceu?
-            </h2>
-            <p className="text-pretty text-base leading-relaxed">
-              Am pregătit un mini-ghid gratuit pentru recapitulare: alfabet, articole, pronume, verbe, numere, ora și
-              expresii utile.
-            </p>
-            <p
-              lang="el"
-              translate="no"
-              className="notranslate text-lg font-bold tracking-widest text-[var(--culture-heading)] md:text-xl"
-            >
-              ΜΑΖΙ ΣΤΑ ΕΛΛΗΝΙΚΑ
-            </p>
-            <a
-              href="/files/mazi-sta-ellinika-mini-ghid.pdf"
-              download="MAZI-STA-ELLINIKA-mini-ghid.pdf"
-              className="inline-flex items-center rounded-md bg-[var(--culture-heading)] px-6 py-3 text-sm font-bold tracking-wider text-background transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--culture-heading)]"
-            >
-              DESCARCĂ GRATUIT
-            </a>
-          </section>
+          <div className="mt-10 flex flex-col gap-8 md:mt-16">
+            <GuideDownload
+              id="mini-ghid"
+              heading="Înveți limba greacă la gimnaziu sau la liceu?"
+              description="Am pregătit un mini-ghid gratuit pentru recapitulare: alfabet, articole, pronume, verbe, numere, ora și expresii utile."
+              greekTitle="ΜΑΖΙ ΣΤΑ ΕΛΛΗΝΙΚΑ"
+              cover={{
+                src: "/images/cover-mazi-sta-ellinika.png",
+                width: 1688,
+                height: 2388,
+                alt: "Coperta mini-ghidului ΜΑΖΙ ΣΤΑ ΕΛΛΗΝΙΚΑ, cu steagul Greciei deasupra unui sat alb cu cupole albastre",
+              }}
+              file="/files/mazi-sta-ellinika-mini-ghid.pdf"
+              downloadName="MAZI-STA-ELLINIKA-mini-ghid.pdf"
+            />
+            <GuideDownload
+              id="ghid-calatorii"
+              heading="Pleci în Grecia?"
+              description="Un mini-ghid gratuit cu expresii utile pentru călătorie: la aeroport, la hotel, la restaurant, pe plajă, în transport și la cumpărături."
+              greekTitle="ΕΛΛΗΝΙΚΑ ΓΙΑ ΤΟ ΤΑΞΙΔΙ"
+              cover={{
+                src: "/images/cover-ellinika-gia-to-taxidi.png",
+                width: 811,
+                height: 1146,
+                alt: "Coperta mini-ghidului ΕΛΛΗΝΙΚΑ ΓΙΑ ΤΟ ΤΑΞΙΔΙ, cu un apus deasupra mării Egee",
+              }}
+              file="/files/ellinika-gia-to-taxidi-mini-ghid.pdf"
+              downloadName="ELLINIKA-GIA-TO-TAXIDI-mini-ghid.pdf"
+            />
+          </div>
         </div>
       </main>
     </>

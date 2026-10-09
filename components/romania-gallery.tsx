@@ -111,14 +111,43 @@ const places: Place[] = [
   {
     src: "/images/romania-sibiu.png",
     name: "Sibiu",
-    title: "Sibiu",
+    title: "Sibiu – Între piețe, acoperișuri și povești",
     alt: "Piața Mare din Sibiu cu clădiri istorice",
+    story: [
+      "Sibiul este un oraș care se descoperă ușor la pas. Piața Mare, Piața Mică, Podul Minciunilor și acoperișurile cu „ochii” lor caracteristici îi dau un aer aparte, elegant și puțin misterios.",
+      <>
+        O plimbare prin centrul vechi te poartă de la piețe largi la câte un <Greek>σοκάκι (sokáki)</Greek> – o
+        străduță îngustă – unde fațadele colorate, pasajele și curțile ascunse păstrează atmosfera orașului de
+        altădată.
+      </>,
+      <>
+        De sus, din Turnul Sfatului, <Greek>θέα (théa)</Greek> – priveliștea – adună acoperișurile, turnurile și
+        străzile vechi într-o imagine care explică poate cel mai bine farmecul Sibiului.
+      </>,
+      "Orașul are și multă viață culturală: festivaluri, muzee, evenimente, terase și locuri în care istoria se întâlnește firesc cu prezentul.",
+      <>
+        La <Brand />, ne plac orașele care au identitate și atmosferă. Sibiul este unul dintre acele locuri în care
+        fiecare stradă pare să mai ascundă ceva de descoperit.
+      </>,
+    ],
   },
   {
     src: "/images/romania-sinaia.png",
     name: "Sinaia",
-    title: "Sinaia",
+    title: "Sinaia – Eleganță la poalele munților",
     alt: "Castelul Peleș din Sinaia la poalele munților",
+    story: [
+      "Sinaia are acel aer aparte al stațiunilor de munte cu istorie. Castelul Peleș, vilele elegante, străzile liniștite și pădurile care urcă spre Bucegi îi dau un farmec rafinat, ușor de recunoscut.",
+      <>
+        O plimbare prin oraș te poartă între arhitectură, natură și mici colțuri de liniște, iar aici cuvântul{" "}
+        <Greek>ηρεμία (iremía)</Greek> – liniște – pare să se potrivească firesc cu atmosfera locului.
+      </>,
+      "Dincolo de castel, Sinaia înseamnă și trasee, aer de munte, priveliști și acel sentiment de evadare pe care îl cauți atunci când vrei să lași orașul în urmă pentru câteva ore.",
+      <>
+        La <Brand /> ne plac locurile care reușesc să aducă împreună eleganța și natura. Sinaia face asta cu multă
+        ușurință.
+      </>,
+    ],
   },
 ]
 

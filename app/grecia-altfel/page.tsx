@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import Link from "next/link"
 import Image from "next/image"
+import { AromeStory } from "@/components/arome-story"
 
 export const metadata: Metadata = {
   title: "Grecia altfel | Greek Steps",
@@ -32,6 +33,7 @@ export default function GreciaAltfelPage() {
           <Link href="/grecia-altfel/greaca-pentru-calatorie" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
             Greacă pentru călătorie
           </Link>
+          <AromeStory />
         </nav>
         </div>
       </main>
