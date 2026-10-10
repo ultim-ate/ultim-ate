@@ -11,7 +11,7 @@ const navLinks = [
   { name: "Destinații", href: "#destinations" },
   { name: "Experiențe", href: "#experiences" },
   { name: "Planifică vacanța", href: "#contact" },
-  { name: "Călătoriile mele", href: "#intro" },
+  { name: "Din Călătoriile Mele", href: "/din-calatoriile-mele" },
   { name: "Grecia Altfel", href: "/grecia-altfel" },
   { name: "Cursuri limba greacă", href: "/cursuri-limba-greaca" },
   { name: "Contact", href: "/contact" },

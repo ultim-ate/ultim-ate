@@ -33,7 +33,9 @@ export default function GreciaAltfelPage() {
           <Link href="/grecia-altfel/greaca-pentru-calatorie" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
             Greacă pentru călătorie
           </Link>
-          <AromeStory />
+          <Link href="/grecia-altfel/arome-sub-soarele-greciei" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
+            Arome sub soarele Greciei
+          </Link>
         </nav>
         </div>
       </main>
