@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { Header } from "@/components/header"
 
 export const metadata: Metadata = {
@@ -13,8 +14,9 @@ export default function DinCalatoriileMelePage() {
       <Header solid />
       <main
         lang="ro"
-        className="min-h-screen [--travel-ink:#0a3436] [--travel-surface:#2bb5b2] bg-[var(--travel-surface)] font-sans text-[var(--travel-ink)]"
+        className="relative isolate min-h-screen [--travel-ink:#0a3436] font-sans text-[var(--travel-ink)]"
       >
+        <Image src="/images/ionian-sea.png" alt="" fill priority sizes="100vw" className="-z-10 object-cover" />
         <div className="mx-auto flex max-w-3xl flex-col gap-6 px-6 pb-20 pt-40 lg:px-8 lg:pt-52">
           <h1 className="text-3xl font-bold uppercase tracking-wide md:text-4xl">Din Călătoriile Mele</h1>
           <p className="text-pretty text-lg leading-relaxed md:text-xl">
