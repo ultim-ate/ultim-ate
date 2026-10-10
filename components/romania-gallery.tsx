@@ -31,10 +31,10 @@ type Place = {
 
 const places: Place[] = [
   {
-    src: "/images/romania-bucuresti.png",
+    src: "/images/romania-bucuresti-lac.jpg",
     name: "București",
     title: "București – Efervescență, culoare și stil",
-    alt: "Arcul de Triumf din București la apus",
+    alt: "Apus portocaliu deasupra unui lac din București, cu rațe pe apă și siluete de copaci",
     story: [
       "Bucureștiul nu este un oraș pe care îl înțelegi dintr-o singură privire. Este viu, colorat, surprinzator, mereu în mișcare si care oferă mai mult decât te-ai aștepta, indiferent ce cauți.",
       "Istorie și arhitectură. Artă și cultură. Gastronomie și viață de noapte. Concerte, expoziții, festivaluri, terase, evenimente și locuri care te fac să descoperi mereu ceva nou. Parcuri liniștite și intersecții care nu par să doarmă niciodată. Uneori pare sofisticat, alteori haotic, dar tocmai amestecul acesta îi dă personalitate.",

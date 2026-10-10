@@ -24,7 +24,7 @@ export default function CursuriLimbaGreacaPage() {
       <Header solid />
       <main lang="ro" className="relative isolate min-h-screen font-sans text-[var(--course-text)]">
         <CourseBackdrop />
-        <div className="mx-auto flex max-w-4xl flex-col gap-10 px-6 pb-20 pt-32 lg:px-8">
+        <div className="mx-auto flex max-w-4xl flex-col gap-10 px-6 pb-20 pt-40 lg:px-8 lg:pt-52">
           <h1 className="text-2xl font-bold text-[var(--culture-heading)] md:text-3xl">Cursuri limba greacă</h1>
 
           <ul className="flex flex-col gap-8">
@@ -55,8 +55,8 @@ export default function CursuriLimbaGreacaPage() {
               Despre formator
             </h2>
             <p className="text-base leading-relaxed">
-              Cursurile sunt susținute de un formator autorizat ANC, cu pregătire psihopedagogică și certificări
-              Ellinomatheia Thessaloniki, Cambridge, English for Tourism, TESOL/TEFL și TEYL.
+              Cursurile sunt susținute de un formator autorizat ANC, licențiată în Geografia Turismului, cu pregătire
+              psihopedagogică și certificări Ellinomatheia Thessaloniki, Cambridge, English for Tourism, TESOL/TEFL și TEYL.
             </p>
             <p className="text-base font-semibold leading-relaxed">
               Lecțiile combină experiența în predarea limbilor străine cu materiale proprii, exerciții interactive și
@@ -73,7 +73,7 @@ export default function CursuriLimbaGreacaPage() {
             />
 
             <p className="text-base leading-relaxed">
-              <span className="font-semibold">Niveluri disponibile:</span> A0–B1
+              <span className="font-semibold">Niveluri disponibile:</span> <strong className="font-bold">A0 – B1</strong>
             </p>
             <p className="text-base leading-relaxed">
               Învață greaca și apropie-te și mai mult de locul pe care îl iubești!
