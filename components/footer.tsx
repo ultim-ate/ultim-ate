@@ -1,99 +1,64 @@
-import { Instagram, Facebook, Twitter, Youtube } from "lucide-react"
+import Link from "next/link"
+import { Facebook, Instagram, Mail } from "lucide-react"
+import { footerPages } from "@/lib/footer-pages"
 
 const footerLinks = [
-  {
-    title: "Destinations",
-    links: ["Santorini", "Athens", "Mykonos", "Crete", "Rhodes", "Corfu"],
-  },
-  {
-    title: "Experiences",
-    links: [
-      "Island Hopping",
-      "Historical Tours",
-      "Culinary Journeys",
-      "Adventure",
-      "Luxury Retreats",
-    ],
-  },
-  {
-    title: "Company",
-    links: ["About Us", "Our Team", "Careers", "Press", "Contact"],
-  },
-  {
-    title: "Support",
-    links: ["FAQs", "Travel Guide", "Booking Policy", "Privacy", "Terms"],
-  },
+  { href: "/contact", title: "Contactează-mă" },
+  ...footerPages.map((page) => ({ href: `/info/${page.slug}`, title: page.title })),
 ]
 
 const socialLinks = [
   { icon: Instagram, label: "Instagram", href: "#" },
   { icon: Facebook, label: "Facebook", href: "#" },
-  { icon: Twitter, label: "Twitter", href: "#" },
-  { icon: Youtube, label: "YouTube", href: "#" },
 ]
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background py-16 md:py-20">
-      <div className="mx-auto max-w-7xl px-6">
-        {/* Top section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12 mb-16">
-          {/* Brand */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-8 lg:mb-0">
-            <h3 className="text-2xl font-semibold tracking-wide mb-4">
-              Greek Steps
-            </h3>
-            <p className="text-background/70 font-sans text-sm leading-relaxed max-w-xs">
-              Crafting unforgettable Greek journeys since 2010. Your gateway to
-              authentic Mediterranean experiences.
-            </p>
-          </div>
+    <footer lang="ro" className="bg-foreground py-14 font-sans text-background md:py-16">
+      <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6">
+        <div className="flex flex-col gap-10 md:flex-row md:justify-between">
+          <nav aria-label="Linkuri utile">
+            <ul className="flex flex-col gap-3">
+              {footerLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-base text-background/80 transition-colors hover:text-background">
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-          {/* Links */}
-          {footerLinks.map((column) => (
-            <div key={column.title}>
-              <h4 className="font-medium text-sm uppercase tracking-wider mb-4">
-                {column.title}
-              </h4>
-              <ul className="space-y-3">
-                {column.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-background/60 hover:text-background font-sans text-sm transition-colors"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Divider */}
-        <div className="border-t border-background/20 pt-8">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            {/* Copyright */}
-            <p className="text-background/50 font-sans text-sm">
-              &copy; {new Date().getFullYear()} Greek Steps. All rights
-              reserved.
-            </p>
-
-            {/* Social Links */}
+          <div className="flex flex-col gap-4 md:items-end md:text-right">
+            <p className="font-serif text-2xl font-semibold tracking-wide">Greek Steps</p>
+            <a
+              href="mailto:contact@greeksteps.ro"
+              className="flex items-center gap-2 text-base text-background/80 transition-colors hover:text-background"
+            >
+              <Mail className="size-4" aria-hidden="true" />
+              contact@greeksteps.ro
+            </a>
             <div className="flex items-center gap-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
-                  className="text-background/50 hover:text-background transition-colors"
                   aria-label={social.label}
+                  className="text-background/70 transition-colors hover:text-background"
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="size-5" />
                 </a>
               ))}
             </div>
           </div>
+        </div>
+
+        <div className="flex flex-col gap-2 border-t border-background/20 pt-8 text-center text-sm leading-relaxed text-background/70">
+          <p className="text-pretty">
+            GREEK STEPS SRL; LICENȚĂ DE TURISM: În curs de licențiere; CUI: 55171636; J2026043697003, Brevet de
+            turism nr. 11713/ 04.12.2006
+          </p>
+          <p>&copy; 2026 Greek Steps. All rights reserved.</p>
         </div>
       </div>
     </footer>

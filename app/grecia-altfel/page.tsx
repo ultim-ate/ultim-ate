@@ -36,6 +36,9 @@ export default function GreciaAltfelPage() {
           <Link href="/grecia-altfel/arome-sub-soarele-greciei" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
             Arome sub soarele Greciei
           </Link>
+          <Link href="/grecia-altfel/greek-cats" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
+            Greek Cats
+          </Link>
         </nav>
         </div>
       </main>

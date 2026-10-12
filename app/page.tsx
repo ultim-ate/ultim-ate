@@ -5,8 +5,6 @@ import { Destinations } from "@/components/destinations"
 import { Experiences } from "@/components/experiences"
 import { Featured } from "@/components/featured"
 import { Testimonial } from "@/components/testimonial"
-import { Contact } from "@/components/contact"
-import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
@@ -18,8 +16,6 @@ export default function Home() {
       <Experiences />
       <Featured />
       <Testimonial />
-      <Contact />
-      <Footer />
     </main>
   )
 }
