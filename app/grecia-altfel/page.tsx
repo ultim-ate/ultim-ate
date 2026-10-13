@@ -20,7 +20,8 @@ export default function GreciaAltfelPage() {
     <>
       <Header solid />
       <main lang="ro" className="relative isolate min-h-screen font-sans">
-        <Image src="/images/ionian-sea.png" alt="" fill priority sizes="100vw" className="-z-10 object-cover" />
+        <Image src="/images/ionian-sea.png" alt="" fill priority sizes="100vw" className="-z-20 object-cover" />
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[var(--contact-surface)]/45" />
         <div className="mx-auto max-w-4xl px-6 pb-20 pt-32 lg:px-8">
         <h1 className="mb-6 text-2xl font-bold text-[var(--culture-heading)] md:text-3xl">Grecia Altfel</h1>
         <nav aria-label="Rubrici" className="flex flex-col items-start gap-6">
