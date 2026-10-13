@@ -4,12 +4,19 @@ export type FooterPage = {
 }
 
 export const footerPages: FooterPage[] = [
-  { slug: "ebooks", title: "Ebooks" },
-  { slug: "alerte-calatorie", title: "Alerte călătorie" },
-  { slug: "promotii", title: "Promoții" },
-  { slug: "vacantele-turistilor", title: "Vacanțele turiștilor" },
-  { slug: "destinatii-vacante-familii", title: "Destinații și vacanțe pentru familii" },
-  { slug: "vacante-exotice", title: "Vacanțe exotice" },
+  { slug: "politica-de-cookies", title: "Politica de Cookies" },
+  { slug: "termeni-si-conditii", title: "Termeni și condiții" },
+  { slug: "modalitati-de-plata", title: "Modalități de plată" },
+  { slug: "conditii-de-calatorie", title: "Condiții de călătorie" },
+  { slug: "politica-de-confidentialitate", title: "Politică de confidențialitate" },
+  { slug: "documente-de-identificare", title: "Documente de identificare" },
+  { slug: "contract-cu-turistul", title: "Contract cu turistul" },
+]
+
+export const externalFooterLinks = [
+  { href: "https://anpc.ro", title: "ANPC" },
+  { href: "https://reclamatisal.anpc.ro", title: "SAL" },
+  { href: "https://consumer-redress.ec.europa.eu/site-relocation_en", title: "SOL" },
 ]
 
 export function getFooterPage(slug: string) {

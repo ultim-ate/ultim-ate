@@ -1,35 +1,62 @@
 import Link from "next/link"
-import { Facebook, Instagram, Mail } from "lucide-react"
-import { footerPages } from "@/lib/footer-pages"
-
-const footerLinks = [
-  { href: "/contact", title: "Contactează-mă" },
-  ...footerPages.map((page) => ({ href: `/info/${page.slug}`, title: page.title })),
-]
+import { Facebook, Instagram, Lock, Mail } from "lucide-react"
+import { externalFooterLinks, footerPages } from "@/lib/footer-pages"
 
 const socialLinks = [
   { icon: Instagram, label: "Instagram", href: "#" },
   { icon: Facebook, label: "Facebook", href: "#" },
 ]
 
+const linkClass = "text-sm text-background/80 transition-colors hover:text-background"
+
 export function Footer() {
   return (
     <footer lang="ro" className="bg-foreground py-14 font-sans text-background md:py-16">
       <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6">
-        <div className="flex flex-col gap-10 md:flex-row md:justify-between">
-          <nav aria-label="Linkuri utile">
-            <ul className="flex flex-col gap-3">
-              {footerLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-base text-background/80 transition-colors hover:text-background">
-                    {link.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+          <div className="flex flex-col gap-6 lg:max-w-2xl">
+            <nav aria-label="Informații legale">
+              <ul className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                {footerPages.map((page) => (
+                  <li key={page.slug} className="flex items-center gap-3">
+                    <Link href={`/info/${page.slug}`} className={linkClass}>
+                      {page.title}
+                    </Link>
+                    <span aria-hidden="true" className="text-background/40">
+                      |
+                    </span>
+                  </li>
+                ))}
+                {externalFooterLinks.map((link, index) => (
+                  <li key={link.href} className="flex items-center gap-3">
+                    <a href={link.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                      {link.title}
+                    </a>
+                    {index < externalFooterLinks.length - 1 && (
+                      <span aria-hidden="true" className="text-background/40">
+                        |
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-          <div className="flex flex-col gap-4 md:items-end md:text-right">
+            <a
+              href="https://netopia-payments.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-fit items-center gap-3 rounded-md border border-background/30 px-4 py-2 transition-colors hover:border-background/60"
+            >
+              <Lock className="size-4" aria-hidden="true" />
+              <span className="flex flex-col leading-tight">
+                <span className="text-xs text-background/70">Plăți securizate prin</span>
+                <span className="text-sm font-bold tracking-wide">NETOPIA Payments</span>
+              </span>
+            </a>
+          </div>
+
+          <div className="flex flex-col gap-4 lg:items-end lg:text-right">
             <p className="font-serif text-2xl font-semibold tracking-wide">Greek Steps</p>
             <a
               href="mailto:contact@greeksteps.ro"
