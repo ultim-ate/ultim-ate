@@ -40,6 +40,12 @@ export default function GreciaAltfelPage() {
           <Link href="/grecia-altfel/greek-cats" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
             Greek Cats
           </Link>
+          <Link href="/grecia-altfel/ceai-de-munte" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
+            <span lang="el">Τσάι του βουνού</span> – Grecia într-o ceașcă
+          </Link>
+          <Link href="/grecia-altfel/mastiha" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
+            Mastiha – lacrimile parfumate ale insulei Chios
+          </Link>
         </nav>
         </div>
       </main>
