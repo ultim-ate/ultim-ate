@@ -25,9 +25,11 @@ export default async function TravelPage({ params }: { params: Promise<{ slug: s
           {"← Din Călătoriile Mele"}
         </Link>
         <h1 className="text-3xl font-bold uppercase tracking-wide md:text-4xl">{travel.title}</h1>
-        <div className="relative aspect-[16/9] overflow-hidden rounded-md">
-          <Image src={travel.image} alt={travel.alt} fill priority sizes="(min-width: 1024px) 896px, 100vw" className="object-cover" />
-        </div>
+        {travel.image && (
+          <div className="relative aspect-[16/9] overflow-hidden rounded-md">
+            <Image src={travel.image} alt={travel.alt ?? travel.title} fill priority sizes="(min-width: 1024px) 896px, 100vw" className="object-cover" />
+          </div>
+        )}
         <p className="text-pretty text-lg leading-relaxed md:text-xl">
           Fotografiile și impresiile din această călătorie vor fi publicate în curând.
         </p>

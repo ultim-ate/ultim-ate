@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Instagram, Lock, Mail } from "lucide-react"
+import { Facebook, Instagram, Mail } from "lucide-react"
 import { externalFooterLinks, footerPages } from "@/lib/footer-pages"
 
 const socialLinks = [
@@ -19,9 +19,15 @@ export function Footer() {
               <ul className="flex flex-wrap items-center gap-x-3 gap-y-2">
                 {footerPages.map((page) => (
                   <li key={page.slug} className="flex items-center gap-3">
-                    <Link href={`/info/${page.slug}`} className={linkClass}>
-                      {page.title}
-                    </Link>
+                    {page.href ? (
+                      <a href={page.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                        {page.title}
+                      </a>
+                    ) : (
+                      <Link href={`/info/${page.slug}`} className={linkClass}>
+                        {page.title}
+                      </Link>
+                    )}
                     <span aria-hidden="true" className="text-background/40">
                       |
                     </span>
@@ -41,19 +47,6 @@ export function Footer() {
                 ))}
               </ul>
             </nav>
-
-            <a
-              href="https://netopia-payments.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex w-fit items-center gap-3 rounded-md border border-background/30 px-4 py-2 transition-colors hover:border-background/60"
-            >
-              <Lock className="size-4" aria-hidden="true" />
-              <span className="flex flex-col leading-tight">
-                <span className="text-xs text-background/70">Plăți securizate prin</span>
-                <span className="text-sm font-bold tracking-wide">NETOPIA Payments</span>
-              </span>
-            </a>
           </div>
 
           <div className="flex flex-col gap-4 lg:items-end lg:text-right">
@@ -80,7 +73,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 border-t border-background/20 pt-8 text-center text-sm leading-relaxed text-background/70">
+        <div className="flex flex-col gap-2 border-t border-background/20 pt-8 text-center text-base leading-relaxed text-background/70 lining-nums">
           <p className="text-pretty">
             GREEK STEPS SRL; LICENȚĂ DE TURISM: În curs de licențiere; CUI: 55171636; J2026043697003, Brevet de
             turism nr. 11713/ 04.12.2006
