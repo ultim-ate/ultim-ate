@@ -25,7 +25,7 @@ export default function GreciaAltfelPage() {
         <div className="mx-auto max-w-4xl px-6 pb-20 pt-32 lg:px-8">
         <h1 className="mb-6 text-2xl font-bold text-[var(--culture-heading)] md:text-3xl">Grecia Altfel</h1>
         <nav aria-label="Rubrici" className="flex flex-col items-start gap-6">
-          <Link href="/grecia-altfel/7-curiozitati-cu-parfum-elen" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
+          <Link href="/grecia-altfel/7-curiozitati-cu-parfum-elen" className="text-xl font-extrabold text-[var(--culture-heading)] lining-nums underline-offset-4 hover:underline md:text-2xl">
             7 Curiozități cu parfum elen
           </Link>
           <Link href="/grecia-altfel/traditii-care-merg-mai-departe" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
@@ -41,10 +41,13 @@ export default function GreciaAltfelPage() {
             Greek Cats
           </Link>
           <Link href="/grecia-altfel/ceai-de-munte" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
-            <span lang="el">Τσάι του βουνού</span> – Grecia într-o ceașcă
+            Grecia într-o ceașcă
           </Link>
           <Link href="/grecia-altfel/mastiha" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
             Mastiha – lacrimile parfumate ale insulei Chios
+          </Link>
+          <Link href="/grecia-altfel/farfurii-sparte" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
+            De la muzică la spectacol – povestea farfuriilor sparte
           </Link>
         </nav>
         </div>

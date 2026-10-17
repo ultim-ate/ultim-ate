@@ -3,6 +3,7 @@ export type Travel = {
   title: string
   image?: string
   alt?: string
+  gallery?: { src: string; alt: string; width: number; height: number }[]
 }
 
 export const TRAVELS_PER_PAGE = 16
@@ -10,11 +11,49 @@ export const TRAVELS_PER_PAGE = 16
 const featuredTravels: Travel[] = [
   {
     slug: "santorin",
-    title: "Santorin",
+    title: "Santorini",
     image: "/images/santorin-apus.jpg",
-    alt: "Capelă albă cicladică la apus, cu soarele coborând la orizont în Santorin",
+    alt: "Capelă albă cicladică la apus, cu soarele coborând la orizont în Santorini",
+    gallery: [
+      {
+        src: "/images/santorini/caldera-apus.jpg",
+        alt: "Apus deasupra calderei din Santorini, cu vase de croazieră și străduțe albe în prim-plan",
+        width: 2048,
+        height: 946,
+      },
+      {
+        src: "/images/santorini/usa-albastra.jpg",
+        alt: "Ușă albastră într-o casă albă cicladică, cu un amforă de lut și un cactus în ghiveci",
+        width: 739,
+        height: 1600,
+      },
+      {
+        src: "/images/santorini/clopotnita.jpg",
+        alt: "Cupolă albă și clopotniță cu cruce deasupra calderei din Santorini",
+        width: 2048,
+        height: 946,
+      },
+      {
+        src: "/images/santorini/apus-fira.jpg",
+        alt: "Mulțime adunată la apus în Fira, cu soarele coborând în spatele insulei și un vas de croazieră pe mare",
+        width: 900,
+        height: 1600,
+      },
+      {
+        src: "/images/santorini/fira-noaptea.jpg",
+        alt: "Fira noaptea, cu terase și restaurante luminate pe marginea falezei",
+        width: 1152,
+        height: 2048,
+      },
+      {
+        src: "/images/santorini/tricou-dicaprio.jpg",
+        alt: "Tricou alb pe umeraș cu inscripția „too old for dicaprio”",
+        width: 924,
+        height: 2048,
+      },
+    ],
   },
-  { slug: "rodos", title: "Rodos", image: "/images/rhodos.png", alt: "Peisaj din insula Rodos" },
+  { slug: "rodos", title: "Rhodos", image: "/images/rhodos.png", alt: "Peisaj din insula Rodos" },
   { slug: "skiathos", title: "Skiathos", image: "/images/skiathos.png", alt: "Plajă din insula Skiathos" },
   { slug: "meteora", title: "Meteora", image: "/images/meteora.jpg", alt: "Mănăstirile de la Meteora" },
   { slug: "atena", title: "Atena", image: "/images/athens-acropolis.jpg", alt: "Acropola din Atena" },

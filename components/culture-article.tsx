@@ -4,19 +4,43 @@ import { Header } from "@/components/header"
 
 const GREEK_RUN = /([\u0370-\u03FF\u1F00-\u1FFF][\u0370-\u03FF\u1F00-\u1FFF\s.,!;:–-]*[\u0370-\u03FF\u1F00-\u1FFF!])/g
 
-function emphasizeGreek(text: string) {
-  return text.split(GREEK_RUN).map((part, index) =>
-    index % 2 === 1 ? (
-      <strong key={index} lang="el" className="font-bold">
-        {part}
-      </strong>
-    ) : (
-      part
-    ),
-  )
+function escapeRegExp(text: string) {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
 }
 
-export function CultureArticle({ title, paragraphs }: { title: string; paragraphs: string[] }) {
+function emphasize(text: string, highlights: string[]) {
+  const highlightRun = highlights.length ? new RegExp(`(${highlights.map(escapeRegExp).join("|")})`, "g") : null
+
+  return text.split(GREEK_RUN).flatMap((part, index) => {
+    if (index % 2 === 1) {
+      return (
+        <strong key={index} lang="el" className="font-bold">
+          {part}
+        </strong>
+      )
+    }
+    if (!highlightRun) return part
+    return part.split(highlightRun).map((piece, pieceIndex) =>
+      pieceIndex % 2 === 1 ? (
+        <strong key={`${index}-${pieceIndex}`} className="font-bold">
+          {piece}
+        </strong>
+      ) : (
+        piece
+      ),
+    )
+  })
+}
+
+export function CultureArticle({
+  title,
+  paragraphs,
+  highlights = [],
+}: {
+  title: string
+  paragraphs: string[]
+  highlights?: string[]
+}) {
   return (
     <>
       <Header solid />
@@ -31,11 +55,11 @@ export function CultureArticle({ title, paragraphs }: { title: string; paragraph
             ← Grecia Altfel
           </Link>
           <h1 className="text-balance text-xl font-extrabold text-[var(--culture-heading)] md:text-2xl">
-            {emphasizeGreek(title)}
+            {emphasize(title, [])}
           </h1>
           {paragraphs.map((paragraph) => (
-            <p key={paragraph} className="text-pretty text-lg leading-relaxed">
-              {emphasizeGreek(paragraph)}
+            <p key={paragraph} className="whitespace-pre-line text-pretty text-lg leading-relaxed lining-nums">
+              {emphasize(paragraph, highlights)}
             </p>
           ))}
         </article>

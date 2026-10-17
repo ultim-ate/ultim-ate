@@ -16,7 +16,7 @@ export const footerPages: FooterPage[] = [
 
 export const externalFooterLinks = [
   { href: "https://anpc.ro", title: "ANPC" },
-  { href: "https://reclamatisal.anpc.ro", title: "SAL" },
+  { href: "https://reclamatiisal.anpc.ro/", title: "SAL" },
   { href: "https://consumer-redress.ec.europa.eu/site-relocation_en", title: "SOL" },
 ]
 
