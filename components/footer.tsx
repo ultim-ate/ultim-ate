@@ -75,7 +75,7 @@ export function Footer() {
 
         <div className="flex flex-col gap-2 border-t border-background/20 pt-8 text-center text-base leading-relaxed text-background/70 lining-nums">
           <p className="text-pretty">
-            GREEK STEPS SRL; LICENȚĂ DE TURISM: În curs de licențiere; CUI: 55171636; J2026043697003, Brevet de
+            GREEK STEPS SRL; Licență de Turism: În curs de licențiere; CUI: 55171636; J2026043697003, Brevet de
             turism nr. 11713/ 04.12.2006
           </p>
           <p>&copy; 2026 Greek Steps. All rights reserved.</p>

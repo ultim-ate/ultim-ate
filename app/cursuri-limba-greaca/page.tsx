@@ -58,6 +58,14 @@ export default function CursuriLimbaGreacaPage() {
               Cursurile sunt susținute de un formator autorizat ANC, licențiată în Geografia Turismului, cu pregătire
               psihopedagogică și certificări Ellinomatheia Thessaloniki, Cambridge, English for Tourism, TESOL/TEFL și TEYL.
             </p>
+            <Image
+              src="/images/formator.jpg"
+              alt="Formatoarea Greek Steps pe o străduță albă din Grecia, sub o bougainvillea"
+              width={900}
+              height={1600}
+              sizes="(min-width: 640px) 360px, 100vw"
+              className="h-auto w-full max-w-sm rounded-lg shadow-md"
+            />
             <p className="text-base font-semibold leading-relaxed">
               Lecțiile combină experiența în predarea limbilor străine cu materiale proprii, exerciții interactive și
               resurse autentice, adaptate vârstei, nivelului și obiectivelor fiecărui cursant.
@@ -72,24 +80,31 @@ export default function CursuriLimbaGreacaPage() {
               className="h-auto w-full rounded-lg shadow-md"
             />
 
-            <p className="text-base leading-relaxed">
-              <span className="font-semibold">Niveluri disponibile:</span> <strong className="font-bold">A0 – B1</strong>
-            </p>
-            <p className="text-base leading-relaxed">
-              Învață greaca și apropie-te și mai mult de locul pe care îl iubești!
-            </p>
-            <p className="text-base leading-relaxed">
-              <span className="font-semibold">Informații și înscrieri</span> –{" "}
-              <a
-                href="mailto:contact@greeksteps.ro"
-                className="font-semibold text-[var(--culture-heading)] underline underline-offset-4"
-              >
-                contact@greeksteps.ro
-              </a>
-            </p>
+            <div className="flex flex-col gap-2 text-xl font-bold text-[var(--culture-heading)] lining-nums md:text-2xl">
+              <p>Niveluri disponibile: A0 – B1</p>
+              <p className="text-pretty">Învață greaca și apropie-te și mai mult de locul pe care îl iubești!</p>
+              <p className="text-pretty">
+                Informații și înscrieri –{" "}
+                <a href="mailto:contact@greeksteps.ro" className="underline underline-offset-4">
+                  contact@greeksteps.ro
+                </a>
+              </p>
+            </div>
           </section>
 
-          <div className="mt-10 flex flex-col gap-8 md:mt-16">
+          <section aria-labelledby="scoli-sezon" className="mt-10 flex flex-col gap-4 md:mt-16">
+            <h2 id="scoli-sezon" className="flex flex-col text-xl font-semibold text-[var(--culture-heading)] md:text-2xl">
+              <span>Winter School</span>
+              <span>Summer School</span>
+            </h2>
+            <p className="text-pretty text-base leading-relaxed">
+              Pregătim ieșiri atipice, ateliere urbane, drumeții lejere de weekend, create pentru deconectare, conexiune
+              și exersarea limbilor străine.
+            </p>
+            <p className="text-base font-semibold leading-relaxed">În curând – Noi programe de grup</p>
+          </section>
+
+          <div className="flex flex-col gap-8">
             <GuideDownload
               id="mini-ghid"
               heading="Înveți limba greacă la gimnaziu sau la liceu?"

@@ -37,8 +37,8 @@ export default async function DinCalatoriileMelePage({
         </div>
         <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {pageTravels.map((travel) => (
-            <li key={travel.slug}>
-              <Link href={`/din-calatoriile-mele/${travel.slug}`} className="group flex flex-col gap-3">
+            <li key={travel.slug} className="flex">
+              <Link href={`/din-calatoriile-mele/${travel.slug}`} className="group flex w-full flex-col justify-end gap-3">
                 <h2 className="text-lg font-bold uppercase tracking-wide underline-offset-4 group-hover:underline">
                   {travel.title}
                 </h2>

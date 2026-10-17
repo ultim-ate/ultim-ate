@@ -30,9 +30,26 @@ export default async function TravelPage({ params }: { params: Promise<{ slug: s
             <Image src={travel.image} alt={travel.alt ?? travel.title} fill priority sizes="(min-width: 1024px) 896px, 100vw" className="object-cover" />
           </div>
         )}
-        <p className="text-pretty text-lg leading-relaxed md:text-xl">
-          Fotografiile și impresiile din această călătorie vor fi publicate în curând.
-        </p>
+        {travel.gallery?.length ? (
+          <ul className="columns-1 gap-4 sm:columns-2">
+            {travel.gallery.map((photo) => (
+              <li key={photo.src} className="mb-4 break-inside-avoid">
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  width={photo.width}
+                  height={photo.height}
+                  sizes="(min-width: 1024px) 432px, (min-width: 640px) 50vw, 100vw"
+                  className="h-auto w-full rounded-md"
+                />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-pretty text-lg leading-relaxed md:text-xl">
+            Fotografiile și impresiile din această călătorie vor fi publicate în curând.
+          </p>
+        )}
       </article>
     </LightSeaPage>
   )
