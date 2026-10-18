@@ -20,7 +20,7 @@ export function GreekTravelPhrases() {
     <article>
       <header className="mb-10 flex flex-col gap-2">
         <h1 className="text-balance text-xl font-extrabold text-[var(--culture-heading)] md:text-2xl">
-          Greacă pentru călătorie
+          Limba greacă pentru călătorie
         </h1>
         <p lang="el" className="text-base italic leading-relaxed text-[var(--culture-heading)]">
           Ελληνικά για ταξίδι (Elliniká gia taxídi)

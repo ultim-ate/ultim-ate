@@ -31,16 +31,15 @@ export default async function TravelPage({ params }: { params: Promise<{ slug: s
           </div>
         )}
         {travel.gallery?.length ? (
-          <ul className="columns-1 gap-4 sm:columns-2">
+          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {travel.gallery.map((photo) => (
-              <li key={photo.src} className="mb-4 break-inside-avoid">
+              <li key={photo.src} className="relative aspect-[4/5] overflow-hidden rounded-md">
                 <Image
                   src={photo.src}
                   alt={photo.alt}
-                  width={photo.width}
-                  height={photo.height}
+                  fill
                   sizes="(min-width: 1024px) 432px, (min-width: 640px) 50vw, 100vw"
-                  className="h-auto w-full rounded-md"
+                  className="object-cover"
                 />
               </li>
             ))}
