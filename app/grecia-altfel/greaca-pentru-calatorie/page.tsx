@@ -4,10 +4,10 @@ import { Header } from "@/components/header"
 import { GreekTravelPhrases } from "@/components/greek-travel-phrases"
 
 export const metadata: Metadata = {
-  title: "Greacă pentru călătorie | Greek Steps",
+  title: "Limba greacă pentru călătorie | Greek Steps",
   description: "Expresii grecești utile pentru călătorie, de la Kaliméra la Kaló taxídi, alături de Greek Steps.",
   openGraph: {
-    title: "Greacă pentru călătorie | Greek Steps",
+    title: "Limba greacă pentru călătorie | Greek Steps",
     description: "Câteva cuvinte în greacă pentru o călătorie mai aproape de Grecia.",
     siteName: "Greek Steps",
     type: "article",

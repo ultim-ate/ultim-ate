@@ -32,19 +32,19 @@ export default function GreciaAltfelPage() {
             Tradiții care merg mai departe
           </Link>
           <Link href="/grecia-altfel/greaca-pentru-calatorie" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
-            Greacă pentru călătorie
+            Limba greacă pentru călătorie
           </Link>
           <Link href="/grecia-altfel/arome-sub-soarele-greciei" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
             Arome sub soarele Greciei
-          </Link>
-          <Link href="/grecia-altfel/greek-cats" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
-            Greek Cats
           </Link>
           <Link href="/grecia-altfel/ceai-de-munte" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
             Grecia într-o ceașcă
           </Link>
           <Link href="/grecia-altfel/mastiha" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
             Mastiha – lacrimile parfumate ale insulei Chios
+          </Link>
+          <Link href="/grecia-altfel/greek-cats" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
+            Greek Cats
           </Link>
           <Link href="/grecia-altfel/farfurii-sparte" className="text-xl font-extrabold text-[var(--culture-heading)] underline-offset-4 hover:underline md:text-2xl">
             De la muzică la spectacol – povestea farfuriilor sparte

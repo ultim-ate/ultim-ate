@@ -16,6 +16,12 @@ const featuredTravels: Travel[] = [
     alt: "Capelă albă cicladică la apus, cu soarele coborând la orizont în Santorini",
     gallery: [
       {
+        src: "/images/santorini/piscina-infinity.jpg",
+        alt: "Femeie sprijinită de marginea unei piscine infinity, cu satul alb din Santorini în fundal",
+        width: 1152,
+        height: 2048,
+      },
+      {
         src: "/images/santorini/caldera-apus.jpg",
         alt: "Apus deasupra calderei din Santorini, cu vase de croazieră și străduțe albe în prim-plan",
         width: 2048,
@@ -58,7 +64,21 @@ const featuredTravels: Travel[] = [
   { slug: "meteora", title: "Meteora", image: "/images/meteora.jpg", alt: "Mănăstirile de la Meteora" },
   { slug: "atena", title: "Atena", image: "/images/athens-acropolis.jpg", alt: "Acropola din Atena" },
   { slug: "creta", title: "Creta", image: "/images/crete-beach.jpg", alt: "Plajă din Creta" },
-  { slug: "mykonos", title: "Mykonos", image: "/images/mykonos.jpg", alt: "Case albe din Mykonos" },
+  {
+    slug: "mykonos",
+    title: "Mykonos",
+    image: "/images/mykonos.jpg",
+    alt: "Case albe din Mykonos",
+    gallery: [
+      { src: "/images/mykonos/apus-stanci.jpg", alt: "Apus de soare deasupra mării, văzut de pe stâncile din Mykonos", width: 2048, height: 1536 },
+      { src: "/images/mykonos/scara-albastra.jpg", alt: "Scară albă cu balustradă albastră, decorată cu uși miniaturale și ochi grecești", width: 1536, height: 2048 },
+      { src: "/images/mykonos/caine-mare.jpg", alt: "Câine cu o minge în gură, stând în apa limpede de lângă țărm", width: 1152, height: 2048 },
+      { src: "/images/mykonos/iaht-noaptea.jpg", alt: "Iaht luminat noaptea în port, cu luminile orașului Mykonos în fundal", width: 2048, height: 1536 },
+      { src: "/images/mykonos/zid-mesaj.jpg", alt: "Femeie în ținută albastru cu alb, sprijinită de un zid alb cu un mesaj scris de mână", width: 1080, height: 1920 },
+      { src: "/images/mykonos/taverna-bougainvillea.jpg", alt: "Tavernă seara, cu mese albe și copaci de bougainvillea roz", width: 1536, height: 2048 },
+      { src: "/images/mykonos/oglinda-plaja.jpg", alt: "Oglindă cu ramă de lemn care reflectă terasa și plaja turcoaz", width: 2048, height: 1536 },
+    ],
+  },
 ]
 
 const moreTravelTitles = [
