@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
+import { IdentificationDocuments } from "@/components/identification-documents"
 import { ComingSoon, LightSeaPage } from "@/components/light-sea-page"
 import { footerPages, getFooterPage } from "@/lib/footer-pages"
 
@@ -18,7 +19,11 @@ export default async function FooterInfoPage({ params }: { params: Promise<{ slu
 
   return (
     <LightSeaPage>
-      <ComingSoon title={page.title} />
+      {page.slug === "documente-de-identificare" ? (
+        <IdentificationDocuments title={page.title} />
+      ) : (
+        <ComingSoon title={page.title} />
+      )}
     </LightSeaPage>
   )
 }
