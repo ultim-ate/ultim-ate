@@ -51,7 +51,7 @@ export default function CursuriLimbaGreacaPage() {
           </ul>
 
           <section aria-labelledby="despre-formator" className="flex flex-col gap-4">
-            <h2 id="despre-formator" className="text-xl font-bold text-[var(--culture-heading)] md:text-2xl">
+            <h2 id="despre-formator" className="text-xl font-semibold text-[var(--culture-heading)] md:text-2xl">
               Despre formator
             </h2>
             <p className="text-base leading-relaxed">
@@ -66,7 +66,7 @@ export default function CursuriLimbaGreacaPage() {
               sizes="(min-width: 640px) 360px, 100vw"
               className="h-auto w-full max-w-sm rounded-lg shadow-md"
             />
-            <p className="text-base font-semibold leading-relaxed">
+            <p className="text-base leading-relaxed">
               Lecțiile combină experiența în predarea limbilor străine cu materiale proprii, exerciții interactive și
               resurse autentice, adaptate vârstei, nivelului și obiectivelor fiecărui cursant.
             </p>
@@ -80,7 +80,7 @@ export default function CursuriLimbaGreacaPage() {
               className="h-auto w-full rounded-lg shadow-md"
             />
 
-            <div className="flex flex-col gap-2 text-xl font-bold text-[var(--culture-heading)] lining-nums md:text-2xl">
+            <div className="flex flex-col gap-1 text-base leading-relaxed lining-nums">
               <p>Niveluri disponibile: A0 – B1</p>
               <p className="text-pretty">Învață greaca și apropie-te și mai mult de locul pe care îl iubești!</p>
               <p className="text-pretty">
@@ -101,7 +101,15 @@ export default function CursuriLimbaGreacaPage() {
               Pregătim ieșiri atipice, ateliere urbane, drumeții lejere de weekend, create pentru deconectare, conexiune
               și exersarea limbilor străine.
             </p>
-            <p className="text-base font-semibold leading-relaxed">În curând – Noi programe de grup</p>
+            <p className="text-base leading-relaxed">În curând – Noi programe de grup</p>
+            <Image
+              src="/images/greek-steps-logo.jpg"
+              alt="Greek Steps – Pentru cei cu suflet Elen. Travel – Language"
+              width={1440}
+              height={486}
+              sizes="288px"
+              className="h-auto w-full max-w-72 rounded-md"
+            />
           </section>
 
           <div className="flex flex-col gap-8">
