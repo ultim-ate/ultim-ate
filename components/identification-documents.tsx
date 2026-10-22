@@ -9,14 +9,13 @@ const brevet: DocumentImage = {
   height: 2048,
 }
 
-const iataDiploma: DocumentImage = {
-  src: "/images/documente/diploma-iata-uftaa.jpg",
-  alt: "Diplomă IATA/UFTAA Foundation & EBT Course, Montreal, septembrie 2004, acordată Lianei Anton",
-  width: 1494,
-  height: 1052,
-}
-
 const certificates: DocumentImage[] = [
+  {
+    src: "/images/documente/diploma-iata-uftaa.jpg",
+    alt: "Diplomă IATA/UFTAA Foundation & EBT Course, Montreal, septembrie 2004, acordată Lianei Anton",
+    width: 1494,
+    height: 1052,
+  },
   {
     src: "/images/documente/certificat-iata-bsp.jpeg",
     alt: "Certificat IATA BSP Training, IDFS Romania, mai 2004",
@@ -37,41 +36,41 @@ const certificates: DocumentImage[] = [
   },
 ]
 
+function DocumentCard({ doc, priority = false }: { doc: DocumentImage; priority?: boolean }) {
+  return (
+    <a
+      href={doc.src}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block overflow-hidden rounded-md shadow-lg transition-transform duration-300 hover:scale-[1.02]"
+    >
+      <Image
+        src={doc.src}
+        alt={doc.alt}
+        width={doc.width}
+        height={doc.height}
+        priority={priority}
+        sizes="(min-width: 1024px) 270px, (min-width: 640px) 50vw, 100vw"
+        className="h-auto w-full"
+      />
+      <span className="sr-only">(deschide la dimensiune completă)</span>
+    </a>
+  )
+}
+
 export function IdentificationDocuments({ title }: { title: string }) {
   return (
-    <div className="mx-auto flex max-w-5xl flex-col gap-8 px-6 pb-20 pt-40 lg:px-8 lg:pt-48">
+    <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-20 pt-40 lg:px-8 lg:pt-48">
       <h1 className="text-3xl font-bold uppercase tracking-wide md:text-4xl">{title}</h1>
 
-      <Image
-        src={brevet.src}
-        alt={brevet.alt}
-        width={brevet.width}
-        height={brevet.height}
-        priority
-        sizes="(min-width: 768px) 560px, 100vw"
-        className="mx-auto h-auto w-full max-w-xl rounded-md shadow-lg"
-      />
+      <div className="mx-auto w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
+        <DocumentCard doc={brevet} priority />
+      </div>
 
-      <Image
-        src={iataDiploma.src}
-        alt={iataDiploma.alt}
-        width={iataDiploma.width}
-        height={iataDiploma.height}
-        sizes="(min-width: 1024px) 960px, 100vw"
-        className="h-auto w-full rounded-md shadow-lg"
-      />
-
-      <ul className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+      <ul className="grid grid-cols-1 items-start gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {certificates.map((doc) => (
           <li key={doc.src}>
-            <Image
-              src={doc.src}
-              alt={doc.alt}
-              width={doc.width}
-              height={doc.height}
-              sizes="(min-width: 1024px) 310px, (min-width: 640px) 33vw, 100vw"
-              className="aspect-[1.41] h-auto w-full rounded-md object-cover shadow-lg"
-            />
+            <DocumentCard doc={doc} />
           </li>
         ))}
       </ul>

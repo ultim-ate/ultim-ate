@@ -59,17 +59,13 @@ const featuredTravels: Travel[] = [
       },
     ],
   },
-  { slug: "rodos", title: "Rhodos", image: "/images/rhodos.png", alt: "Peisaj din insula Rodos" },
-  { slug: "skiathos", title: "Skiathos", image: "/images/skiathos.png", alt: "Plajă din insula Skiathos" },
-  { slug: "meteora", title: "Meteora", image: "/images/meteora.jpg", alt: "Mănăstirile de la Meteora" },
-  { slug: "atena", title: "Atena", image: "/images/athens-acropolis.jpg", alt: "Acropola din Atena" },
-  { slug: "creta", title: "Creta", image: "/images/crete-beach.jpg", alt: "Plajă din Creta" },
   {
     slug: "mykonos",
     title: "Mykonos",
-    image: "/images/mykonos.jpg",
-    alt: "Case albe din Mykonos",
+    image: "/images/mykonos/scari-perne-galbene.jpg",
+    alt: "Trepte albe cu balustradă albastră, perne galbene și lumânări într-o cafenea din Mykonos",
     gallery: [
+      { src: "/images/mykonos/plaja-palmier.jpg", alt: "Plajă din Mykonos cu palmier, șezlonguri din macrameu și bărci în golf", width: 2048, height: 1536 },
       { src: "/images/mykonos/apus-stanci.jpg", alt: "Apus de soare deasupra mării, văzut de pe stâncile din Mykonos", width: 2048, height: 1536 },
       { src: "/images/mykonos/scara-albastra.jpg", alt: "Scară albă cu balustradă albastră, decorată cu uși miniaturale și ochi grecești", width: 1536, height: 2048 },
       { src: "/images/mykonos/caine-mare.jpg", alt: "Câine cu o minge în gură, stând în apa limpede de lângă țărm", width: 1152, height: 2048 },
@@ -79,6 +75,11 @@ const featuredTravels: Travel[] = [
       { src: "/images/mykonos/oglinda-plaja.jpg", alt: "Oglindă cu ramă de lemn care reflectă terasa și plaja turcoaz", width: 2048, height: 1536 },
     ],
   },
+  { slug: "rodos", title: "Rhodos", image: "/images/rhodos.png", alt: "Peisaj din insula Rodos" },
+  { slug: "skiathos", title: "Skiathos", image: "/images/skiathos.png", alt: "Plajă din insula Skiathos" },
+  { slug: "meteora", title: "Meteora", image: "/images/meteora.jpg", alt: "Mănăstirile de la Meteora" },
+  { slug: "atena", title: "Atena", image: "/images/athens-acropolis.jpg", alt: "Acropola din Atena" },
+  { slug: "creta", title: "Creta", image: "/images/crete-beach.jpg", alt: "Plajă din Creta" },
 ]
 
 const moreTravelTitles = [
