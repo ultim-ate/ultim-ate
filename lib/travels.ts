@@ -10,6 +10,18 @@ export const TRAVELS_PER_PAGE = 16
 
 const featuredTravels: Travel[] = [
   {
+    slug: "londra",
+    title: "Londra",
+    image: "/images/londra/big-ben.jpg",
+    alt: "Westminster Bridge, Parlamentul și Big Ben sub cerul albastru, cu un pescăruș în zbor deasupra Tamisei",
+    gallery: [
+      { src: "/images/londra/strada-luminite.jpg", alt: "Stradă din Londra noaptea, cu becuri roz și portocalii atârnate deasupra trecătorilor", width: 1152, height: 2048 },
+      { src: "/images/londra/tower-bridge.jpg", alt: "Autobuz roșu etajat traversând Tower Bridge într-o zi înnorată", width: 1536, height: 2048 },
+      { src: "/images/londra/brad-argintiu.jpg", alt: "Brad de Crăciun din sfere argintii și globuri oglindă între clădiri moderne de sticlă", width: 1536, height: 2048 },
+      { src: "/images/londra/cabina-telefonica.jpg", alt: "Cabină telefonică roșie clasică în fața unui bar și restaurant din Londra", width: 1536, height: 2048 },
+    ],
+  },
+  {
     slug: "santorin",
     title: "Santorini",
     image: "/images/santorin-apus.jpg",
@@ -56,6 +68,12 @@ const featuredTravels: Travel[] = [
         alt: "Tricou alb pe umeraș cu inscripția „too old for dicaprio”",
         width: 924,
         height: 2048,
+      },
+      {
+        src: "/images/santorini/piscina-terasa.jpg",
+        alt: "Piscină luminată pe o terasă albă din Santorini la căderea serii, cu trepte iluminate și marea în fundal",
+        width: 1600,
+        height: 739,
       },
     ],
   },
@@ -114,7 +132,6 @@ const moreTravelTitles = [
   "Locuri cu suflet din România",
   "Paris",
   "Castelele de pe Valea Loirei",
-  "Londra",
   "Nessebar",
   "Viscri",
   "Piețele de Crăciun din Europa",
