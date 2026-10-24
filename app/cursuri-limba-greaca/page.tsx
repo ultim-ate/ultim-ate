@@ -102,14 +102,6 @@ export default function CursuriLimbaGreacaPage() {
               și exersarea limbilor străine.
             </p>
             <p className="text-base leading-relaxed">În curând – Noi programe de grup</p>
-            <Image
-              src="/images/greek-steps-logo.jpg"
-              alt="Greek Steps – Pentru cei cu suflet Elen. Travel – Language"
-              width={1440}
-              height={486}
-              sizes="288px"
-              className="h-auto w-full max-w-72 rounded-md"
-            />
           </section>
 
           <div className="flex flex-col gap-8">
@@ -140,6 +132,14 @@ export default function CursuriLimbaGreacaPage() {
               }}
               file="/files/ellinika-gia-to-taxidi-mini-ghid.pdf"
               downloadName="ELLINIKA-GIA-TO-TAXIDI-mini-ghid.pdf"
+            />
+            <Image
+              src="/images/greek-steps-logo.jpg"
+              alt="Greek Steps – Pentru cei cu suflet Elen. Travel – Language"
+              width={1440}
+              height={486}
+              sizes="288px"
+              className="mt-4 h-auto w-full max-w-72 rounded-md"
             />
           </div>
         </div>

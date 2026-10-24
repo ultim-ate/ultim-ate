@@ -19,6 +19,10 @@ const featuredTravels: Travel[] = [
       { src: "/images/londra/tower-bridge.jpg", alt: "Autobuz roșu etajat traversând Tower Bridge într-o zi înnorată", width: 1536, height: 2048 },
       { src: "/images/londra/brad-argintiu.jpg", alt: "Brad de Crăciun din sfere argintii și globuri oglindă între clădiri moderne de sticlă", width: 1536, height: 2048 },
       { src: "/images/londra/cabina-telefonica.jpg", alt: "Cabină telefonică roșie clasică în fața unui bar și restaurant din Londra", width: 1536, height: 2048 },
+      { src: "/images/londra/westminster-abbey.jpg", alt: "Fațada gotică a Westminster Abbey cu rozeta mare, un copac desfrunzit și mulțime de turiști", width: 2048, height: 1536 },
+      { src: "/images/londra/parlament.jpg", alt: "Palatul Westminster și Big Ben văzute de pe Westminster Bridge, deasupra Tamisei", width: 2048, height: 1536 },
+      { src: "/images/londra/autobuz-luminat.jpg", alt: "Autobuz roșu Routemaster decorat cu lumini pe Regent Street, sub îngerii luminoși de Crăciun", width: 1536, height: 2048 },
+      { src: "/images/londra/diana-memorial-walk.jpg", alt: "Plăcuța de bronz Diana Princess of Wales Memorial Walk lângă o pereche de adidași albi", width: 1536, height: 2048 },
     ],
   },
   {
