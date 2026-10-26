@@ -100,17 +100,27 @@ const featuredTravels: Travel[] = [
   {
     slug: "dubai",
     title: "Dubai",
-    image: "/images/dubai/burj-khalifa.jpg",
-    alt: "Burj Khalifa luminat noaptea, cu reflexii în lacul fântânii din Downtown Dubai",
+    image: "/images/dubai/marina-palmier.jpg",
+    alt: "Palmier luminat pe promenada din Dubai Marina noaptea, cu zgârie-nori și iahturi în fundal",
     gallery: [
-      { src: "/images/dubai/marina-palmier.jpg", alt: "Palmier luminat pe promenada din Dubai Marina noaptea, cu zgârie-nori și iahturi în fundal", width: 1600, height: 1200 },
+      { src: "/images/dubai/burj-khalifa.jpg", alt: "Burj Khalifa luminat noaptea, cu reflexii în lacul fântânii din Downtown Dubai", width: 1152, height: 2048 },
       { src: "/images/dubai/desert-portret.jpg", alt: "Femeie cu keffiyeh alb-negru și bluză albă într-o tabără din deșert, în lumina apusului", width: 1080, height: 1920 },
       { src: "/images/dubai/apus-desert.jpg", alt: "Apus de soare portocaliu deasupra dunelor de nisip din deșertul Dubai, cu un SUV în depărtare", width: 1152, height: 2048 },
       { src: "/images/dubai/plaja-jbr.jpg", alt: "Plaja JBR cu umbrele turcoaz și zgârie-nori pe malul mării", width: 1600, height: 1200 },
       { src: "/images/dubai/miracle-garden.jpg", alt: "Roți de moară din lemn înconjurate de petunii colorate în Dubai Miracle Garden", width: 1536, height: 2048 },
     ],
   },
-  { slug: "rodos", title: "Rhodos", image: "/images/rhodos.png", alt: "Peisaj din insula Rodos" },
+  {
+    slug: "viscri",
+    title: "Viscri",
+    image: "/images/viscri/case-albastre.jpg",
+    alt: "Case săsești albastre cu acoperișuri de țiglă roșie, fântână și pajiște verde în Viscri",
+    gallery: [
+      { src: "/images/viscri/biserica-fortificata.jpg", alt: "Biserica fortificată din Viscri, cu ziduri albe și turnuri cu acoperiș roșu sub cer senin", width: 739, height: 1600 },
+      { src: "/images/viscri/masina-rosie.jpg", alt: "Femeie lângă o mașină roșie de epocă, pe o ulicioară pietruită din Viscri", width: 2000, height: 924 },
+      { src: "/images/viscri/oi.jpg", alt: "Turmă de oi și miei odihnindu-se la umbra copacilor în Viscri", width: 2000, height: 924 },
+    ],
+  },
   { slug: "skiathos", title: "Skiathos", image: "/images/skiathos.png", alt: "Plajă din insula Skiathos" },
   { slug: "meteora", title: "Meteora", image: "/images/meteora.jpg", alt: "Mănăstirile de la Meteora" },
   { slug: "atena", title: "Atena", image: "/images/athens-acropolis.jpg", alt: "Acropola din Atena" },
@@ -149,7 +159,6 @@ const moreTravelTitles = [
   "Paris",
   "Castelele de pe Valea Loirei",
   "Nessebar",
-  "Viscri",
   "Piețele de Crăciun din Europa",
 ]
 
