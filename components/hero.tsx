@@ -22,11 +22,11 @@ export function Hero() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+        <div className="absolute inset-0 bg-[#0b2545]/45" aria-hidden="true" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 pt-36 md:pt-48 text-center text-white">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 pt-36 md:pt-48 text-center text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.35)]">
         <div
           className={`transition-all duration-1000 delay-300 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
