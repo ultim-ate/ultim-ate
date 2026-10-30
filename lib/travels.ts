@@ -3,7 +3,11 @@ export type Travel = {
   title: string
   image?: string
   alt?: string
+  imagePosition?: string
+  cover?: { width: number; height: number }
+  galleryLayout?: "rows" | "stacked"
   gallery?: { src: string; alt: string; width: number; height: number }[]
+  children?: Travel[]
 }
 
 export const TRAVELS_PER_PAGE = 16
@@ -126,11 +130,52 @@ const featuredTravels: Travel[] = [
       { src: "/images/viscri/poarta-lana.jpg", alt: "Poartă săsească albastră cu obiecte tricotate din lână expuse spre vânzare", width: 1600, height: 739 },
     ],
   },
-  { slug: "skiathos", title: "Skiathos", image: "/images/skiathos.png", alt: "Plajă din insula Skiathos" },
-  { slug: "meteora", title: "Meteora", image: "/images/meteora.jpg", alt: "Mănăstirile de la Meteora" },
-  { slug: "atena", title: "Atena", image: "/images/athens-acropolis.jpg", alt: "Acropola din Atena" },
-  { slug: "creta", title: "Creta", image: "/images/crete-beach.jpg", alt: "Plajă din Creta" },
+  {
+    slug: "locuri-cu-suflet-din-romania",
+    title: "Locuri cu suflet din România",
+    image: "/images/romania/cai-pasune.jpg",
+    alt: "Cai albi și un cal negru păscând pe o pajiște verde, cu un câine alb, ferme cu acoperișuri roșii și dealuri în fundal",
+  },
+  {
+    slug: "magie-de-halloween",
+    title: "Magie de Halloween",
+    image: "/images/halloween/schelete-bran.jpg",
+    alt: "Statui de schelete cu picături de ploaie, unul cu coroniță de margarete, cu Castelul Bran în ceață în fundal",
+    imagePosition: "object-[center_30%]",
+    cover: { width: 924, height: 2000 },
+    galleryLayout: "stacked",
+    gallery: [
+      { src: "/images/halloween/gradina-noaptea.jpg", alt: "Grădină la căderea nopții cu felinare, un amfora luminat și copaci în lumină roșie sub turnul castelului", width: 1536, height: 2048 },
+      { src: "/images/halloween/mireasa-fantoma.jpg", alt: "Mireasă fantomă cu voal alb într-o vitrină, cu un craniu, un corb și trandafiri roșii", width: 1500, height: 2000 },
+      { src: "/images/halloween/masca.jpg", alt: "Personaj cu mască înfricoșătoare și tricou pătat, sub pânze de păianjen, în fața unui local", width: 1536, height: 2048 },
+      { src: "/images/halloween/schelet-sicriu.jpg", alt: "Schelet întins pe un sicriu de piatră, între cruci, un corb, dovleci și frunze de toamnă", width: 1536, height: 2048 },
+      { src: "/images/halloween/schelete-sarut.jpg", alt: "Două schelete care se sărută pe baloți de paie, cu un trandafir roșu, crizanteme și un dovleac", width: 1536, height: 2048 },
+    ],
+  },
+  { slug: "pietele-de-craciun-din-europa", title: "Piețele de Crăciun din Europa" },
 ]
+
+const bySlug = (slug: string) => featuredTravels.find((travel) => travel.slug === slug)!
+
+bySlug("locuri-cu-suflet-din-romania").children = [bySlug("viscri")]
+
+export const travels: Travel[] = [
+  "santorin",
+  "mykonos",
+  "dubai",
+  "locuri-cu-suflet-din-romania",
+  "magie-de-halloween",
+  "londra",
+  "pietele-de-craciun-din-europa",
+].map(bySlug)
+
+export function getTravel(slug: string) {
+  return travels.find((travel) => travel.slug === slug)
+}
+
+export function getSubTravel(parentSlug: string, slug: string) {
+  return getTravel(parentSlug)?.children?.find((travel) => travel.slug === slug)
+}
 
 const moreTravelTitles = [
   "Nisa",
