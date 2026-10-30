@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
-import Image from "next/image"
 import Link from "next/link"
 import { LightSeaPage } from "@/components/light-sea-page"
+import { TravelCard } from "@/components/travel-detail"
 import { TRAVELS_PER_PAGE, travels } from "@/lib/travels"
 
 export const metadata: Metadata = {
@@ -38,27 +38,7 @@ export default async function DinCalatoriileMelePage({
         <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {pageTravels.map((travel) => (
             <li key={travel.slug} className="flex">
-              <Link href={`/din-calatoriile-mele/${travel.slug}`} className="group flex w-full flex-col justify-end gap-3">
-                <h2 className="text-lg font-bold uppercase tracking-wide underline-offset-4 group-hover:underline">
-                  {travel.title}
-                </h2>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-[var(--course-surface)]/60 ring-1 ring-current/15">
-                  {travel.image ? (
-                    <Image
-                      src={travel.image}
-                      alt={travel.alt ?? travel.title}
-                      fill
-                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="flex h-full flex-col items-center justify-center gap-1 p-4 text-center">
-                      <span className="text-balance text-xl font-semibold">{travel.title}</span>
-                      <span className="text-sm italic opacity-70">Fotografii în curând</span>
-                    </div>
-                  )}
-                </div>
-              </Link>
+              <TravelCard travel={travel} href={`/din-calatoriile-mele/${travel.slug}`} />
             </li>
           ))}
         </ul>

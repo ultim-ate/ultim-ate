@@ -5,17 +5,17 @@ import Link from "next/link"
 import { ChevronDown, Heart, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { exploreLinks } from "@/lib/explore"
+import { customTripLinks, customTripsLabel, exploreLinks } from "@/lib/explore"
 import { LanguageSwitcher } from "@/components/language-switcher"
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Destinații", href: "#destinations" },
-  { name: "Explorează", href: "explore" },
-  { name: "Planifică vacanța", href: "#contact" },
+  { name: "Planifică vacanța", href: "explore" },
   { name: "Din Călătoriile Mele", href: "/din-calatoriile-mele" },
   { name: "Grecia Altfel", href: "/grecia-altfel" },
   { name: "Cursuri limba greacă", href: "/cursuri-limba-greaca" },
+  { name: "B2B/Parteneri", href: "/exploreaza/b2b-parteneri" },
   { name: "Contact", href: "/contact" },
 ]
 
@@ -37,6 +37,7 @@ function LogoStairs() {
 export function Header({ solid = false }: { solid?: boolean }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isCustomTripsOpen, setIsCustomTripsOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -121,6 +122,30 @@ export function Header({ solid = false }: { solid?: boolean }) {
                         <Link href={`/exploreaza/${item.slug}`}>{item.name}</Link>
                       </DropdownMenuItem>
                     ))}
+                    <DropdownMenuItem
+                      onSelect={(event) => {
+                        event.preventDefault()
+                        setIsCustomTripsOpen((open) => !open)
+                      }}
+                      aria-expanded={isCustomTripsOpen}
+                      className="cursor-pointer justify-between rounded-none px-4 py-3 text-base text-background focus:bg-background/15 focus:text-background"
+                    >
+                      {customTripsLabel}
+                      <ChevronDown
+                        className={`size-4 text-background transition-transform ${isCustomTripsOpen ? "rotate-180" : ""}`}
+                        aria-hidden="true"
+                      />
+                    </DropdownMenuItem>
+                    {isCustomTripsOpen &&
+                      customTripLinks.map((item) => (
+                        <DropdownMenuItem
+                          key={item.slug}
+                          asChild
+                          className="cursor-pointer rounded-none py-2.5 pl-8 pr-4 text-base text-background/85 focus:bg-background/15 focus:text-background"
+                        >
+                          <Link href={`/exploreaza/${item.slug}`}>{item.name}</Link>
+                        </DropdownMenuItem>
+                      ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
@@ -160,6 +185,27 @@ export function Header({ solid = false }: { solid?: boolean }) {
                           </Link>
                         </li>
                       ))}
+                      <li>
+                        <details className="group/custom">
+                          <summary className="flex cursor-pointer list-none items-center justify-between py-2 text-base text-foreground">
+                            {customTripsLabel}
+                            <ChevronDown className="size-4 transition-transform group-open/custom:rotate-180" aria-hidden="true" />
+                          </summary>
+                          <ul className="flex flex-col gap-1 border-l border-border pl-4">
+                            {customTripLinks.map((item) => (
+                              <li key={item.slug}>
+                                <Link
+                                  href={`/exploreaza/${item.slug}`}
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                  className="block py-2 text-base text-foreground hover:text-primary"
+                                >
+                                  {item.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </details>
+                      </li>
                     </ul>
                   </details>
                 ) : (

@@ -1,10 +1,10 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { LightSeaPage } from "@/components/light-sea-page"
-import { exploreLinks, getExploreLink } from "@/lib/explore"
+import { getAllExploreLinks, getExploreLink } from "@/lib/explore"
 
 export function generateStaticParams() {
-  return exploreLinks.map((link) => ({ slug: link.slug }))
+  return getAllExploreLinks().map((link) => ({ slug: link.slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
