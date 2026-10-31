@@ -163,10 +163,11 @@ export const travels: Travel[] = [
   "santorin",
   "mykonos",
   "dubai",
+  "londra",
+  "viscri",
+  "pietele-de-craciun-din-europa",
   "locuri-cu-suflet-din-romania",
   "magie-de-halloween",
-  "londra",
-  "pietele-de-craciun-din-europa",
 ].map(bySlug)
 
 export function getTravel(slug: string) {
@@ -175,57 +176,4 @@ export function getTravel(slug: string) {
 
 export function getSubTravel(parentSlug: string, slug: string) {
   return getTravel(parentSlug)?.children?.find((travel) => travel.slug === slug)
-}
-
-const moreTravelTitles = [
-  "Nisa",
-  "Eze",
-  "Menton",
-  "Cannes",
-  "Sisi",
-  "Matala",
-  "Mallorca",
-  "Tenerife",
-  "Viena",
-  "Algarve",
-  "Lisabona",
-  "Milano",
-  "Roma",
-  "Pisa",
-  "Florența",
-  "Amalfi",
-  "Berlin",
-  "München",
-  "Disneyland",
-  "Gardaland",
-  "Europa Park",
-  "Colmar",
-  "Loro Parque",
-  "Siam Park",
-  "Bruxelles",
-  "Antwerp",
-  "Amsterdam",
-  "Locuri cu suflet din România",
-  "Paris",
-  "Castelele de pe Valea Loirei",
-  "Nessebar",
-  "Piețele de Crăciun din Europa",
-]
-
-function slugify(text: string) {
-  return text
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "")
-}
-
-export const travels: Travel[] = [
-  ...featuredTravels,
-  ...moreTravelTitles.map((title) => ({ slug: slugify(title), title })),
-]
-
-export function getTravel(slug: string) {
-  return travels.find((travel) => travel.slug === slug)
 }

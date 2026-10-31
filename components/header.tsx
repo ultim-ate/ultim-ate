@@ -11,11 +11,11 @@ import { LanguageSwitcher } from "@/components/language-switcher"
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Destinații", href: "#destinations" },
-  { name: "Planifică vacanța", href: "explore" },
+  { name: "Explorează", href: "explore" },
   { name: "Din Călătoriile Mele", href: "/din-calatoriile-mele" },
   { name: "Grecia Altfel", href: "/grecia-altfel" },
   { name: "Cursuri limba greacă", href: "/cursuri-limba-greaca" },
-  { name: "B2B/Parteneri", href: "/exploreaza/b2b-parteneri" },
+  { name: "B2B", href: "/exploreaza/b2b-parteneri" },
   { name: "Contact", href: "/contact" },
 ]
 
@@ -95,7 +95,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden lg:mt-4 lg:flex lg:h-12 lg:items-center lg:justify-between lg:gap-6">
+        <ul className="hidden lining-nums lg:mt-4 lg:flex lg:h-12 lg:items-center lg:justify-between lg:gap-6">
           {navLinks.map((link) => (
             <li key={link.name}>
               {link.href === "explore" ? (
@@ -165,7 +165,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-background/98 backdrop-blur-md absolute top-20 left-0 right-0 border-t border-border">
-            <div className="flex flex-col py-6 px-6 gap-4">
+            <div className="flex flex-col py-6 px-6 gap-4 lining-nums">
               {navLinks.map((link) =>
                 link.href === "explore" ? (
                   <details key={link.name} className="group">
