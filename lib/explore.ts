@@ -1,8 +1,8 @@
 export type ExploreLink = { slug: string; name: string }
 
 export const exploreLinks: ExploreLink[] = [
-  { slug: "odyssey", name: "Odyssey – Imersiune lingvistică în Grecia" },
   { slug: "nostos", name: "Nostos – Feel Romania" },
+  { slug: "odyssey", name: "Odyssey – Imersiune lingvistică în Grecia" },
 ]
 
 export const customTripsLabel = "Călătorii personalizate"
