@@ -150,9 +150,19 @@ const featuredTravels: Travel[] = [
       { src: "/images/halloween/masca.jpg", alt: "Personaj cu mască înfricoșătoare și tricou pătat, sub pânze de păianjen, în fața unui local", width: 1536, height: 2048 },
       { src: "/images/halloween/schelet-sicriu.jpg", alt: "Schelet întins pe un sicriu de piatră, între cruci, un corb, dovleci și frunze de toamnă", width: 1536, height: 2048 },
       { src: "/images/halloween/schelete-sarut.jpg", alt: "Două schelete care se sărută pe baloți de paie, cu un trandafir roșu, crizanteme și un dovleac", width: 1536, height: 2048 },
+      { src: "/images/halloween/biserica-neagra.jpg", alt: "Biserica Neagră din Brașov sub un cer înnorat de toamnă, cu trecători în piață", width: 1500, height: 2000 },
+      { src: "/images/halloween/dracula.jpg", alt: "Statuie a lui Dracula lângă o butucă de lemn cu picioare prinse, un vultur, dovleci și frunze de toamnă", width: 1536, height: 2048 },
+      { src: "/images/halloween/terasa-panze.jpg", alt: "Terasă decorată de Halloween cu schelet uriaș, pânze de păianjen, lumini și un personaj mascat în salopetă roșie", width: 2048, height: 1536 },
     ],
   },
-  { slug: "pietele-de-craciun-din-europa", title: "Piețele de Crăciun din Europa" },
+  {
+    slug: "pietele-de-craciun-din-europa",
+    title: "Piețele de Crăciun din Europa",
+    image: "/images/craciun/viena-stephansdom.jpg",
+    alt: "Catedrala Sfântul Ștefan din Viena noaptea, luminată în roșu, cu bradul de Crăciun și târgul în față",
+    imagePosition: "object-[center_70%]",
+    cover: { width: 900, height: 1600 },
+  },
 ]
 
 const bySlug = (slug: string) => featuredTravels.find((travel) => travel.slug === slug)!
@@ -164,7 +174,6 @@ export const travels: Travel[] = [
   "mykonos",
   "dubai",
   "londra",
-  "viscri",
   "pietele-de-craciun-din-europa",
   "locuri-cu-suflet-din-romania",
   "magie-de-halloween",

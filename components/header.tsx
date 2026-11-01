@@ -11,13 +11,29 @@ import { LanguageSwitcher } from "@/components/language-switcher"
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Destinații", href: "#destinations" },
-  { name: "Explorează", href: "explore" },
+  { name: "Planifică vacanța", href: "explore" },
   { name: "Din Călătoriile Mele", href: "/din-calatoriile-mele" },
   { name: "Grecia Altfel", href: "/grecia-altfel" },
   { name: "Cursuri limba greacă", href: "/cursuri-limba-greaca" },
-  { name: "B2B", href: "/exploreaza/b2b-parteneri" },
+  { name: "B2B/ Parteneri", href: "/exploreaza/b2b-parteneri" },
   { name: "Contact", href: "/contact" },
 ]
+
+function NavLabel({ name }: { name: string }) {
+  return (
+    <>
+      {name.split(/(\d+)/).map((part, i) =>
+        /^\d+$/.test(part) ? (
+          <span key={i} className="font-[family-name:var(--font-sans)] text-[0.92em]">
+            {part}
+          </span>
+        ) : (
+          part
+        ),
+      )}
+    </>
+  )
+}
 
 const stairWidths = ["w-2.5", "w-4", "w-6", "w-8", "w-10", "w-12"]
 
@@ -111,7 +127,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
                   <DropdownMenuContent
                     align="start"
                     sideOffset={12}
-                    className="w-64 rounded-none border-none bg-foreground p-0 py-1 text-background shadow-xl"
+                    className="w-64 rounded-none border-none bg-(--logo-navy) p-0 py-1 text-background shadow-xl"
                   >
                     {exploreLinks.map((item) => (
                       <DropdownMenuItem
@@ -155,7 +171,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
                   (solid || isScrolled) ? "text-foreground" : "text-white"
                 }`}
               >
-                {link.name}
+                <NavLabel name={link.name} />
               </Link>
               )}
             </li>
@@ -215,7 +231,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-base font-semibold uppercase tracking-wide text-foreground py-2 hover:text-primary transition-colors"
                 >
-                  {link.name}
+                  <NavLabel name={link.name} />
                 </Link>
                 ),
               )}
