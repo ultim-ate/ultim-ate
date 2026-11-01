@@ -14,7 +14,7 @@ export const customTripLinks: ExploreLink[] = [
   { slug: "family-adventures", name: "Family Adventures" },
 ]
 
-const allExploreLinks = [...exploreLinks, ...customTripLinks, { slug: "b2b-parteneri", name: "B2B/Parteneri" }]
+const allExploreLinks = [...exploreLinks, ...customTripLinks, { slug: "b2b-parteneri", name: "B2B/ Parteneri" }]
 
 export function getAllExploreLinks() {
   return allExploreLinks
