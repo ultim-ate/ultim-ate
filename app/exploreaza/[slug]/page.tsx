@@ -4,7 +4,25 @@ import { LightSeaPage } from "@/components/light-sea-page"
 import { getAllExploreLinks, getExploreLink } from "@/lib/explore"
 
 const partnerBenefits = ["Comisioane avantajoase", "Asistență și suport dedicat", "Colaborare pe termen lung"]
-const partnerAudience = ["Agenții partenere & companii", "Ghizi de turism", "Bloggeri & creatori de conținut de travel"]
+const partnerAudience = [
+  "Agenții partenere & companii",
+  "Ghizi de turism",
+  "Bloggeri & creatori de conținut de travel",
+  "Profesori & cadre didactice",
+  "Școli private & afterschools",
+]
+
+function BulletList({ items }: { items: string[] }) {
+  return (
+    <ul className="flex list-disc flex-col gap-2 pl-10 text-lg leading-relaxed marker:text-[1.3em] md:text-xl">
+      {items.map((item) => (
+        <li key={item} className="pl-1">
+          {item}
+        </li>
+      ))}
+    </ul>
+  )
+}
 
 function B2BContent() {
   return (
@@ -15,13 +33,7 @@ function B2BContent() {
       </p>
       <section className="flex flex-col gap-4">
         <h2 className="text-2xl font-bold uppercase tracking-wide">Beneficiile parteneriatului</h2>
-        <ul className="flex flex-col gap-2 text-lg leading-relaxed md:text-xl">
-          {partnerBenefits.map((item) => (
-            <li key={item} className="border-l-2 border-current pl-4">
-              {item}
-            </li>
-          ))}
-        </ul>
+        <BulletList items={partnerBenefits} />
       </section>
       <section className="flex flex-col gap-4">
         <h2 className="text-2xl font-bold uppercase tracking-wide">Cui se adresează</h2>
@@ -29,13 +41,7 @@ function B2BContent() {
           Programul nostru este dedicat tuturor celor care doresc să ofere comunității lor experiențe de călătorie și
           învățare:
         </p>
-        <ul className="flex flex-col gap-2 text-lg leading-relaxed md:text-xl">
-          {partnerAudience.map((item) => (
-            <li key={item} className="border-l-2 border-current pl-4">
-              {item}
-            </li>
-          ))}
-        </ul>
+        <BulletList items={partnerAudience} />
       </section>
     </div>
   )

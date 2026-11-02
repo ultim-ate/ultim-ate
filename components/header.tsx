@@ -1,11 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { Fragment, useState, useEffect } from "react"
 import Link from "next/link"
 import { ChevronDown, Heart, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { customTripLinks, customTripsLabel, exploreLinks } from "@/lib/explore"
+import { exploreMenu, isExploreGroup } from "@/lib/explore"
 import { LanguageSwitcher } from "@/components/language-switcher"
 
 const navLinks = [
@@ -24,7 +24,7 @@ function NavLabel({ name }: { name: string }) {
     <>
       {name.split(/(\d+)/).map((part, i) =>
         /^\d+$/.test(part) ? (
-          <span key={i} className="font-[family-name:var(--font-sans)] text-[0.92em]">
+          <span key={i} className="font-[family-name:var(--font-sans)] text-[0.92em] font-normal">
             {part}
           </span>
         ) : (
@@ -53,7 +53,7 @@ function LogoStairs() {
 export function Header({ solid = false }: { solid?: boolean }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isCustomTripsOpen, setIsCustomTripsOpen] = useState(false)
+  const [openGroup, setOpenGroup] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -129,39 +129,44 @@ export function Header({ solid = false }: { solid?: boolean }) {
                     sideOffset={12}
                     className="w-64 rounded-none border-none bg-(--logo-navy) p-0 py-1 text-background shadow-xl"
                   >
-                    {exploreLinks.map((item) => (
-                      <DropdownMenuItem
-                        key={item.slug}
-                        asChild
-                        className="cursor-pointer rounded-none px-4 py-3 text-base text-background focus:bg-background/15 focus:text-background"
-                      >
-                        <Link href={`/exploreaza/${item.slug}`}>{item.name}</Link>
-                      </DropdownMenuItem>
-                    ))}
-                    <DropdownMenuItem
-                      onSelect={(event) => {
-                        event.preventDefault()
-                        setIsCustomTripsOpen((open) => !open)
-                      }}
-                      aria-expanded={isCustomTripsOpen}
-                      className="cursor-pointer justify-between rounded-none px-4 py-3 text-base text-background focus:bg-background/15 focus:text-background"
-                    >
-                      {customTripsLabel}
-                      <ChevronDown
-                        className={`size-4 text-background transition-transform ${isCustomTripsOpen ? "rotate-180" : ""}`}
-                        aria-hidden="true"
-                      />
-                    </DropdownMenuItem>
-                    {isCustomTripsOpen &&
-                      customTripLinks.map((item) => (
+                    {exploreMenu.map((item) =>
+                      isExploreGroup(item) ? (
+                        <Fragment key={item.label}>
+                          <DropdownMenuItem
+                            onSelect={(event) => {
+                              event.preventDefault()
+                              setOpenGroup((open) => (open === item.label ? null : item.label))
+                            }}
+                            aria-expanded={openGroup === item.label}
+                            className="cursor-pointer justify-between rounded-none px-4 py-3 text-base text-background focus:bg-background/15 focus:text-background"
+                          >
+                            {item.label}
+                            <ChevronDown
+                              className={`size-4 text-background transition-transform ${openGroup === item.label ? "rotate-180" : ""}`}
+                              aria-hidden="true"
+                            />
+                          </DropdownMenuItem>
+                          {openGroup === item.label &&
+                            item.children.map((child) => (
+                              <DropdownMenuItem
+                                key={child.slug}
+                                asChild
+                                className="cursor-pointer rounded-none py-2.5 pl-8 pr-4 text-base text-background/85 focus:bg-background/15 focus:text-background"
+                              >
+                                <Link href={`/exploreaza/${child.slug}`}>{child.name}</Link>
+                              </DropdownMenuItem>
+                            ))}
+                        </Fragment>
+                      ) : (
                         <DropdownMenuItem
                           key={item.slug}
                           asChild
-                          className="cursor-pointer rounded-none py-2.5 pl-8 pr-4 text-base text-background/85 focus:bg-background/15 focus:text-background"
+                          className="cursor-pointer rounded-none px-4 py-3 text-base text-background focus:bg-background/15 focus:text-background"
                         >
                           <Link href={`/exploreaza/${item.slug}`}>{item.name}</Link>
                         </DropdownMenuItem>
-                      ))}
+                      ),
+                    )}
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
@@ -190,38 +195,41 @@ export function Header({ solid = false }: { solid?: boolean }) {
                       <ChevronDown className="size-4 transition-transform group-open:rotate-180" aria-hidden="true" />
                     </summary>
                     <ul className="flex flex-col gap-1 border-l border-border pl-4">
-                      {exploreLinks.map((item) => (
-                        <li key={item.slug}>
-                          <Link
-                            href={`/exploreaza/${item.slug}`}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="block py-2 text-base text-foreground hover:text-primary"
-                          >
-                            {item.name}
-                          </Link>
-                        </li>
-                      ))}
-                      <li>
-                        <details className="group/custom">
-                          <summary className="flex cursor-pointer list-none items-center justify-between py-2 text-base text-foreground">
-                            {customTripsLabel}
-                            <ChevronDown className="size-4 transition-transform group-open/custom:rotate-180" aria-hidden="true" />
-                          </summary>
-                          <ul className="flex flex-col gap-1 border-l border-border pl-4">
-                            {customTripLinks.map((item) => (
-                              <li key={item.slug}>
-                                <Link
-                                  href={`/exploreaza/${item.slug}`}
-                                  onClick={() => setIsMobileMenuOpen(false)}
-                                  className="block py-2 text-base text-foreground hover:text-primary"
-                                >
-                                  {item.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </details>
-                      </li>
+                      {exploreMenu.map((item) =>
+                        isExploreGroup(item) ? (
+                          <li key={item.label}>
+                            <details className="group/sub">
+                              <summary className="flex cursor-pointer list-none items-center justify-between py-2 text-base text-foreground">
+                                {item.label}
+                                <ChevronDown className="size-4 transition-transform group-open/sub:rotate-180" aria-hidden="true" />
+                              </summary>
+                              <ul className="flex flex-col gap-1 border-l border-border pl-4">
+                                {item.children.map((child) => (
+                                  <li key={child.slug}>
+                                    <Link
+                                      href={`/exploreaza/${child.slug}`}
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                      className="block py-2 text-base text-foreground hover:text-primary"
+                                    >
+                                      {child.name}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </details>
+                          </li>
+                        ) : (
+                          <li key={item.slug}>
+                            <Link
+                              href={`/exploreaza/${item.slug}`}
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className="block py-2 text-base text-foreground hover:text-primary"
+                            >
+                              {item.name}
+                            </Link>
+                          </li>
+                        ),
+                      )}
                     </ul>
                   </details>
                 ) : (
