@@ -162,6 +162,21 @@ const featuredTravels: Travel[] = [
     alt: "Catedrala Sfântul Ștefan din Viena noaptea, luminată în roșu, cu bradul de Crăciun și târgul în față",
     imagePosition: "object-[center_70%]",
     cover: { width: 900, height: 1600 },
+    gallery: [
+      { src: "/images/craciun/viena-christkindlmarkt.jpg", alt: "Arcada luminată Wiener Christkindlmarkt cu fundă roșie, în fața Primăriei din Viena, cu carusel și mulțime de vizitatori", width: 900, height: 1600 },
+    ],
+  },
+  {
+    slug: "tenerife",
+    title: "Tenerife",
+    image: "/images/tenerife/coasta-vulcanica.jpg",
+    alt: "Coasta vulcanică din Tenerife cu valuri spumoase între stânci negre și o velă albă la orizont",
+    cover: { width: 1536, height: 2048 },
+    gallery: [
+      { src: "/images/tenerife/plaja-palmieri.jpg", alt: "Plajă cu nisip auriu și palmieri înalți, cu arbori cu flori roșii și munți stâncoși sub cerul albastru", width: 1600, height: 1200 },
+      { src: "/images/tenerife/prosop-gecko.jpg", alt: "Prosop de plajă tie-dye cu gecko și inscripția Tenerife, întins pe nisip lângă mare", width: 1200, height: 1600 },
+      { src: "/images/tenerife/siam-park.jpg", alt: "Lagună turcoaz cu plajă albă și pavilioane în stil thailandez înconjurate de vegetație tropicală", width: 2000, height: 1500 },
+    ],
   },
 ]
 
@@ -177,6 +192,7 @@ export const travels: Travel[] = [
   "pietele-de-craciun-din-europa",
   "locuri-cu-suflet-din-romania",
   "magie-de-halloween",
+  "tenerife",
 ].map(bySlug)
 
 export function getTravel(slug: string) {
