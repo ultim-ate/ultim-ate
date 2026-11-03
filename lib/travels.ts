@@ -5,7 +5,7 @@ export type Travel = {
   alt?: string
   imagePosition?: string
   cover?: { width: number; height: number }
-  galleryLayout?: "rows" | "stacked"
+  galleryLayout?: "rows" | "stacked" | "grid"
   gallery?: { src: string; alt: string; width: number; height: number }[]
   children?: Travel[]
 }
@@ -133,12 +133,14 @@ const featuredTravels: Travel[] = [
   {
     slug: "locuri-cu-suflet-din-romania",
     title: "Locuri cu suflet din România",
-    image: "/images/romania/cai-pasune.jpg",
-    alt: "Cai albi și un cal negru păscând pe o pajiște verde, cu un câine alb, ferme cu acoperișuri roșii și dealuri în fundal",
+    image: "/images/romania/lavanda.jpg",
+    alt: "Câmp de lavandă înflorită, cu tufe mov în prim-plan și arbori verzi în fundal",
   },
+  { slug: "brasov", title: "Brașov" },
+  { slug: "sibiu", title: "Sibiu" },
   {
     slug: "magie-de-halloween",
-    title: "Magie de Halloween",
+    title: "Spooky Halloween",
     image: "/images/halloween/schelete-bran.jpg",
     alt: "Statui de schelete cu picături de ploaie, unul cu coroniță de margarete, cu Castelul Bran în ceață în fundal",
     imagePosition: "object-[center_30%]",
@@ -162,6 +164,7 @@ const featuredTravels: Travel[] = [
     alt: "Catedrala Sfântul Ștefan din Viena noaptea, luminată în roșu, cu bradul de Crăciun și târgul în față",
     imagePosition: "object-[center_70%]",
     cover: { width: 900, height: 1600 },
+    galleryLayout: "grid",
     gallery: [
       { src: "/images/craciun/viena-christkindlmarkt.jpg", alt: "Arcada luminată Wiener Christkindlmarkt cu fundă roșie, în fața Primăriei din Viena, cu carusel și mulțime de vizitatori", width: 900, height: 1600 },
     ],
@@ -172,17 +175,23 @@ const featuredTravels: Travel[] = [
     image: "/images/tenerife/coasta-vulcanica.jpg",
     alt: "Coasta vulcanică din Tenerife cu valuri spumoase între stânci negre și o velă albă la orizont",
     cover: { width: 1536, height: 2048 },
+    galleryLayout: "grid",
     gallery: [
       { src: "/images/tenerife/plaja-palmieri.jpg", alt: "Plajă cu nisip auriu și palmieri înalți, cu arbori cu flori roșii și munți stâncoși sub cerul albastru", width: 1600, height: 1200 },
       { src: "/images/tenerife/prosop-gecko.jpg", alt: "Prosop de plajă tie-dye cu gecko și inscripția Tenerife, întins pe nisip lângă mare", width: 1200, height: 1600 },
       { src: "/images/tenerife/siam-park.jpg", alt: "Lagună turcoaz cu plajă albă și pavilioane în stil thailandez înconjurate de vegetație tropicală", width: 2000, height: 1500 },
+      { src: "/images/tenerife/promenada-palmieri.jpg", alt: "Promenadă pe malul oceanului cu palmieri înalți și case albe cu balcoane din lemn", width: 2000, height: 1500 },
+      { src: "/images/tenerife/apus-portocaliu.jpg", alt: "Apus portocaliu aprins deasupra palmierilor, văzut din mașină pe un drum din Tenerife", width: 1600, height: 900 },
+      { src: "/images/tenerife/plaja-promenada.jpg", alt: "Trunchi de palmier în prim-plan, cu plaja plină de umbrele de paie și promenada în fundal", width: 2000, height: 1500 },
+      { src: "/images/tenerife/orci-loro-parque.jpg", alt: "Două orci sărind din apă într-un bazin turcoaz, sub un acoperiș alb de pânză", width: 1152, height: 2048 },
+      { src: "/images/tenerife/piscina-flori.jpg", alt: "Piscină albastră între palmieri, case albe și mușcate roșii și roz", width: 1600, height: 1200 },
     ],
   },
 ]
 
 const bySlug = (slug: string) => featuredTravels.find((travel) => travel.slug === slug)!
 
-bySlug("locuri-cu-suflet-din-romania").children = [bySlug("viscri")]
+bySlug("locuri-cu-suflet-din-romania").children = [bySlug("viscri"), bySlug("brasov"), bySlug("sibiu")]
 
 export const travels: Travel[] = [
   "santorin",

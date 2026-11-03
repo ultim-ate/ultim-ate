@@ -5,11 +5,11 @@ import { getAllExploreLinks, getExploreLink } from "@/lib/explore"
 
 const partnerBenefits = ["Comisioane avantajoase", "Asistență și suport dedicat", "Colaborare pe termen lung"]
 const partnerAudience = [
-  "Agenții partenere & companii",
-  "Ghizi de turism",
-  "Bloggeri & creatori de conținut de travel",
-  "Profesori & cadre didactice",
-  "Școli private & afterschools",
+  "Agenții partenere & Companii",
+  "Ghizi de Turism",
+  "Bloggeri & Creatori de conținut de travel",
+  "Profesori & Cadre didactice",
+  "Școli private & Afterschools",
 ]
 
 function BulletList({ items }: { items: string[] }) {
@@ -32,11 +32,11 @@ function B2BContent() {
         construind relații solide și transparente.
       </p>
       <section className="flex flex-col gap-4">
-        <h2 className="text-2xl font-bold uppercase tracking-wide">Beneficiile parteneriatului</h2>
+        <h2 className="text-lg font-bold uppercase leading-relaxed tracking-wide md:text-xl">Beneficiile parteneriatului</h2>
         <BulletList items={partnerBenefits} />
       </section>
       <section className="flex flex-col gap-4">
-        <h2 className="text-2xl font-bold uppercase tracking-wide">Cui se adresează</h2>
+        <h2 className="text-lg font-bold uppercase leading-relaxed tracking-wide md:text-xl">Cui se adresează</h2>
         <p className="text-pretty text-lg leading-relaxed md:text-xl">
           Programul nostru este dedicat tuturor celor care doresc să ofere comunității lor experiențe de călătorie și
           învățare:
