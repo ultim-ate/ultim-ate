@@ -131,12 +131,31 @@ const featuredTravels: Travel[] = [
     ],
   },
   {
+    slug: "drumuri-de-credinta",
+    title: "Drumuri de Credință",
+    image: "/images/credinta/biserica-cupole-albastre.jpg",
+    alt: "Biserică albă cu cupole albastre și alee din mozaic de pietre, lângă un oleandru înflorit",
+    imagePosition: "object-[center_35%]",
+  },
+  {
+    slug: "once-upon-a-castle",
+    title: "Once Upon a Castle",
+    image: "/images/castel/brazi-iarna.jpg",
+    alt: "Brazi înzăpeziți cu globuri albe și luminițe, de o parte și de alta a unei arcade de iarnă într-un castel",
+  },
+  {
     slug: "locuri-cu-suflet-din-romania",
     title: "Locuri cu suflet din România",
     image: "/images/romania/lavanda.jpg",
     alt: "Câmp de lavandă înflorită, cu tufe mov în prim-plan și arbori verzi în fundal",
   },
-  { slug: "brasov", title: "Brașov" },
+  {
+    slug: "brasov",
+    title: "Brașov",
+    image: "/images/brasov/biserica-neagra.jpg",
+    alt: "Biserica Neagră din Brașov, cu ziduri gotice de piatră, sub un cer înnorat",
+    imagePosition: "object-[center_75%]",
+  },
   { slug: "sibiu", title: "Sibiu" },
   {
     slug: "magie-de-halloween",
@@ -199,9 +218,11 @@ export const travels: Travel[] = [
   "dubai",
   "londra",
   "pietele-de-craciun-din-europa",
+  "drumuri-de-credinta",
   "locuri-cu-suflet-din-romania",
   "magie-de-halloween",
   "tenerife",
+  "once-upon-a-castle",
 ].map(bySlug)
 
 export function getTravel(slug: string) {
