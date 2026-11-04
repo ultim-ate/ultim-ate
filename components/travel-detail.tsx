@@ -76,7 +76,7 @@ function StackedGallery({ photos }: { photos: Photo[] }) {
 function UniformGrid({ photos }: { photos: Photo[] }) {
   const cols = photos.length % 3 === 0 ? "sm:grid-cols-3" : "sm:grid-cols-2"
   return (
-    <ul className={`grid grid-cols-1 gap-4 ${cols}`}>
+    <ul className={`grid grid-cols-1 gap-5 ${cols}`}>
       {photos.map((photo, i) => (
         <li key={photo.src} className="relative aspect-[3/4] overflow-hidden rounded-md">
           <Image
@@ -161,7 +161,9 @@ export function TravelDetail({ travel, back, basePath }: { travel: Travel; back:
 
   return (
     <LightSeaPage>
-      <article className="mx-auto flex max-w-4xl flex-col gap-8 px-6 pb-20 pt-40 lg:px-8 lg:pt-48">
+      <article
+        className={`mx-auto flex flex-col gap-8 px-6 pb-20 pt-40 lg:px-8 lg:pt-48 ${gridPhotos.length >= 3 ? "max-w-6xl" : "max-w-4xl"}`}
+      >
         <Link href={back.href} className="text-sm font-semibold uppercase tracking-wider hover:underline">
           {`← ${back.label}`}
         </Link>

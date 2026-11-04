@@ -27,10 +27,15 @@ function BulletList({ items }: { items: string[] }) {
 function B2BContent() {
   return (
     <div className="flex flex-col gap-10">
-      <p className="text-pretty text-lg leading-relaxed md:text-xl">
-        Căutăm parteneri pasionați alături de care să extindem această punte culturală între România și Grecia,
-        construind relații solide și transparente.
-      </p>
+      <section className="flex flex-col gap-4">
+        <h2 className="text-lg font-bold uppercase leading-relaxed tracking-wide md:text-xl">
+          Două țări. O inimă. Experiențe care apropie
+        </h2>
+        <p className="text-pretty text-lg leading-relaxed md:text-xl">
+          Căutăm parteneri alături de care să transformăm legătura dintre România și Grecia în experiențe, proiecte și
+          povești care merg mai departe.
+        </p>
+      </section>
       <section className="flex flex-col gap-4">
         <h2 className="text-lg font-bold uppercase leading-relaxed tracking-wide md:text-xl">Beneficiile parteneriatului</h2>
         <BulletList items={partnerBenefits} />
@@ -63,7 +68,13 @@ export default async function ExplorePage({ params }: { params: Promise<{ slug: 
   return (
     <LightSeaPage>
       <article className="mx-auto flex max-w-4xl flex-col gap-8 px-6 pb-20 pt-40 lg:px-8 lg:pt-48">
-        <h1 className="text-balance text-3xl font-bold uppercase tracking-wide md:text-4xl">{link.name}</h1>
+        <h1
+          className={`text-balance font-bold uppercase tracking-wide ${
+            link.slug === "b2b-parteneri" ? "text-lg leading-relaxed md:text-xl" : "text-3xl md:text-4xl"
+          }`}
+        >
+          {link.name}
+        </h1>
         {link.slug === "b2b-parteneri" ? (
           <B2BContent />
         ) : (
