@@ -1,10 +1,20 @@
+export type TravelStory = {
+  intro?: string
+  sections: { title: string; text?: string; items?: { label: string; text: string }[] }[]
+  closing?: string
+  recommendCta?: boolean
+}
+
 export type Travel = {
   slug: string
   title: string
   image?: string
   alt?: string
   imagePosition?: string
+  imageFit?: "contain"
   cover?: { width: number; height: number }
+  coverSize?: "sm"
+  story?: TravelStory
   galleryLayout?: "rows" | "stacked" | "grid"
   gallery?: { src: string; alt: string; width: number; height: number }[]
   children?: Travel[]
@@ -34,6 +44,31 @@ const featuredTravels: Travel[] = [
     title: "Santorini",
     image: "/images/santorin-apus.jpg",
     alt: "Capelă albă cicladică la apus, cu soarele coborând la orizont în Santorini",
+    galleryLayout: "grid",
+    story: {
+      intro:
+        "Santorini nu este doar o destinație de bifat, este acel vibe unic pe care îl simți doar acolo sus, privind peisajele spectaculoase care îți taie respirația și pe care nicio poză de pe Instagram nu le poate reda cu adevărat.",
+      sections: [
+        {
+          title: "Ce mi-a plăcut",
+          items: [
+            {
+              label: "Cazarea în Fira",
+              text: "Am ales să stau în Fira, în inima insulei, un punct de plecare ideal pentru orice explorare.",
+            },
+            {
+              label: "Drumeția panoramică Fira – Oia",
+              text: "Am plecat pe jos pe un traseu de aproximativ 10 km. Sub soarele arzător al insulei în luna august, aveam senzația că nu se mai termină și fiecare urcuș era o provocare. Astăzi, a rămas una dintre cele mai spectaculoase amintiri din toate călătoriile mele.",
+            },
+          ],
+        },
+        {
+          title: "Ce nu mi-a plăcut",
+          text: "Singurul aspect care mi-a lăsat un gust mai puțin plăcut a fost folosirea măgărușilor pentru transportul turiștilor spre Fira. Din fericire, au fost introduse reglementări noi privind limitele de greutate, un pas important spre un turism mai etic și responsabil.",
+        },
+      ],
+      recommendCta: true,
+    },
     gallery: [
       {
         src: "/images/santorini/piscina-infinity.jpg",
@@ -90,6 +125,25 @@ const featuredTravels: Travel[] = [
     title: "Mykonos",
     image: "/images/mykonos/scari-perne-galbene.jpg",
     alt: "Trepte albe cu balustradă albastră, perne galbene și lumânări într-o cafenea din Mykonos",
+    story: {
+      sections: [
+        {
+          title: "",
+          items: [
+            {
+              label: "Ce mi-a plăcut",
+              text: "cazarea, Chora și morile de vânt, Little Venice, atmosfera cosmopolită, apusurile, micile biserici și contrastul alb–albastru.",
+            },
+            {
+              label: "Aș alege diferit",
+              text: "prețurile mari, vântul puternic sau faptul că uneori insula pare mai mult „show” decât Grecia tradițională.",
+            },
+          ],
+        },
+      ],
+      closing: "Mykonos m-a impresionat vizual, dar nu a fost insula în care m-am regăsit cel mai mult.",
+      recommendCta: true,
+    },
     gallery: [
       { src: "/images/mykonos/plaja-palmier.jpg", alt: "Plajă din Mykonos cu palmier, șezlonguri din macrameu și bărci în golf", width: 2048, height: 1536 },
       { src: "/images/mykonos/apus-stanci.jpg", alt: "Apus de soare deasupra mării, văzut de pe stâncile din Mykonos", width: 2048, height: 1536 },
@@ -106,6 +160,17 @@ const featuredTravels: Travel[] = [
     title: "Dubai",
     image: "/images/dubai/marina-palmier.jpg",
     alt: "Palmier luminat pe promenada din Dubai Marina noaptea, cu zgârie-nori și iahturi în fundal",
+    story: {
+      intro:
+        "Dubai este un oraș al contrastelor, unde viitorul se întâlnește cu tradiția, iar luxul și tehnologia te impresionează.",
+      sections: [
+        { title: "Ce mi-a plăcut", text: "Atmosfera cosmopolită, clădirile futuriste, safari în deșert." },
+        {
+          title: "Sfat de călătorie",
+          text: "Deși am vizitat Dubaiul la final de octombrie, temperaturile de 38 de grade au fost o provocare pentru mine. Este o destinație ideală dacă iubiți căldura extremă.",
+        },
+      ],
+    },
     gallery: [
       { src: "/images/dubai/burj-khalifa.jpg", alt: "Burj Khalifa luminat noaptea, cu reflexii în lacul fântânii din Downtown Dubai", width: 1152, height: 2048 },
       { src: "/images/dubai/desert-portret.jpg", alt: "Femeie cu keffiyeh alb-negru și bluză albă într-o tabără din deșert, în lumina apusului", width: 1080, height: 1920 },
@@ -135,13 +200,25 @@ const featuredTravels: Travel[] = [
     title: "Drumuri de Credință",
     image: "/images/credinta/biserica-cupole-albastre.jpg",
     alt: "Biserică albă cu cupole albastre și alee din mozaic de pietre, lângă un oleandru înflorit",
-    imagePosition: "object-[center_35%]",
+    imageFit: "contain",
+    cover: { width: 946, height: 2048 },
+    coverSize: "sm",
   },
   {
     slug: "once-upon-a-castle",
     title: "Once Upon a Castle",
-    image: "/images/castel/brazi-iarna.jpg",
-    alt: "Brazi înzăpeziți cu globuri albe și luminițe, de o parte și de alta a unei arcade de iarnă într-un castel",
+    image: "/images/castel/leu-trandafiri.jpg",
+    alt: "Cap de leu din piatră cu coroană, încadrat de o coroniță de trandafiri și luminițe calde",
+    imageFit: "contain",
+    cover: { width: 1200, height: 1600 },
+    gallery: [
+      { src: "/images/castel/brazi-iarna.jpg", alt: "Brazi înzăpeziți cu globuri albe și luminițe, de o parte și de alta a unei arcade de iarnă într-un castel", width: 2000, height: 1500 },
+      { src: "/images/castel/amboise.jpg", alt: "Castelul Amboise cu turnuri conice și copaci tunși pe aleea de pietriș, sub un cer cenușiu", width: 2000, height: 1500 },
+      { src: "/images/castel/bran-brad.jpg", alt: "Castelul Bran pe stâncă, cu un brad de Crăciun împodobit cu globuri roșii și aurii în prim-plan", width: 1500, height: 2000 },
+      { src: "/images/castel/chambord-intrare.jpg", alt: "Intrarea Castelului Chambord, decorată cu o arcadă verde și brazi de Crăciun", width: 2000, height: 1500 },
+      { src: "/images/castel/chambord-lateral.jpg", alt: "Fațada laterală a Castelului Chambord cu turnuri rotunde și lanterne, sub cerul albastru", width: 2000, height: 1500 },
+      { src: "/images/castel/clos-luce.jpg", alt: "Conacul din cărămidă Clos Lucé pe o colină verde, cu un brad de Crăciun în fața intrării", width: 2000, height: 1500 },
+    ],
   },
   {
     slug: "locuri-cu-suflet-din-romania",

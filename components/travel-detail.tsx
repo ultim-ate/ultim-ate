@@ -43,7 +43,7 @@ function Cover({ travel }: { travel: Travel }) {
         height={travel.cover.height}
         priority
         sizes={portrait ? "(min-width: 640px) 448px, 100vw" : "(min-width: 1024px) 896px, 100vw"}
-        className={`h-auto w-full rounded-md ${portrait ? "mx-auto max-w-md" : ""}`}
+        className={`h-auto w-full rounded-md ${portrait ? `mx-auto ${travel.coverSize === "sm" ? "max-w-xs" : "max-w-md"}` : ""}`}
       />
     )
   }
@@ -122,6 +122,39 @@ function RowGallery({ photos }: { photos: Photo[] }) {
   )
 }
 
+function Story({ story }: { story: NonNullable<Travel["story"]> }) {
+  return (
+    <section className="mx-auto flex w-full max-w-3xl flex-col gap-6 pt-4 text-pretty text-lg leading-relaxed">
+      {story.intro && <p className="text-xl italic leading-relaxed md:text-2xl">{story.intro}</p>}
+      {story.sections.map((section, i) => (
+        <div key={section.title || i} className="flex flex-col gap-3">
+          {section.title && <h2 className="text-xl font-bold uppercase tracking-wide">{section.title}</h2>}
+          {section.text && <p>{section.text}</p>}
+          {section.items && (
+            <ul className="flex list-disc flex-col gap-3 pl-6">
+              {section.items.map((item) => (
+                <li key={item.label}>
+                  <strong className="font-semibold">{item.label}</strong>
+                  {` – ${item.text}`}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+      {story.closing && <p className="font-medium">{story.closing}</p>}
+      {story.recommendCta && (
+        <Link
+          href="/contact"
+          className="self-start rounded-md border border-current px-6 py-3 text-sm font-semibold uppercase tracking-wider transition-colors hover:bg-[var(--course-surface)]"
+        >
+          Cere o recomandare de cazare
+        </Link>
+      )}
+    </section>
+  )
+}
+
 export function TravelCard({ travel, href }: { travel: Travel; href: string }) {
   return (
     <Link href={href} className="group flex w-full flex-col justify-end gap-3">
@@ -133,7 +166,7 @@ export function TravelCard({ travel, href }: { travel: Travel; href: string }) {
             alt={travel.alt ?? travel.title}
             fill
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-            className={`object-cover transition-transform duration-500 group-hover:scale-105 ${travel.imagePosition ?? ""}`}
+            className={`${travel.imageFit === "contain" ? "object-contain" : "object-cover"} transition-transform duration-500 group-hover:scale-105 ${travel.imagePosition ?? ""}`}
           />
         ) : (
           <div className="flex h-full flex-col items-center justify-center gap-1 p-4 text-center">
@@ -168,7 +201,7 @@ export function TravelDetail({ travel, back, basePath }: { travel: Travel; back:
           {`← ${back.label}`}
         </Link>
         <h1 className="text-balance text-3xl font-bold uppercase tracking-wide md:text-4xl">{travel.title}</h1>
-        {!isGrid && <Cover travel={travel} />}
+        {!(isGrid && travel.cover) && <Cover travel={travel} />}
         {hasChildren && (
           <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {travel.children!.map((child) => (
@@ -186,7 +219,8 @@ export function TravelDetail({ travel, back, basePath }: { travel: Travel; back:
           ) : (
             <RowGallery photos={travel.gallery!} />
           ))}
-        {!hasGallery && !hasChildren && (
+        {travel.story && <Story story={travel.story} />}
+        {!hasGallery && !hasChildren && !travel.cover && (
           <p className="text-pretty text-lg leading-relaxed md:text-xl">
             Fotografiile și impresiile din această călătorie vor fi publicate în curând.
           </p>

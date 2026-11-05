@@ -4,7 +4,7 @@ type DocumentImage = { src: string; alt: string; width: number; height: number }
 
 const brevet: DocumentImage = {
   src: "/images/documente/brevet-manager-turism.jpeg",
-  alt: "Brevet de turism – Manager în activitatea de turism, eliberat de Autoritatea Națională pentru Turism pe numele Anton Liana",
+  alt: "Brevet de Turism – Manager în activitatea de turism, eliberat de Autoritatea Națională pentru Turism pe numele Anton Liana",
   width: 1446,
   height: 2048,
 }
