@@ -73,19 +73,19 @@ function StackedGallery({ photos }: { photos: Photo[] }) {
   )
 }
 
-function UniformGrid({ photos }: { photos: Photo[] }) {
+function UniformGrid({ photos, aspect = "aspect-[3/4]" }: { photos: Photo[]; aspect?: string }) {
   const cols = photos.length % 3 === 0 ? "sm:grid-cols-3" : "sm:grid-cols-2"
   return (
     <ul className={`grid grid-cols-1 gap-5 ${cols}`}>
       {photos.map((photo, i) => (
-        <li key={photo.src} className="relative aspect-[3/4] overflow-hidden rounded-md">
+        <li key={photo.src} className={`relative overflow-hidden rounded-md ${aspect}`}>
           <Image
             src={photo.src}
             alt={photo.alt}
             fill
             priority={i === 0}
             sizes="(min-width: 1024px) 448px, (min-width: 640px) 50vw, 100vw"
-            className="object-cover"
+            className={`object-cover ${photo.position ?? ""}`}
           />
         </li>
       ))}
@@ -148,7 +148,7 @@ function Story({ story }: { story: NonNullable<Travel["story"]> }) {
           href="/contact"
           className="self-start rounded-md border border-current px-6 py-3 text-sm font-semibold uppercase tracking-wider transition-colors hover:bg-[var(--course-surface)]"
         >
-          Cere o recomandare de cazare
+          {story.ctaLabel ?? "Cere o recomandare de cazare"}
         </Link>
       )}
     </section>
@@ -183,11 +183,10 @@ export function TravelDetail({ travel, back, basePath }: { travel: Travel; back:
   const hasGallery = Boolean(travel.gallery?.length)
   const hasChildren = Boolean(travel.children?.length)
   const isGrid = travel.galleryLayout === "grid" && hasGallery
+  const coverInGrid = isGrid && Boolean(travel.image && travel.cover && travel.cover.height > travel.cover.width)
   const gridPhotos: Photo[] = isGrid
     ? [
-        ...(travel.image && travel.cover
-          ? [{ src: travel.image, alt: travel.alt ?? travel.title, ...travel.cover }]
-          : []),
+        ...(coverInGrid ? [{ src: travel.image!, alt: travel.alt ?? travel.title, ...travel.cover! }] : []),
         ...travel.gallery!,
       ]
     : []
@@ -201,7 +200,7 @@ export function TravelDetail({ travel, back, basePath }: { travel: Travel; back:
           {`← ${back.label}`}
         </Link>
         <h1 className="text-balance text-3xl font-bold uppercase tracking-wide md:text-4xl">{travel.title}</h1>
-        {!(isGrid && travel.cover) && <Cover travel={travel} />}
+        {!coverInGrid && <Cover travel={travel} />}
         {hasChildren && (
           <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {travel.children!.map((child) => (
@@ -213,7 +212,7 @@ export function TravelDetail({ travel, back, basePath }: { travel: Travel; back:
         )}
         {hasGallery &&
           (isGrid ? (
-            <UniformGrid photos={gridPhotos} />
+            <UniformGrid photos={gridPhotos} aspect={travel.gridAspect} />
           ) : travel.galleryLayout === "stacked" ? (
             <StackedGallery photos={travel.gallery!} />
           ) : (
