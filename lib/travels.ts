@@ -3,6 +3,7 @@ export type TravelStory = {
   sections: { title: string; text?: string; items?: { label: string; text: string }[] }[]
   closing?: string
   recommendCta?: boolean
+  ctaLabel?: string
 }
 
 export type Travel = {
@@ -16,7 +17,8 @@ export type Travel = {
   coverSize?: "sm"
   story?: TravelStory
   galleryLayout?: "rows" | "stacked" | "grid"
-  gallery?: { src: string; alt: string; width: number; height: number }[]
+  gridAspect?: "aspect-[4/3]" | "aspect-[2/3]"
+  gallery?: { src: string; alt: string; width: number; height: number; position?: string }[]
   children?: Travel[]
 }
 
@@ -28,6 +30,21 @@ const featuredTravels: Travel[] = [
     title: "Londra",
     image: "/images/londra/big-ben.jpg",
     alt: "Westminster Bridge, Parlamentul și Big Ben sub cerul albastru, cu un pescăruș în zbor deasupra Tamisei",
+    story: {
+      intro:
+        "Londra are un vibe inconfundabil, este o metropolă cosmopolită în care nu ai cum să te plictisești niciodată.",
+      sections: [
+        {
+          title: "",
+          items: [
+            { label: "Ce mi-a plăcut", text: "atmosfera, arhitectura, diversitatea, muzeele." },
+            { label: "De ținut cont", text: "vremea schimbătoare și prețurile." },
+          ],
+        },
+      ],
+      recommendCta: true,
+      ctaLabel: "Cere o ofertă de cazare",
+    },
     gallery: [
       { src: "/images/londra/strada-luminite.jpg", alt: "Stradă din Londra noaptea, cu becuri roz și portocalii atârnate deasupra trecătorilor", width: 1152, height: 2048 },
       { src: "/images/londra/tower-bridge.jpg", alt: "Autobuz roșu etajat traversând Tower Bridge într-o zi înnorată", width: 1536, height: 2048 },
@@ -126,6 +143,8 @@ const featuredTravels: Travel[] = [
     image: "/images/mykonos/scari-perne-galbene.jpg",
     alt: "Trepte albe cu balustradă albastră, perne galbene și lumânări într-o cafenea din Mykonos",
     story: {
+      intro:
+        "Dincolo de frumusețea incontestabilă și de energia insulei, care sunt impresionante, Mykonos nu a fost locul în care m-am regăsit cel mai mult.",
       sections: [
         {
           title: "",
@@ -141,8 +160,8 @@ const featuredTravels: Travel[] = [
           ],
         },
       ],
-      closing: "Mykonos m-a impresionat vizual, dar nu a fost insula în care m-am regăsit cel mai mult.",
       recommendCta: true,
+      ctaLabel: "Cere o ofertă de cazare",
     },
     gallery: [
       { src: "/images/mykonos/plaja-palmier.jpg", alt: "Plajă din Mykonos cu palmier, șezlonguri din macrameu și bărci în golf", width: 2048, height: 1536 },
@@ -198,27 +217,59 @@ const featuredTravels: Travel[] = [
   {
     slug: "drumuri-de-credinta",
     title: "Drumuri de Credință",
-    image: "/images/credinta/biserica-cupole-albastre.jpg",
-    alt: "Biserică albă cu cupole albastre și alee din mozaic de pietre, lângă un oleandru înflorit",
+    image: "/images/credinta/manastire-fresca.jpg",
+    alt: "Biserică de mănăstire albă cu turle întunecate, frescă pictată pe fațadă și uși sculptate cu ornamente aurii",
     imageFit: "contain",
-    cover: { width: 946, height: 2048 },
-    coverSize: "sm",
+    cover: { width: 1500, height: 2000 },
+    galleryLayout: "grid",
+    gridAspect: "aspect-[2/3]",
+    gallery: [
+      { src: "/images/credinta/biserica-cupole-albastre.jpg", alt: "Biserică albă cu cupole albastre și alee din mozaic de pietre, lângă un oleandru înflorit", width: 946, height: 2048 },
+      { src: "/images/credinta/interior-pictura.jpg", alt: "Interior de biserică cu picturi murale bogate, scena Ducerii Crucii și strane din lemn sculptat", width: 1536, height: 2048 },
+      { src: "/images/credinta/biserica-piatra.jpg", alt: "Biserică veche din piatră cu turlă, pe o pajiște cu brumă, înconjurată de păduri de munte", width: 1500, height: 2000 },
+      { src: "/images/credinta/manastire-caramida.jpg", alt: "Biserică de mănăstire din cărămidă cu trei turle, fântână cu acoperiș de șindrilă și lalele în prim-plan", width: 924, height: 2048, position: "object-top" },
+      { src: "/images/credinta/clopotnita-alba.jpg", alt: "Clopotniță albă cu arcade albastre și biserică cu cupole albastre sub cerul senin din Santorini", width: 739, height: 1600, position: "object-[center_25%]" },
+    ],
+    story: {
+      sections: [],
+      closing:
+        "Pentru mine, vizita la o mănăstire nu este o simplă excursie, ci o întoarcere la esență, la regăsirea interioară.",
+      recommendCta: true,
+      ctaLabel: "Cere o ofertă personalizată",
+    },
   },
   {
     slug: "once-upon-a-castle",
     title: "Once Upon a Castle",
-    image: "/images/castel/leu-trandafiri.jpg",
-    alt: "Cap de leu din piatră cu coroană, încadrat de o coroniță de trandafiri și luminițe calde",
-    imageFit: "contain",
-    cover: { width: 1200, height: 1600 },
+    image: "/images/castel/amboise.jpg",
+    alt: "Castelul Amboise cu turnuri conice și copaci tunși pe aleea de pietriș, sub un cer cenușiu",
+    cover: { width: 2000, height: 1500 },
+    galleryLayout: "grid",
+    gridAspect: "aspect-[4/3]",
     gallery: [
+      { src: "/images/castel/leu-trandafiri.jpg", alt: "Cap de leu din piatră cu coroană, încadrat de o coroniță de trandafiri și luminițe calde", width: 1200, height: 1600, position: "object-[center_20%]" },
       { src: "/images/castel/brazi-iarna.jpg", alt: "Brazi înzăpeziți cu globuri albe și luminițe, de o parte și de alta a unei arcade de iarnă într-un castel", width: 2000, height: 1500 },
-      { src: "/images/castel/amboise.jpg", alt: "Castelul Amboise cu turnuri conice și copaci tunși pe aleea de pietriș, sub un cer cenușiu", width: 2000, height: 1500 },
-      { src: "/images/castel/bran-brad.jpg", alt: "Castelul Bran pe stâncă, cu un brad de Crăciun împodobit cu globuri roșii și aurii în prim-plan", width: 1500, height: 2000 },
+      { src: "/images/castel/bran-brad.jpg", alt: "Castelul Bran pe stâncă, cu un brad de Crăciun împodobit cu globuri roșii și aurii în prim-plan", width: 1500, height: 2000, position: "object-[center_10%]" },
       { src: "/images/castel/chambord-intrare.jpg", alt: "Intrarea Castelului Chambord, decorată cu o arcadă verde și brazi de Crăciun", width: 2000, height: 1500 },
       { src: "/images/castel/chambord-lateral.jpg", alt: "Fațada laterală a Castelului Chambord cu turnuri rotunde și lanterne, sub cerul albastru", width: 2000, height: 1500 },
       { src: "/images/castel/clos-luce.jpg", alt: "Conacul din cărămidă Clos Lucé pe o colină verde, cu un brad de Crăciun în fața intrării", width: 2000, height: 1500 },
     ],
+    story: {
+      intro:
+        "Pentru mine, castelele au fost întotdeauna mai mult decât monumente istorice, sunt porți deschise către povești de demult, unde timpul pare că s-a oprit în loc.",
+      sections: [
+        {
+          title: "",
+          text: "Au o magie aparte prin ceea ce oferă – poveștile, misterul, arhitectura, estetica, atmosfera din împrejurimi.",
+        },
+        {
+          title: "",
+          text: "Dacă îți dorești o escapadă memorabilă, lasă-mă să te ajut să găsești locul perfect de cazare și itinerariul ideal.",
+        },
+      ],
+      recommendCta: true,
+      ctaLabel: "Cere o ofertă de cazare",
+    },
   },
   {
     slug: "locuri-cu-suflet-din-romania",
@@ -233,7 +284,6 @@ const featuredTravels: Travel[] = [
     alt: "Biserica Neagră din Brașov, cu ziduri gotice de piatră, sub un cer înnorat",
     imagePosition: "object-[center_75%]",
   },
-  { slug: "sibiu", title: "Sibiu" },
   {
     slug: "magie-de-halloween",
     title: "Spooky Halloween",
@@ -287,7 +337,7 @@ const featuredTravels: Travel[] = [
 
 const bySlug = (slug: string) => featuredTravels.find((travel) => travel.slug === slug)!
 
-bySlug("locuri-cu-suflet-din-romania").children = [bySlug("viscri"), bySlug("brasov"), bySlug("sibiu")]
+bySlug("locuri-cu-suflet-din-romania").children = [bySlug("viscri"), bySlug("brasov")]
 
 export const travels: Travel[] = [
   "santorin",

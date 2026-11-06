@@ -24,7 +24,7 @@ function NavLabel({ name }: { name: string }) {
     <>
       {name.split(/(\d+)/).map((part, i) =>
         /^\d+$/.test(part) ? (
-          <span key={i} className="font-[family-name:var(--font-sans)] text-[0.92em] font-normal">
+          <span key={i} className="lining-nums">
             {part}
           </span>
         ) : (
