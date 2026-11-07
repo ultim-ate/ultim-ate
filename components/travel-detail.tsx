@@ -74,11 +74,12 @@ function StackedGallery({ photos }: { photos: Photo[] }) {
 }
 
 function UniformGrid({ photos, aspect = "aspect-[3/4]" }: { photos: Photo[]; aspect?: string }) {
-  const cols = photos.length % 3 === 0 ? "sm:grid-cols-3" : "sm:grid-cols-2"
+  const threeCols = photos.length % 3 === 0 || photos.length === 5
+  const itemWidth = threeCols ? "sm:w-[calc((100%-2.5rem)/3)]" : "sm:w-[calc((100%-1.25rem)/2)]"
   return (
-    <ul className={`grid grid-cols-1 gap-5 ${cols}`}>
+    <ul className="flex flex-wrap justify-center gap-5">
       {photos.map((photo, i) => (
-        <li key={photo.src} className={`relative overflow-hidden rounded-md ${aspect}`}>
+        <li key={photo.src} className={`relative w-full overflow-hidden rounded-md ${itemWidth} ${aspect}`}>
           <Image
             src={photo.src}
             alt={photo.alt}
