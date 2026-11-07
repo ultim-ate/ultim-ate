@@ -217,23 +217,23 @@ const featuredTravels: Travel[] = [
   {
     slug: "drumuri-de-credinta",
     title: "Drumuri de Credință",
-    image: "/images/credinta/manastire-fresca.jpg",
-    alt: "Biserică de mănăstire albă cu turle întunecate, frescă pictată pe fațadă și uși sculptate cu ornamente aurii",
+    image: "/images/credinta/manastire-caramida.jpg",
+    alt: "Biserică de mănăstire din cărămidă cu trei turle, fântână cu acoperiș de șindrilă și lalele în prim-plan",
     imageFit: "contain",
-    cover: { width: 1500, height: 2000 },
+    cover: { width: 924, height: 2048 },
     galleryLayout: "grid",
     gridAspect: "aspect-[2/3]",
     gallery: [
       { src: "/images/credinta/biserica-cupole-albastre.jpg", alt: "Biserică albă cu cupole albastre și alee din mozaic de pietre, lângă un oleandru înflorit", width: 946, height: 2048 },
       { src: "/images/credinta/interior-pictura.jpg", alt: "Interior de biserică cu picturi murale bogate, scena Ducerii Crucii și strane din lemn sculptat", width: 1536, height: 2048 },
       { src: "/images/credinta/biserica-piatra.jpg", alt: "Biserică veche din piatră cu turlă, pe o pajiște cu brumă, înconjurată de păduri de munte", width: 1500, height: 2000 },
-      { src: "/images/credinta/manastire-caramida.jpg", alt: "Biserică de mănăstire din cărămidă cu trei turle, fântână cu acoperiș de șindrilă și lalele în prim-plan", width: 924, height: 2048, position: "object-top" },
+      { src: "/images/credinta/manastire-fresca.jpg", alt: "Biserică de mănăstire albă cu turle întunecate, frescă pictată pe fațadă și uși sculptate cu ornamente aurii", width: 1500, height: 2000 },
       { src: "/images/credinta/clopotnita-alba.jpg", alt: "Clopotniță albă cu arcade albastre și biserică cu cupole albastre sub cerul senin din Santorini", width: 739, height: 1600, position: "object-[center_25%]" },
     ],
     story: {
       sections: [],
       closing:
-        "Pentru mine, vizita la o mănăstire nu este o simplă excursie, ci o întoarcere la esență, la regăsirea interioară.",
+        "Pentru mine, vizita la o mănăstire nu este o simplă excursie, ci o întoarcere la esență – o regăsire interioară.",
       recommendCta: true,
       ctaLabel: "Cere o ofertă personalizată",
     },
@@ -272,17 +272,38 @@ const featuredTravels: Travel[] = [
     },
   },
   {
+    slug: "savoca-sicilia-lui-don-corleone",
+    title: "Savoca – Sicilia lui Don Corleone",
+    image: "/images/savoca/godfather-rame.jpg",
+    alt: "Ramă veche din lemn pe un zid de piatră, cu două fotografii din filmul The Godfather: Al Pacino cu șapcă și Simonetta Stefanelli",
+    imagePosition: "object-[35%_center]",
+    cover: { width: 2000, height: 924 },
+    galleryLayout: "grid",
+    gridAspect: "aspect-[2/3]",
+    gallery: [
+      { src: "/images/savoca/bar-vitelli.jpg", alt: "Intrarea arcuită din piatră a Barului Vitelli din Savoca, cu inscripția „Bar Vitelli” și vegetație deasupra", width: 924, height: 2000 },
+      { src: "/images/savoca/chiesa-san-nicolo.jpg", alt: "Biserica San Nicolò din Savoca, cu creneluri și turn cu ceas, la capătul unei alei pietruite în urcare", width: 924, height: 2000 },
+      { src: "/images/savoca/scaunul-al-pacino.jpg", alt: "Scaun vechi din lemn cu șezut împletit și afișul „Al Pacino's Chair – Please keep distance”", width: 924, height: 2000 },
+      { src: "/images/savoca/panorama.jpg", alt: "Panoramă din Savoca asupra dealurilor verzi, a satului de pe culme și a mării Ionice", width: 2000, height: 924, position: "object-[80%_center]" },
+      { src: "/images/savoca/semn-savoca.jpg", alt: "Inscripția Savoca în fața unei case vechi acoperite de iederă, sub un cer cu nori", width: 924, height: 2000 },
+    ],
+    story: {
+      sections: [
+        {
+          title: "",
+          text: "Savoca păstrează încă atmosfera care a făcut celebru The Godfather: străduțe de piatră, liniște siciliană și legendarul Bar Vitelli.",
+        },
+        { title: "", text: "Un loc mic, dar cu o poveste care a făcut înconjurul lumii." },
+      ],
+      recommendCta: true,
+      ctaLabel: "Descoperă Sicilia de film",
+    },
+  },
+  {
     slug: "locuri-cu-suflet-din-romania",
     title: "Locuri cu suflet din România",
     image: "/images/romania/lavanda.jpg",
     alt: "Câmp de lavandă înflorită, cu tufe mov în prim-plan și arbori verzi în fundal",
-  },
-  {
-    slug: "brasov",
-    title: "Brașov",
-    image: "/images/brasov/biserica-neagra.jpg",
-    alt: "Biserica Neagră din Brașov, cu ziduri gotice de piatră, sub un cer înnorat",
-    imagePosition: "object-[center_75%]",
   },
   {
     slug: "magie-de-halloween",
@@ -302,6 +323,20 @@ const featuredTravels: Travel[] = [
       { src: "/images/halloween/dracula.jpg", alt: "Statuie a lui Dracula lângă o butucă de lemn cu picioare prinse, un vultur, dovleci și frunze de toamnă", width: 1536, height: 2048 },
       { src: "/images/halloween/terasa-panze.jpg", alt: "Terasă decorată de Halloween cu schelet uriaș, pânze de păianjen, lumini și un personaj mascat în salopetă roșie", width: 2048, height: 1536 },
     ],
+    story: {
+      sections: [
+        {
+          title: "",
+          text: "Intră în atmosfera de Halloween la Bran, printre legende, mister și decoruri spectaculoase.",
+        },
+        {
+          title: "",
+          text: "O escapadă perfectă pentru cei care vor o experiență diferită, memorabilă și plină de adrenalină.",
+        },
+      ],
+      recommendCta: true,
+      ctaLabel: "Rezervă experiența",
+    },
   },
   {
     slug: "pietele-de-craciun-din-europa",
@@ -332,12 +367,17 @@ const featuredTravels: Travel[] = [
       { src: "/images/tenerife/orci-loro-parque.jpg", alt: "Două orci sărind din apă într-un bazin turcoaz, sub un acoperiș alb de pânză", width: 1152, height: 2048 },
       { src: "/images/tenerife/piscina-flori.jpg", alt: "Piscină albastră între palmieri, case albe și mușcate roșii și roz", width: 1600, height: 1200 },
     ],
+    story: {
+      sections: [{ title: "", text: "Tenerife combină energia sudului cu liniștea și verdele din nord." }],
+      recommendCta: true,
+      ctaLabel: "Alege ritmul care ți se potrivește",
+    },
   },
 ]
 
 const bySlug = (slug: string) => featuredTravels.find((travel) => travel.slug === slug)!
 
-bySlug("locuri-cu-suflet-din-romania").children = [bySlug("viscri"), bySlug("brasov")]
+bySlug("locuri-cu-suflet-din-romania").children = [bySlug("viscri")]
 
 export const travels: Travel[] = [
   "santorin",
@@ -350,6 +390,7 @@ export const travels: Travel[] = [
   "magie-de-halloween",
   "tenerife",
   "once-upon-a-castle",
+  "savoca-sicilia-lui-don-corleone",
 ].map(bySlug)
 
 export function getTravel(slug: string) {

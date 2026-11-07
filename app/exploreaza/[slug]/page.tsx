@@ -1,7 +1,9 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { LightSeaPage } from "@/components/light-sea-page"
+import { TravelCard } from "@/components/travel-detail"
 import { getAllExploreLinks, getExploreLink } from "@/lib/explore"
+import { TRANSYLVANIA_SLUG, transylvaniaPlaces } from "@/lib/transylvania"
 
 const partnerBenefits = ["Comisioane avantajoase", "Asistență și suport dedicat", "Colaborare pe termen lung"]
 const partnerAudience = [
@@ -52,6 +54,32 @@ function B2BContent() {
   )
 }
 
+function TransylvaniaContent() {
+  return (
+    <div className="flex flex-col gap-10">
+      <section className="flex flex-col gap-4 text-pretty text-lg leading-relaxed md:text-xl">
+        <h2 className="text-balance text-xl font-bold uppercase tracking-wide md:text-2xl">
+          Descoperă Transilvania dincolo de legendă
+        </h2>
+        <p>
+          Transilvania nu înseamnă doar Dracula. Este o regiune care se descoperă prin atmosferă, arhitectură, tradiții și
+          peisaje care se schimbă de la un loc la altul.
+        </p>
+        <p>
+          La Greek Steps am ales câteva dintre locurile care merită să facă parte din propria ta poveste transilvăneană.
+        </p>
+      </section>
+      <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {transylvaniaPlaces.map((place) => (
+          <li key={place.slug} className="flex">
+            <TravelCard travel={place} href={`/exploreaza/${TRANSYLVANIA_SLUG}/${place.slug}`} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 export function generateStaticParams() {
   return getAllExploreLinks().map((link) => ({ slug: link.slug }))
 }
@@ -77,6 +105,8 @@ export default async function ExplorePage({ params }: { params: Promise<{ slug: 
         </h1>
         {link.slug === "b2b-parteneri" ? (
           <B2BContent />
+        ) : link.slug === TRANSYLVANIA_SLUG ? (
+          <TransylvaniaContent />
         ) : (
           <p className="text-pretty text-lg leading-relaxed md:text-xl">
             Detaliile despre această experiență vor fi publicate în curând.
