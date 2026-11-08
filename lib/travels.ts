@@ -15,6 +15,7 @@ export type Travel = {
   imageFit?: "contain"
   cover?: { width: number; height: number }
   coverSize?: "sm"
+  coverOutsideGrid?: boolean
   story?: TravelStory
   galleryLayout?: "rows" | "stacked" | "grid"
   gridAspect?: "aspect-[4/3]" | "aspect-[2/3]"
@@ -217,10 +218,9 @@ const featuredTravels: Travel[] = [
   {
     slug: "drumuri-de-credinta",
     title: "Drumuri de Credință",
-    image: "/images/credinta/manastire-caramida.jpg",
-    alt: "Biserică de mănăstire din cărămidă cu trei turle, fântână cu acoperiș de șindrilă și lalele în prim-plan",
-    imageFit: "contain",
-    cover: { width: 924, height: 2048 },
+    image: "/images/credinta/santorini-cupola.jpg",
+    alt: "Cupolă albă și clopotniță cu cruce pe o terasă deasupra calderei din Santorini, cu insula vulcanică în larg",
+    cover: { width: 2048, height: 946 },
     galleryLayout: "grid",
     gridAspect: "aspect-[2/3]",
     gallery: [
@@ -233,7 +233,7 @@ const featuredTravels: Travel[] = [
     story: {
       sections: [],
       closing:
-        "Pentru mine, vizita la o mănăstire nu este o simplă excursie, ci o întoarcere la esență – o regăsire interioară.",
+        "Pentru mine, vizita la o mănăstire nu este o simplă excursie, ci o întoarcere la esență, o regăsire interioară.",
       recommendCta: true,
       ctaLabel: "Cere o ofertă personalizată",
     },
@@ -286,6 +286,7 @@ const featuredTravels: Travel[] = [
       { src: "/images/savoca/scaunul-al-pacino.jpg", alt: "Scaun vechi din lemn cu șezut împletit și afișul „Al Pacino's Chair – Please keep distance”", width: 924, height: 2000 },
       { src: "/images/savoca/panorama.jpg", alt: "Panoramă din Savoca asupra dealurilor verzi, a satului de pe culme și a mării Ionice", width: 2000, height: 924, position: "object-[80%_center]" },
       { src: "/images/savoca/semn-savoca.jpg", alt: "Inscripția Savoca în fața unei case vechi acoperite de iederă, sub un cer cu nori", width: 924, height: 2000 },
+      { src: "/images/savoca/don-corleone.jpg", alt: "Portret alb-negru înrămat al lui Marlon Brando ca Don Corleone pe un zid de piatră, deasupra unor fotografii din The Godfather", width: 924, height: 2000, position: "object-[center_35%]" },
     ],
     story: {
       sections: [
@@ -319,7 +320,6 @@ const featuredTravels: Travel[] = [
       { src: "/images/halloween/masca.jpg", alt: "Personaj cu mască înfricoșătoare și tricou pătat, sub pânze de păianjen, în fața unui local", width: 1536, height: 2048 },
       { src: "/images/halloween/schelet-sicriu.jpg", alt: "Schelet întins pe un sicriu de piatră, între cruci, un corb, dovleci și frunze de toamnă", width: 1536, height: 2048 },
       { src: "/images/halloween/schelete-sarut.jpg", alt: "Două schelete care se sărută pe baloți de paie, cu un trandafir roșu, crizanteme și un dovleac", width: 1536, height: 2048 },
-      { src: "/images/halloween/biserica-neagra.jpg", alt: "Biserica Neagră din Brașov sub un cer înnorat de toamnă, cu trecători în piață", width: 1500, height: 2000 },
       { src: "/images/halloween/dracula.jpg", alt: "Statuie a lui Dracula lângă o butucă de lemn cu picioare prinse, un vultur, dovleci și frunze de toamnă", width: 1536, height: 2048 },
       { src: "/images/halloween/terasa-panze.jpg", alt: "Terasă decorată de Halloween cu schelet uriaș, pânze de păianjen, lumini și un personaj mascat în salopetă roșie", width: 2048, height: 1536 },
     ],
@@ -345,9 +345,14 @@ const featuredTravels: Travel[] = [
     alt: "Catedrala Sfântul Ștefan din Viena noaptea, luminată în roșu, cu bradul de Crăciun și târgul în față",
     imagePosition: "object-[center_70%]",
     cover: { width: 900, height: 1600 },
+    coverOutsideGrid: true,
     galleryLayout: "grid",
+    gridAspect: "aspect-[4/3]",
     gallery: [
-      { src: "/images/craciun/viena-christkindlmarkt.jpg", alt: "Arcada luminată Wiener Christkindlmarkt cu fundă roșie, în fața Primăriei din Viena, cu carusel și mulțime de vizitatori", width: 900, height: 1600 },
+      { src: "/images/craciun/brasov-piata-sfatului.jpg", alt: "Piața Sfatului din Brașov noaptea, cu bradul luminat, căsuțele târgului de Crăciun și Turnul Sfatului în roșu", width: 2576, height: 1305 },
+      { src: "/images/craciun/trandafiri-lumanari.jpg", alt: "Decor de iarnă din crengi de mesteacăn, trandafiri roșii, lumânări albe și luminițe calde", width: 1200, height: 1600, position: "object-[center_45%]" },
+      { src: "/images/craciun/sibiu-piata-mare.jpg", alt: "Târgul de Crăciun din Piața Mare din Sibiu la apus, cu bradul uriaș, căsuțe cu dungi roșii și un stol de porumbei", width: 2000, height: 1500 },
+      { src: "/images/craciun/bucuresti-targ.jpg", alt: "Târgul de Crăciun din București văzut de sus noaptea, cu roata panoramică luminată și bradul în fața Palatului Parlamentului", width: 1200, height: 675 },
     ],
   },
   {
@@ -375,9 +380,9 @@ const featuredTravels: Travel[] = [
   },
 ]
 
-const bySlug = (slug: string) => featuredTravels.find((travel) => travel.slug === slug)!
+export const getTravelEntry = (slug: string) => featuredTravels.find((travel) => travel.slug === slug)!
 
-bySlug("locuri-cu-suflet-din-romania").children = [bySlug("viscri")]
+const bySlug = getTravelEntry
 
 export const travels: Travel[] = [
   "santorin",
@@ -386,8 +391,6 @@ export const travels: Travel[] = [
   "londra",
   "pietele-de-craciun-din-europa",
   "drumuri-de-credinta",
-  "locuri-cu-suflet-din-romania",
-  "magie-de-halloween",
   "tenerife",
   "once-upon-a-castle",
   "savoca-sicilia-lui-don-corleone",

@@ -2,24 +2,25 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { TravelDetail } from "@/components/travel-detail"
 import { getExploreLink } from "@/lib/explore"
-import { TRANSYLVANIA_SLUG, getTransylvaniaPlace, transylvaniaPlaces } from "@/lib/transylvania"
+import { getAllCollectionParams, getCollectionPlace } from "@/lib/explore-collections"
 
 type Params = Promise<{ slug: string; sub: string }>
 
 export function generateStaticParams() {
-  return transylvaniaPlaces.map((place) => ({ slug: TRANSYLVANIA_SLUG, sub: place.slug }))
+  return getAllCollectionParams()
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug, sub } = await params
-  const place = slug === TRANSYLVANIA_SLUG ? getTransylvaniaPlace(sub) : undefined
-  return { title: place ? `${place.title} | Transylvania Echoes` : "Explorează | Greek Steps" }
+  const parent = getExploreLink(slug)
+  const place = getCollectionPlace(slug, sub)
+  return { title: parent && place ? `${place.title} | ${parent.name}` : "Explorează | Greek Steps" }
 }
 
 export default async function ExplorePlacePage({ params }: { params: Params }) {
   const { slug, sub } = await params
   const parent = getExploreLink(slug)
-  const place = slug === TRANSYLVANIA_SLUG ? getTransylvaniaPlace(sub) : undefined
+  const place = getCollectionPlace(slug, sub)
   if (!parent || !place) notFound()
 
   return (

@@ -184,7 +184,7 @@ export function TravelDetail({ travel, back, basePath }: { travel: Travel; back:
   const hasGallery = Boolean(travel.gallery?.length)
   const hasChildren = Boolean(travel.children?.length)
   const isGrid = travel.galleryLayout === "grid" && hasGallery
-  const coverInGrid = isGrid && Boolean(travel.image && travel.cover && travel.cover.height > travel.cover.width)
+  const coverInGrid = isGrid && !travel.coverOutsideGrid && Boolean(travel.image && travel.cover && travel.cover.height > travel.cover.width)
   const gridPhotos: Photo[] = isGrid
     ? [
         ...(coverInGrid ? [{ src: travel.image!, alt: travel.alt ?? travel.title, ...travel.cover! }] : []),

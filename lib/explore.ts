@@ -5,6 +5,8 @@ export type ExploreGroup = { label: string; children: ExploreLink[] }
 export type ExploreMenuItem = ExploreLink | ExploreGroup
 
 const nostosLinks: ExploreLink[] = [
+  { slug: "greek-students-family-travel", name: "Greek Students & Family Travel" },
+  { slug: "bucharest-city-break", name: "Bucharest City Break" },
   { slug: "transylvania-echoes", name: "Transylvania Echoes" },
   { slug: "royal-castles", name: "Royal Castles" },
   { slug: "moldavian-heritage", name: "Moldavian Heritage" },

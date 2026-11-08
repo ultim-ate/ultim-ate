@@ -29,6 +29,8 @@ type Place = {
   story?: ReactNode[]
 }
 
+const COVER_SIZE = { width: 1174, height: 2048 }
+
 const places: Place[] = [
   {
     src: "/images/romania-bucuresti-lac.jpg",
@@ -212,7 +214,7 @@ export function RomaniaGallery() {
   const [open, setOpen] = useState(false)
 
   return (
-    <section className="px-6 pb-24 md:pb-32">
+    <section id="romania-pas-cu-pas" className="scroll-mt-28 px-6 pb-24 md:pb-32">
       <div className="mx-auto flex max-w-7xl flex-col gap-8">
         <h2 className="text-balance text-3xl font-bold leading-tight text-sky-400 md:text-4xl">
           România, pas cu pas
@@ -221,15 +223,16 @@ export function RomaniaGallery() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="group relative block aspect-[16/9] w-full max-w-2xl overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+          className="group block w-full max-w-2xl overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
           aria-label="Deschide galeria foto România"
         >
           <Image
             src={places[0].src}
             alt={places[0].alt}
-            fill
+            width={COVER_SIZE.width}
+            height={COVER_SIZE.height}
             sizes="(min-width: 768px) 672px, 100vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            className="h-auto w-full transition-transform duration-700 group-hover:scale-105"
           />
         </button>
       </div>
