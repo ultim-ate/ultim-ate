@@ -3,7 +3,10 @@ import { notFound } from "next/navigation"
 import { LightSeaPage } from "@/components/light-sea-page"
 import { TravelCard } from "@/components/travel-detail"
 import { getAllExploreLinks, getExploreLink } from "@/lib/explore"
-import { TRANSYLVANIA_SLUG, transylvaniaPlaces } from "@/lib/transylvania"
+import Image from "next/image"
+import Link from "next/link"
+import { TRANSYLVANIA_SLUG, getCollection } from "@/lib/explore-collections"
+import type { Travel } from "@/lib/travels"
 
 const partnerBenefits = ["Comisioane avantajoase", "Asistență și suport dedicat", "Colaborare pe termen lung"]
 const partnerAudience = [
@@ -54,7 +57,19 @@ function B2BContent() {
   )
 }
 
-function TransylvaniaContent() {
+function PlacesGrid({ slug, places }: { slug: string; places: Travel[] }) {
+  return (
+    <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {places.map((place) => (
+        <li key={place.slug} className="flex">
+          <TravelCard travel={place} href={`/exploreaza/${slug}/${place.slug}`} />
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+function TransylvaniaContent({ places }: { places: Travel[] }) {
   return (
     <div className="flex flex-col gap-10">
       <section className="flex flex-col gap-4 text-pretty text-lg leading-relaxed md:text-xl">
@@ -68,14 +83,35 @@ function TransylvaniaContent() {
         <p>
           La Greek Steps am ales câteva dintre locurile care merită să facă parte din propria ta poveste transilvăneană.
         </p>
+        <Link
+          href="/#romania-pas-cu-pas"
+          className="mt-2 inline-flex w-fit items-center justify-center rounded-full bg-primary px-8 py-3 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+        >
+          Descoperă România
+        </Link>
       </section>
-      <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {transylvaniaPlaces.map((place) => (
-          <li key={place.slug} className="flex">
-            <TravelCard travel={place} href={`/exploreaza/${TRANSYLVANIA_SLUG}/${place.slug}`} />
-          </li>
+      <PlacesGrid slug={TRANSYLVANIA_SLUG} places={places} />
+    </div>
+  )
+}
+
+function ImageWithText({ src, alt, width, height, lines }: { src: string; alt: string; width: number; height: number; lines: string[] }) {
+  return (
+    <div className="flex flex-col items-center gap-8">
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        sizes="(min-width: 768px) 560px, 100vw"
+        priority
+        className={`h-auto w-full ${height > width ? "max-w-md" : "max-w-2xl"}`}
+      />
+      <div className="flex max-w-2xl flex-col gap-4 text-center text-pretty text-lg leading-relaxed md:text-xl">
+        {lines.map((line) => (
+          <p key={line}>{line}</p>
         ))}
-      </ul>
+      </div>
     </div>
   )
 }
@@ -92,6 +128,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ExplorePage({ params }: { params: Promise<{ slug: string }> }) {
   const link = getExploreLink((await params).slug)
   if (!link) notFound()
+  const collection = getCollection(link.slug)
 
   return (
     <LightSeaPage>
@@ -105,8 +142,29 @@ export default async function ExplorePage({ params }: { params: Promise<{ slug: 
         </h1>
         {link.slug === "b2b-parteneri" ? (
           <B2BContent />
-        ) : link.slug === TRANSYLVANIA_SLUG ? (
-          <TransylvaniaContent />
+        ) : link.slug === TRANSYLVANIA_SLUG && collection ? (
+          <TransylvaniaContent places={collection} />
+        ) : collection ? (
+          <PlacesGrid slug={link.slug} places={collection} />
+        ) : link.slug === "odyssey" ? (
+          <ImageWithText
+            src="/images/odyssey/steag-acropole.jpg"
+            alt="Steagul Greciei fluturând pe Acropole, cu vizitatori pe zidul de piatră, sub un cer albastru"
+            width={1500}
+            height={2000}
+            lines={[
+              "Un program special care îmbină limba greacă, cultura și experiența directă în Grecia.",
+              "În pregătire. Revenim în curând cu detalii.",
+            ]}
+          />
+        ) : link.slug === "greek-students-family-travel" ? (
+          <ImageWithText
+            src="/images/greek-students/steag-grecia.jpg"
+            alt="Steagul Greciei fluturând în bătaia vântului, luminat de soare pe un cer albastru"
+            width={1280}
+            height={806}
+            lines={[]}
+          />
         ) : (
           <p className="text-pretty text-lg leading-relaxed md:text-xl">
             Detaliile despre această experiență vor fi publicate în curând.
