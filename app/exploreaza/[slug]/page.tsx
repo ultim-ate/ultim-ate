@@ -95,7 +95,21 @@ function TransylvaniaContent({ places }: { places: Travel[] }) {
   )
 }
 
-function ImageWithText({ src, alt, width, height, lines }: { src: string; alt: string; width: number; height: number; lines: string[] }) {
+function ImageWithText({
+  src,
+  alt,
+  width,
+  height,
+  lines,
+  cta,
+}: {
+  src: string
+  alt: string
+  width: number
+  height: number
+  lines: string[]
+  cta?: string
+}) {
   return (
     <div className="flex flex-col items-center gap-8">
       <Image
@@ -112,6 +126,14 @@ function ImageWithText({ src, alt, width, height, lines }: { src: string; alt: s
           <p key={line}>{line}</p>
         ))}
       </div>
+      {cta && (
+        <Link
+          href="/contact"
+          className="rounded-md border border-current px-6 py-3 text-sm font-semibold uppercase tracking-wider transition-colors hover:bg-[var(--course-surface)]"
+        >
+          {cta}
+        </Link>
+      )}
     </div>
   )
 }
@@ -156,6 +178,15 @@ export default async function ExplorePage({ params }: { params: Promise<{ slug: 
               "Un program special care îmbină limba greacă, cultura și experiența directă în Grecia.",
               "În pregătire. Revenim în curând cu detalii.",
             ]}
+          />
+        ) : link.slug === "solo-and-free" ? (
+          <ImageWithText
+            src="/images/solo/cetate-poarta.jpg"
+            alt="Poartă medievală din piatră a unei cetăți pe malul mării, cu ziduri crenelate și un drum care trece prin arcadă"
+            width={2000}
+            height={1500}
+            lines={["Pleci singur. Te conectezi pe drum."]}
+            cta="Rezervă experiența"
           />
         ) : link.slug === "greek-students-family-travel" ? (
           <ImageWithText

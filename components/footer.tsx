@@ -58,6 +58,11 @@ export function Footer() {
               <Mail className="size-4" aria-hidden="true" />
               contact@greeksteps.ro
             </a>
+            <div className="flex flex-col gap-1 text-base leading-relaxed text-background/80">
+              <p className="font-semibold text-background">Program</p>
+              <p>Luni – Vineri: 09:00 – 18:00</p>
+              <p>Sâmbătă – Duminică: Închis</p>
+            </div>
             <div className="flex items-center gap-4">
               {socialLinks.map((social) => (
                 <a
