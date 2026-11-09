@@ -4,7 +4,6 @@ import { Intro } from "@/components/intro"
 import { Destinations } from "@/components/destinations"
 import { Experiences } from "@/components/experiences"
 import { Featured } from "@/components/featured"
-import { Testimonial } from "@/components/testimonial"
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
       <Destinations />
       <Experiences />
       <Featured />
-      <Testimonial />
     </main>
   )
 }

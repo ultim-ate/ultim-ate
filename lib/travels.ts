@@ -229,6 +229,7 @@ const featuredTravels: Travel[] = [
       { src: "/images/credinta/biserica-piatra.jpg", alt: "Biserică veche din piatră cu turlă, pe o pajiște cu brumă, înconjurată de păduri de munte", width: 1500, height: 2000 },
       { src: "/images/credinta/manastire-fresca.jpg", alt: "Biserică de mănăstire albă cu turle întunecate, frescă pictată pe fațadă și uși sculptate cu ornamente aurii", width: 1500, height: 2000 },
       { src: "/images/credinta/clopotnita-alba.jpg", alt: "Clopotniță albă cu arcade albastre și biserică cu cupole albastre sub cerul senin din Santorini", width: 739, height: 1600, position: "object-[center_25%]" },
+      { src: "/images/credinta/biserica-mozaic.jpg", alt: "Biserică din cărămidă roșie cu dungi albe, pridvor cu arcade și mozaicuri aurii cu sfinți, sub cer albastru", width: 1500, height: 2000 },
     ],
     story: {
       sections: [],
@@ -354,6 +355,14 @@ const featuredTravels: Travel[] = [
       { src: "/images/craciun/sibiu-piata-mare.jpg", alt: "Târgul de Crăciun din Piața Mare din Sibiu la apus, cu bradul uriaș, căsuțe cu dungi roșii și un stol de porumbei", width: 2000, height: 1500 },
       { src: "/images/craciun/bucuresti-targ.jpg", alt: "Târgul de Crăciun din București văzut de sus noaptea, cu roata panoramică luminată și bradul în fața Palatului Parlamentului", width: 1200, height: 675 },
     ],
+    story: {
+      sections: [
+        { title: "", text: "Vacanțele încep uneori cu o idee bună." },
+        { title: "", text: "Descoperă destinații și experiențe care îți pot inspira următoarea plecare." },
+      ],
+      recommendCta: true,
+      ctaLabel: "Planifică următoarea escapadă",
+    },
   },
   {
     slug: "tenerife",

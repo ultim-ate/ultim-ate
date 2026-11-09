@@ -29,7 +29,6 @@ type Place = {
   story?: ReactNode[]
 }
 
-const COVER_SIZE = { width: 1174, height: 2048 }
 
 const places: Place[] = [
   {
@@ -220,21 +219,22 @@ export function RomaniaGallery() {
           România, pas cu pas
         </h2>
 
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          className="group block w-full max-w-2xl overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-          aria-label="Deschide galeria foto România"
-        >
-          <Image
-            src={places[0].src}
-            alt={places[0].alt}
-            width={COVER_SIZE.width}
-            height={COVER_SIZE.height}
-            sizes="(min-width: 768px) 672px, 100vw"
-            className="h-auto w-full transition-transform duration-700 group-hover:scale-105"
-          />
-        </button>
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="group relative block aspect-[4/5] w-full overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+            aria-label="Deschide galeria foto România"
+          >
+            <Image
+              src={places[0].src}
+              alt={places[0].alt}
+              fill
+              sizes="(min-width: 1024px) 560px, 100vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </button>
+        </div>
       </div>
 
       <Dialog open={open} onOpenChange={setOpen}>

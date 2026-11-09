@@ -16,17 +16,16 @@ const nostosLinks: ExploreLink[] = [
 const customTripLinks: ExploreLink[] = [
   { slug: "alpine-ski-escapes", name: "Alpine & Ski Escapes" },
   { slug: "exotic-dreams", name: "Exotic Dreams" },
-  { slug: "greek-blue-escapes", name: "Greek Blue Escapes" },
   { slug: "solo-and-free", name: "Solo and Free" },
   { slug: "family-adventures", name: "Family Adventures" },
   { slug: "agora-seniors", name: "Agora Seniors" },
   { slug: "philoxenia-journeys", name: "Philoxenia Journeys" },
   { slug: "agapi-getaways", name: "Agapi Getaways" },
-  { slug: "whispers-of-transylvania", name: "Whispers of Transylvania" },
   { slug: "gothic-escapes", name: "Gothic Escapes" },
 ]
 
 export const exploreMenu: ExploreMenuItem[] = [
+  { slug: "greek-blue-escapes", name: "Greek Blue Escapes – Vile și Cazări în Grecia" },
   { label: "Nostos – Feel Romania", children: nostosLinks },
   { slug: "odyssey", name: "Odyssey – Imersiune lingvistică în Grecia" },
   { label: "Călătorii personalizate", children: customTripLinks },

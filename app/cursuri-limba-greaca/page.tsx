@@ -50,6 +50,16 @@ export default function CursuriLimbaGreacaPage() {
             ))}
           </ul>
 
+          <section aria-labelledby="pregatire-lingvistica" className="flex flex-col gap-4">
+            <h2 id="pregatire-lingvistica" className="text-xl font-semibold text-[var(--culture-heading)] md:text-2xl">
+              Pregătire lingvistică
+            </h2>
+            <ul className="flex list-disc flex-col gap-2 pl-6 text-base leading-relaxed">
+              <li>English for Cambridge Exams – Engleză pentru copii și adolescenți</li>
+              <li>Romanian for Foreigners</li>
+            </ul>
+          </section>
+
           <section aria-labelledby="despre-formator" className="flex flex-col gap-4">
             <h2 id="despre-formator" className="text-xl font-semibold text-[var(--culture-heading)] md:text-2xl">
               Despre formator

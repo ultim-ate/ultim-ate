@@ -20,21 +20,14 @@ const brasov: Travel = {
   },
 }
 
-const locuriCuSuflet: Travel = {
-  ...getTravelEntry("locuri-cu-suflet-din-romania"),
-  children: [getTravelEntry("viscri"), brasov],
-}
-
 const transylvaniaPlaces: Travel[] = [
-  {
-    slug: "sinaia",
-    title: "Sinaia",
-    image: "/images/romania-sinaia.png",
-    alt: "Castelul Peleș din Sinaia la poalele munților",
-  },
   {
     slug: "sighisoara",
     title: "Sighișoara",
+    image: "/images/sighisoara/strada-colorata.jpg",
+    alt: "Străduță pietruită din Sighișoara cu case roșii și galbene, cu Turnul cu Ceas în fundal",
+    cover: { width: 1164, height: 1182 },
+    coverSize: "sm",
     story: {
       sections: [
         {
@@ -70,12 +63,21 @@ const transylvaniaPlaces: Travel[] = [
       ctaLabel: "Descoperă Sibiu",
     },
   },
-  locuriCuSuflet,
+  getTravelEntry("viscri"),
+  brasov,
 ]
 
 const collections: Record<string, Travel[]> = {
   [TRANSYLVANIA_SLUG]: transylvaniaPlaces,
-  "moldavian-heritage": [{ slug: "cetatea-neamt", title: "Cetatea Neamț" }],
+  "moldavian-heritage": [
+    {
+      slug: "cetatea-neamt",
+      title: "Cetatea Neamț",
+      image: "/images/neamt/cetatea-neamt.jpg",
+      alt: "Zidurile de piatră ale Cetății Neamț și podul de lemn sprijinit pe stâlpi înalți, lângă un brad, sub cer senin",
+      cover: { width: 2000, height: 1500 },
+    },
+  ],
   "shadows-of-dracula": [getTravelEntry("magie-de-halloween")],
 }
 
