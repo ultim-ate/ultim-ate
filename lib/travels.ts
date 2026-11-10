@@ -214,6 +214,17 @@ const featuredTravels: Travel[] = [
       { src: "/images/viscri/zid-biserica.jpg", alt: "Zidul de piatră și turnurile bisericii fortificate din Viscri, sub crengile unui nuc", width: 1600, height: 739 },
       { src: "/images/viscri/poarta-lana.jpg", alt: "Poartă săsească albastră cu obiecte tricotate din lână expuse spre vânzare", width: 1600, height: 739 },
     ],
+    story: {
+      sections: [
+        {
+          title: "",
+          text: "Viscri are acel farmec rar care te face să încetinești: fațade colorate, drumuri de sat și o atmosferă care pare desprinsă din alt timp.",
+        },
+        { title: "", text: "Autentic, liniștit și memorabil." },
+      ],
+      recommendCta: true,
+      ctaLabel: "Alege Experiența",
+    },
   },
   {
     slug: "drumuri-de-credinta",

@@ -8,6 +8,7 @@ const brasov: Travel = {
   image: "/images/brasov/biserica-neagra.jpg",
   alt: "Biserica Neagră din Brașov, cu ziduri gotice de piatră, sub un cer înnorat",
   imagePosition: "object-[center_75%]",
+  cover: { width: 1500, height: 2000 },
   story: {
     sections: [
       {

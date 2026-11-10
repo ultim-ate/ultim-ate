@@ -220,7 +220,7 @@ export function TravelDetail({ travel, back, basePath }: { travel: Travel; back:
             <RowGallery photos={travel.gallery!} />
           ))}
         {travel.story && <Story story={travel.story} />}
-        {!hasGallery && !hasChildren && !travel.cover && (
+        {!hasGallery && !hasChildren && !travel.cover && !travel.story && (
           <p className="text-pretty text-lg leading-relaxed md:text-xl">
             Fotografiile și impresiile din această călătorie vor fi publicate în curând.
           </p>
