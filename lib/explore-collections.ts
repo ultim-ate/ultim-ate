@@ -79,7 +79,6 @@ const collections: Record<string, Travel[]> = {
       cover: { width: 2000, height: 1500 },
     },
   ],
-  "shadows-of-dracula": [getTravelEntry("magie-de-halloween")],
 }
 
 export function getCollection(slug: string) {

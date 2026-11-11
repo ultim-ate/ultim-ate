@@ -3,44 +3,35 @@ import { Compass, Sun, UtensilsCrossed, Landmark } from "lucide-react"
 const experiences = [
   {
     icon: Landmark,
-    title: "Ancient History",
-    description:
-      "Walk through 3,000 years of history at the Acropolis, Delphi, and countless archaeological wonders.",
+    title: "Istorie antică",
+    description: "Pășește prin 3.000 de ani de istorie la Acropole, Delfi și nenumărate situri arheologice.",
   },
   {
     icon: Sun,
-    title: "Island Hopping",
-    description:
-      "Sail between stunning islands, each with its own unique character, beaches, and hidden coves.",
+    title: "Din insulă în insulă",
+    description: "Navighează între insule spectaculoase, fiecare cu propriul caracter, plaje și golfuri ascunse.",
   },
   {
     icon: UtensilsCrossed,
-    title: "Culinary Journey",
-    description:
-      "Indulge in farm-to-table Mediterranean cuisine, local wines, and traditional taverna experiences.",
+    title: "Călătorie culinară",
+    description: "Bucură-te de bucătărie mediteraneeană proaspătă, vinuri locale și atmosfera tavernelor tradiționale.",
   },
   {
     icon: Compass,
-    title: "Adventure & Nature",
-    description:
-      "Hike dramatic gorges, dive crystal-clear waters, and discover landscapes of raw natural beauty.",
+    title: "Aventură și natură",
+    description: "Explorează chei impresionante, ape cristaline și peisaje de o frumusețe sălbatică.",
   },
 ]
 
 export function Experiences() {
   return (
-    <section id="experiences" className="py-24 md:py-32 px-6 bg-background">
+    <section id="experiences" lang="ro" className="py-24 md:py-32 px-6 bg-background">
       <div className="mx-auto max-w-7xl">
         <div className="text-center mb-16">
-          <p className="text-sm font-sans font-medium tracking-[0.3em] uppercase text-primary mb-4">
-            Experiences
-          </p>
-          <h2 className="text-4xl md:text-5xl font-light mb-6">
-            Curated Greek Adventures
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            From ancient history to modern luxury, discover experiences that
-            will stay with you forever.
+          <p className="text-sm font-sans font-medium tracking-[0.3em] uppercase text-primary mb-4">Experiențe</p>
+          <h2 className="text-4xl md:text-5xl font-light mb-6 text-balance">Aventuri grecești alese cu grijă</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg text-pretty">
+            De la istoria antică la luxul modern, descoperă experiențe care îți vor rămâne în suflet pentru totdeauna.
           </p>
         </div>
 
@@ -52,9 +43,7 @@ export function Experiences() {
             >
               <experience.icon className="w-10 h-10 text-primary mb-6 stroke-[1.5]" />
               <h3 className="text-xl font-medium mb-3">{experience.title}</h3>
-              <p className="text-muted-foreground font-sans text-sm leading-relaxed">
-                {experience.description}
-              </p>
+              <p className="text-muted-foreground font-sans text-sm leading-relaxed">{experience.description}</p>
             </div>
           ))}
         </div>

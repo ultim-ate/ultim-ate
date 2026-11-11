@@ -26,12 +26,11 @@ export default async function FooterInfoPage({ params }: { params: Promise<{ slu
           <h1 className="text-3xl font-bold uppercase tracking-wide md:text-4xl">{page.title}</h1>
           <ul className="flex list-disc flex-col gap-4 pl-6 text-pretty text-lg leading-relaxed md:text-xl">
             <li>
-              <strong className="font-semibold">Transfer bancar</strong> – datele contului vor fi comunicate odată cu
-              confirmarea rezervării
+              <strong className="font-semibold">Transfer bancar</strong> – datele necesare efectuării plății vor fi
+              comunicate odată cu confirmarea serviciului ales.
             </li>
             <li>
-              <strong className="font-semibold">Plată online cu cardul prin NETOPIA Payments</strong> – plata se
-              realizează securizat prin linkul de plată aferent rezervării.
+              <strong className="font-semibold">Link de plată</strong>
             </li>
           </ul>
         </div>

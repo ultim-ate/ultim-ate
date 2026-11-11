@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Instagram, Mail } from "lucide-react"
+import { Facebook, Instagram, Mail, Phone } from "lucide-react"
 import { externalFooterLinks, footerPages } from "@/lib/footer-pages"
 
 const socialLinks = [
@@ -51,6 +51,23 @@ export function Footer() {
 
           <div className="flex flex-col gap-4 lg:items-end lg:text-right">
             <p className="font-serif text-2xl font-semibold tracking-wide">Greek Steps</p>
+            <div className="flex items-center gap-3 text-base text-background/80">
+              <a href="tel:+40726803296" className="flex items-center gap-2 transition-colors hover:text-background">
+                <Phone className="size-4" aria-hidden="true" />
+                0726803296
+              </a>
+              <span aria-hidden="true" className="text-background/40">
+                |
+              </span>
+              <a
+                href="https://wa.me/40726803296"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-background"
+              >
+                WhatsApp
+              </a>
+            </div>
             <a
               href="mailto:contact@greeksteps.ro"
               className="flex items-center gap-2 text-base text-background/80 transition-colors hover:text-background"
