@@ -156,7 +156,15 @@ function Story({ story }: { story: NonNullable<Travel["story"]> }) {
   )
 }
 
-export function TravelCard({ travel, href }: { travel: Travel; href: string }) {
+export function TravelCard({
+  travel,
+  href,
+  sizes = "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw",
+}: {
+  travel: Travel
+  href: string
+  sizes?: string
+}) {
   return (
     <Link href={href} className="group flex w-full flex-col justify-end gap-3">
       <h2 className="text-lg font-bold uppercase tracking-wide underline-offset-4 group-hover:underline">{travel.title}</h2>
@@ -166,7 +174,7 @@ export function TravelCard({ travel, href }: { travel: Travel; href: string }) {
             src={travel.image}
             alt={travel.alt ?? travel.title}
             fill
-            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+            sizes={sizes}
             className={`${travel.imageFit === "contain" ? "object-contain" : "object-cover"} transition-transform duration-500 group-hover:scale-105 ${travel.imagePosition ?? ""}`}
           />
         ) : (

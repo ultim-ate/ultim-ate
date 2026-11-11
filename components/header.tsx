@@ -94,7 +94,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
                   : "border-white text-white hover:bg-white hover:text-foreground"
               }`}
             >
-              Book Now
+              Cere ofertă
             </Button>
           </div>
 
@@ -244,7 +244,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
                 ),
               )}
               <Button className="mt-4 rounded-none bg-primary text-primary-foreground hover:bg-primary/90">
-                Book Now
+                Cere ofertă
               </Button>
             </div>
           </div>

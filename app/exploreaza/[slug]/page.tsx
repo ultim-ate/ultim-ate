@@ -6,7 +6,7 @@ import { getAllExploreLinks, getExploreLink } from "@/lib/explore"
 import Image from "next/image"
 import Link from "next/link"
 import { TRANSYLVANIA_SLUG, getCollection } from "@/lib/explore-collections"
-import type { Travel } from "@/lib/travels"
+import { getTravelEntry, type Travel } from "@/lib/travels"
 
 const partnerBenefits = ["Comisioane avantajoase", "Asistență și suport dedicat", "Colaborare pe termen lung"]
 const partnerAudience = [
@@ -58,6 +58,14 @@ function B2BContent() {
 }
 
 function PlacesGrid({ slug, places }: { slug: string; places: Travel[] }) {
+  if (places.length === 1) {
+    const [place] = places
+    return (
+      <div className="mx-auto flex w-full max-w-3xl">
+        <TravelCard travel={place} href={`/exploreaza/${slug}/${place.slug}`} sizes="(min-width: 768px) 768px, 100vw" />
+      </div>
+    )
+  }
   return (
     <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {places.map((place) => (
@@ -91,6 +99,36 @@ function TransylvaniaContent({ places }: { places: Travel[] }) {
         </Link>
       </section>
       <PlacesGrid slug={TRANSYLVANIA_SLUG} places={places} />
+    </div>
+  )
+}
+
+function DraculaContent({ text }: { text?: ExploreText }) {
+  const halloween = getTravelEntry("magie-de-halloween")
+  const photos = [
+    ...(halloween.image && halloween.cover
+      ? [{ src: halloween.image, alt: halloween.alt ?? halloween.title, ...halloween.cover }]
+      : []),
+    ...(halloween.gallery ?? []),
+  ]
+  return (
+    <div className="flex flex-col items-center gap-10">
+      <ul className="flex w-full flex-col items-center gap-8">
+        {photos.map((photo, i) => (
+          <li key={photo.src} className="w-full max-w-2xl">
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              width={photo.width}
+              height={photo.height}
+              priority={i === 0}
+              sizes="(min-width: 768px) 672px, 100vw"
+              className="h-auto w-full rounded-md"
+            />
+          </li>
+        ))}
+      </ul>
+      {text && <TextBlock {...text} />}
     </div>
   )
 }
@@ -146,7 +184,25 @@ const exploreTexts: Record<string, ExploreText> = {
     ],
   },
   "greek-blue-escapes": {
-    lines: ["O selecție de vile și cazări alese cu grijă, ideale pentru momente autentice pe tărâmul elen."],
+    lines: ["O selecție de vile și cazări alese cu grijă, ideale pentru momente autentice pe tărâmul elen.", SOON_RO],
+  },
+  "agora-seniors": {
+    lines: [
+      "Momente alese pentru oameni deosebiți. Îți pregătim itinerarii speciale și amintiri frumoase în cel mai plăcut ritm.",
+      SOON_RO,
+    ],
+  },
+  "philoxenia-journeys": {
+    lines: [
+      "Trăiește spiritul elen! Experiențe autentice, sate tradiționale, ape turcoaz și bucuria de a fi primit ca un prieten.",
+      SOON_RO,
+    ],
+  },
+  "agapi-getaways": {
+    lines: ["Doar voi doi! Apusuri memorabile, locuri unice și momente create exclusiv pentru cupluri.", SOON_RO],
+  },
+  "gothic-escapes": {
+    lines: ["Călătorii dincolo de obișnuit. Descoperă Europa fascinantă și misterioasă.", SOON_RO],
   },
   "alpine-ski-escapes": {
     lines: ["Lasă urme pe pârtie! Aer fresh de munte, zăpadă impecabilă și doza ta garantată de adrenalină.", SOON_RO],
@@ -162,7 +218,42 @@ const exploreTexts: Record<string, ExploreText> = {
   },
 }
 
-const exploreImages: Record<string, { src: string; alt: string; width: number; height: number }> = {
+type ExploreImage = { src: string; alt: string; width: number; height: number; size?: "lg" }
+
+const TITLE_WITH_IMAGE = new Set([
+  "greek-blue-escapes",
+  "alpine-ski-escapes",
+  "agora-seniors",
+  "philoxenia-journeys",
+  "agapi-getaways",
+  "gothic-escapes",
+])
+
+const exploreImages: Record<string, ExploreImage> = {
+  "agora-seniors": {
+    src: "/images/agora/lavanda.jpg",
+    alt: "Tufe de lavandă înflorită într-o grădină, cu o fântână albă etajată și arbori verzi în fundal",
+    width: 1600,
+    height: 1200,
+  },
+  "philoxenia-journeys": {
+    src: "/images/philoxenia/santorini-caldera.jpg",
+    alt: "Caldera din Santorini văzută de pe o terasă cu bougainvillea și măslin, cu marea albastră, insula vulcanică și o navă de croazieră",
+    width: 2000,
+    height: 924,
+  },
+  "agapi-getaways": {
+    src: "/images/agapi/santorini-apus.jpg",
+    alt: "Apus portocaliu peste caldera din Santorini, cu o navă de croazieră luminată și terasa iluminată a unui restaurant pe stâncă",
+    width: 2048,
+    height: 946,
+  },
+  "gothic-escapes": {
+    src: "/images/gothic/catedrala-utrecht.jpeg",
+    alt: "Catedrala gotică Dom din Utrecht, cu turnulețe ascuțite și arcuri butante, deasupra unei piețe pavate cu felinare și flori",
+    width: 1500,
+    height: 2000,
+  },
   "greek-students-family-travel": {
     src: "/images/greek-students/steag-grecia.jpg",
     alt: "Steagul Greciei fluturând în bătaia vântului, luminat de soare pe un cer albastru",
@@ -174,6 +265,7 @@ const exploreImages: Record<string, { src: string; alt: string; width: number; h
     alt: "Hotel alb pe faleza din Santorini noaptea, cu piscină luminată turcoaz, terasă cu mese și satul iluminat pe stâncă",
     width: 2048,
     height: 946,
+    size: "lg",
   },
   "bucharest-city-break": {
     src: "/images/bucuresti/centrul-vechi.jpg",
@@ -232,6 +324,8 @@ function ImageWithText({
   lines,
   greekLines,
   cta,
+  title,
+  size,
 }: {
   src: string
   alt: string
@@ -240,18 +334,24 @@ function ImageWithText({
   lines: string[]
   greekLines?: string[]
   cta?: string
+  title?: string
+  size?: "lg"
 }) {
+  const widthClass = size === "lg" ? "max-w-4xl" : height > width ? "max-w-md" : "max-w-2xl"
   return (
     <div className="flex flex-col items-center gap-8">
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        sizes="(min-width: 768px) 560px, 100vw"
-        priority
-        className={`h-auto w-full ${height > width ? "max-w-md" : "max-w-2xl"}`}
-      />
+      <div className={`flex w-full flex-col gap-8 ${widthClass}`}>
+        {title && <h1 className="text-balance text-3xl font-bold uppercase tracking-wide md:text-4xl">{title}</h1>}
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          sizes={size === "lg" ? "(min-width: 1024px) 896px, 100vw" : "(min-width: 768px) 672px, 100vw"}
+          priority
+          className="h-auto w-full"
+        />
+      </div>
       {(lines.length > 0 || greekLines?.length) && <TextBlock lines={lines} greekLines={greekLines} />}
       {cta && (
         <Link
@@ -280,19 +380,24 @@ export default async function ExplorePage({ params }: { params: Promise<{ slug: 
   const collection = getCollection(link.slug)
   const text = exploreTexts[link.slug]
   const image = exploreImages[link.slug]
+  const titleWithImage = Boolean(image) && TITLE_WITH_IMAGE.has(link.slug)
 
   return (
     <LightSeaPage>
       <article className="mx-auto flex max-w-4xl flex-col gap-8 px-6 pb-20 pt-40 lg:px-8 lg:pt-48">
-        <h1
-          className={`text-balance font-bold uppercase tracking-wide ${
-            link.slug === "b2b-parteneri" ? "text-lg leading-relaxed md:text-xl" : "text-3xl md:text-4xl"
-          }`}
-        >
-          {link.name}
-        </h1>
+        {!titleWithImage && (
+          <h1
+            className={`text-balance font-bold uppercase tracking-wide ${
+              link.slug === "b2b-parteneri" ? "text-lg leading-relaxed md:text-xl" : "text-3xl md:text-4xl"
+            }`}
+          >
+            {link.name}
+          </h1>
+        )}
         {link.slug === "b2b-parteneri" ? (
           <B2BContent />
+        ) : link.slug === "shadows-of-dracula" ? (
+          <DraculaContent text={text} />
         ) : link.slug === TRANSYLVANIA_SLUG && collection ? (
           <TransylvaniaContent places={collection} />
         ) : collection ? (
@@ -305,7 +410,12 @@ export default async function ExplorePage({ params }: { params: Promise<{ slug: 
             )}
           </>
         ) : image ? (
-          <ImageWithText {...image} lines={text?.lines ?? []} greekLines={text?.greekLines} />
+          <ImageWithText
+            {...image}
+            title={titleWithImage ? link.name : undefined}
+            lines={text?.lines ?? []}
+            greekLines={text?.greekLines}
+          />
         ) : link.slug === "odyssey" ? (
           <ImageWithText
             src="/images/odyssey/steag-acropole.jpg"
