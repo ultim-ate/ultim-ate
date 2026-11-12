@@ -8,7 +8,7 @@ const experiences = [
   },
   {
     icon: Sun,
-    title: "Din insulă în insulă",
+    title: "Insule care te cheamă",
     description: "Navighează între insule spectaculoase, fiecare cu propriul caracter, plaje și golfuri ascunse.",
   },
   {
@@ -28,8 +28,8 @@ export function Experiences() {
     <section id="experiences" lang="ro" className="py-24 md:py-32 px-6 bg-background">
       <div className="mx-auto max-w-7xl">
         <div className="text-center mb-16">
-          <p className="text-sm font-sans font-medium tracking-[0.3em] uppercase text-primary mb-4">Experiențe</p>
-          <h2 className="text-4xl md:text-5xl font-light mb-6 text-balance">Aventuri grecești alese cu grijă</h2>
+          <p className="text-2xl md:text-3xl font-sans font-bold tracking-[0.2em] uppercase text-primary mb-4">Experiențe</p>
+          <h2 className="text-4xl md:text-5xl font-light mb-6 text-balance">Alege-ți propria aventură în Grecia</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg text-pretty">
             De la istoria antică la luxul modern, descoperă experiențe care îți vor rămâne în suflet pentru totdeauna.
           </p>

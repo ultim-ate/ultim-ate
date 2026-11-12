@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { exploreMenu, isExploreGroup } from "@/lib/explore"
 import { LanguageSwitcher } from "@/components/language-switcher"
+import { QuoteDialog } from "@/components/quote-dialog"
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -86,16 +87,20 @@ export function Header({ solid = false }: { solid?: boolean }) {
           </div>
 
           <div className="hidden lg:flex lg:items-center">
-            <Button
-              variant="outline"
-              className={`rounded-none border-2 px-6 py-2 text-sm font-medium tracking-wide transition-all duration-300 ${
-                (solid || isScrolled)
-                  ? "border-foreground text-foreground hover:bg-foreground hover:text-background"
-                  : "border-white text-white hover:bg-white hover:text-foreground"
-              }`}
-            >
-              Cere ofertă
-            </Button>
+            <QuoteDialog
+              trigger={
+                <Button
+                  variant="outline"
+                  className={`rounded-none border-2 px-6 py-2 text-sm font-medium tracking-wide transition-all duration-300 ${
+                    (solid || isScrolled)
+                      ? "border-foreground text-foreground hover:bg-foreground hover:text-background"
+                      : "border-white text-white hover:bg-white hover:text-foreground"
+                  }`}
+                >
+                  Cere ofertă
+                </Button>
+              }
+            />
           </div>
 
           {/* Mobile Menu Button */}
@@ -243,9 +248,13 @@ export function Header({ solid = false }: { solid?: boolean }) {
                 </Link>
                 ),
               )}
-              <Button className="mt-4 rounded-none bg-primary text-primary-foreground hover:bg-primary/90">
-                Cere ofertă
-              </Button>
+              <QuoteDialog
+                trigger={
+                  <Button className="mt-4 rounded-none bg-primary text-primary-foreground hover:bg-primary/90">
+                    Cere ofertă
+                  </Button>
+                }
+              />
             </div>
           </div>
         )}

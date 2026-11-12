@@ -90,17 +90,17 @@ export function Destinations() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
           <div>
             <p className="text-sm font-sans font-medium tracking-[0.3em] uppercase text-primary mb-4">
-              Destinations
+              Destinații
             </p>
             <h2 className="text-4xl md:text-5xl font-light">
-              Explore Iconic Locations
+              Explorează locuri emblematice
             </h2>
           </div>
           <a
             href="#"
             className="mt-6 md:mt-0 inline-flex items-center gap-2 text-sm font-sans font-medium text-foreground hover:text-primary transition-colors group"
           >
-            View All Destinations
+            Vezi toate destinațiile
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
