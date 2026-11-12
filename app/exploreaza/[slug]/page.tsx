@@ -61,8 +61,8 @@ function PlacesGrid({ slug, places }: { slug: string; places: Travel[] }) {
   if (places.length === 1) {
     const [place] = places
     return (
-      <div className="mx-auto flex w-full max-w-3xl">
-        <TravelCard travel={place} href={`/exploreaza/${slug}/${place.slug}`} sizes="(min-width: 768px) 768px, 100vw" />
+      <div className="mx-auto flex w-full max-w-md">
+        <TravelCard travel={place} href={`/exploreaza/${slug}/${place.slug}`} sizes="(min-width: 768px) 448px, 100vw" />
       </div>
     )
   }
@@ -113,17 +113,16 @@ function DraculaContent({ text }: { text?: ExploreText }) {
   ]
   return (
     <div className="flex flex-col items-center gap-10">
-      <ul className="flex w-full flex-col items-center gap-8">
+      <ul className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {photos.map((photo, i) => (
-          <li key={photo.src} className="w-full max-w-2xl">
+          <li key={photo.src} className="relative aspect-[3/4] w-full overflow-hidden rounded-md">
             <Image
               src={photo.src}
               alt={photo.alt}
-              width={photo.width}
-              height={photo.height}
+              fill
               priority={i === 0}
-              sizes="(min-width: 768px) 672px, 100vw"
-              className="h-auto w-full rounded-md"
+              sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw"
+              className="object-cover"
             />
           </li>
         ))}
@@ -205,7 +204,7 @@ const exploreTexts: Record<string, ExploreText> = {
     lines: ["Călătorii dincolo de obișnuit. Descoperă Europa fascinantă și misterioasă.", SOON_RO],
   },
   "alpine-ski-escapes": {
-    lines: ["Lasă urme pe pârtie! Aer fresh de munte, zăpadă impecabilă și doza ta garantată de adrenalină.", SOON_RO],
+    lines: ["Lasă urme pe partie! Aer fresh de munte, zăpadă impecabilă și doza ta garantată de adrenalină.", SOON_RO],
   },
   "exotic-dreams": {
     lines: ["Schimbă peisajul și resetăm vibe-ul! Apă turcoaz, nisip fin și colțul tău secret de paradis.", SOON_RO],
@@ -213,6 +212,18 @@ const exploreTexts: Record<string, ExploreText> = {
   "family-adventures": {
     lines: [
       "Schimbați rutina pe aventură! Locuri ideale, distracție din plin și vacanța perfectă pentru întreaga familie.",
+      SOON_RO,
+    ],
+  },
+  "byzantine-voices": {
+    lines: [
+      "Muzică bizantină, coruri și locuri cu încărcătură spirituală, într-o călătorie în care tradiția se simte și se ascultă.",
+      SOON_RO,
+    ],
+  },
+  "greek-dance-festivals": {
+    lines: [
+      "Festivaluri, workshop-uri și experiențe dedicate pasionaților de dans grecesc în România, Grecia și Cipru.",
       SOON_RO,
     ],
   },
@@ -227,9 +238,25 @@ const TITLE_WITH_IMAGE = new Set([
   "philoxenia-journeys",
   "agapi-getaways",
   "gothic-escapes",
+  "exotic-dreams",
+  "family-adventures",
+  "byzantine-voices",
+  "greek-dance-festivals",
 ])
 
 const exploreImages: Record<string, ExploreImage> = {
+  "byzantine-voices": {
+    src: "/images/byzantine/biserica-sf-nicolae.jpeg",
+    alt: "Biserica ortodoxă Sfântul Nicolae Făcătorul de Minuni, din 1865, cu ușă de lemn deschisă, icoana Învierii pe fațadă și cupole verzi sub cer albastru",
+    width: 2000,
+    height: 1500,
+  },
+  "greek-dance-festivals": {
+    src: "/images/dance/festival-dans.png",
+    alt: "Dansatori în costume tradiționale grecești dansând în cerc pe o piațetă pietruită, cu steagul Greciei, o biserică albă cu cupolă albastră și marea în fundal",
+    width: 1448,
+    height: 1086,
+  },
   "agora-seniors": {
     src: "/images/agora/lavanda.jpg",
     alt: "Tufe de lavandă înflorită într-o grădină, cu o fântână albă etajată și arbori verzi în fundal",

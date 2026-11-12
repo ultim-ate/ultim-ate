@@ -18,8 +18,10 @@ const customTripLinks: ExploreLink[] = [
   { slug: "exotic-dreams", name: "Exotic Dreams" },
   { slug: "solo-and-free", name: "Solo and Free" },
   { slug: "family-adventures", name: "Family Adventures" },
+  { slug: "greek-dance-festivals", name: "Greek Dance Festivals" },
   { slug: "agora-seniors", name: "Agora Seniors" },
   { slug: "philoxenia-journeys", name: "Philoxenia Journeys" },
+  { slug: "byzantine-voices", name: "Byzantine Voices" },
   { slug: "agapi-getaways", name: "Agapi Getaways" },
   { slug: "gothic-escapes", name: "Gothic Escapes" },
 ]
