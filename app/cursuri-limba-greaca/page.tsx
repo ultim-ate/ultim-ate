@@ -56,6 +56,7 @@ export default function CursuriLimbaGreacaPage() {
             </h2>
             <ul className="flex list-disc flex-col gap-2 pl-6 text-base leading-relaxed">
               <li>English for Cambridge Exams – Engleză pentru copii și adolescenți</li>
+              <li>Engleză pentru adulți</li>
               <li>Romanian for Foreigners – Speak Romanian. Live Romania.</li>
             </ul>
           </section>

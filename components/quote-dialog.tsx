@@ -78,7 +78,6 @@ export function QuoteDialog({ trigger }: { trigger: ReactNode }) {
           "Număr de adulți": data.adulti,
           "Număr de copii": data.copii,
           "Buget (EUR)": data.buget || "-",
-          Asigurare: data.asigurare,
           "Alte detalii": data.detalii || "-",
           _honey: data._honey,
         }),
@@ -119,19 +118,19 @@ export function QuoteDialog({ trigger }: { trigger: ReactNode }) {
 
             <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
               <Field id="q-nume" label="Nume complet" required>
-                <input id="q-nume" name="nume" required maxLength={120} autoComplete="name" placeholder="Nume complet" className={inputClass} />
+                <input id="q-nume" name="nume" required maxLength={120} autoComplete="name" className={inputClass} />
               </Field>
               <Field id="q-telefon" label="Telefon" required>
-                <input id="q-telefon" name="telefon" type="tel" required pattern="[+0-9\s().\-]{7,20}" autoComplete="tel" placeholder="07........" className={inputClass} />
+                <input id="q-telefon" name="telefon" type="tel" required pattern="[+0-9\s().\-]{7,20}" autoComplete="tel" className={inputClass} />
               </Field>
               <Field id="q-email" label="Email" required>
-                <input id="q-email" name="email" type="email" required maxLength={160} autoComplete="email" placeholder="Email" className={inputClass} />
+                <input id="q-email" name="email" type="email" required maxLength={160} autoComplete="email" className={inputClass} />
               </Field>
             </div>
 
             <div className="grid grid-cols-2 gap-5 md:grid-cols-6">
               <Field id="q-destinatie" label="Destinație" required>
-                <input id="q-destinatie" name="destinatie" required maxLength={120} placeholder="ex: Grecia" className={inputClass} />
+                <input id="q-destinatie" name="destinatie" required maxLength={120} className={inputClass} />
               </Field>
               <Field id="q-hotel" label="Hotel">
                 <input id="q-hotel" name="hotel" maxLength={120} className={inputClass} />
@@ -140,10 +139,11 @@ export function QuoteDialog({ trigger }: { trigger: ReactNode }) {
                 <input id="q-plecare" name="plecare" type="date" required min={todayIso()} className={inputClass} />
               </Field>
               <Field id="q-nopti" label="Număr de nopți" required>
-                <input id="q-nopti" name="nopti" required maxLength={20} placeholder="7, 14" className={inputClass} />
+                <input id="q-nopti" name="nopti" required maxLength={20} className={inputClass} />
               </Field>
               <Field id="q-transport" label="Transport" required>
-                <select id="q-transport" name="transport" required defaultValue="Individual" className={inputClass}>
+                <select id="q-transport" name="transport" required defaultValue="" className={inputClass}>
+                  <option value="" disabled hidden></option>
                   <option>Individual</option>
                   <option>Avion</option>
                   <option>Autocar</option>
@@ -153,35 +153,25 @@ export function QuoteDialog({ trigger }: { trigger: ReactNode }) {
 
             <div className="grid grid-cols-2 gap-5 md:grid-cols-6">
               <Field id="q-masa" label="Tip de masă" required hint="ex: All Inclusive, Demipensiune">
-                <input id="q-masa" name="masa" required maxLength={60} placeholder="All Inclusive" className={inputClass} />
+                <input id="q-masa" name="masa" required maxLength={60} className={inputClass} />
               </Field>
               <Field id="q-adulti" label="Număr de adulți" required>
-                <input id="q-adulti" name="adulti" type="number" required min={1} max={50} placeholder="1 / 2 / 3 / ..." className={inputClass} />
+                <input id="q-adulti" name="adulti" type="number" required min={1} max={50} className={inputClass} />
               </Field>
               <Field id="q-copii" label="Număr de copii" required>
-                <input id="q-copii" name="copii" type="number" required min={0} max={50} placeholder="0 / 1 / 2 / ..." className={inputClass} />
+                <input id="q-copii" name="copii" type="number" required min={0} max={50} className={inputClass} />
               </Field>
-              <div className="hidden md:block" aria-hidden="true" />
               <Field id="q-buget" label="Buget (EUR)" hint="total estimat">
-                <input id="q-buget" name="buget" type="number" min={0} placeholder="ex: 4000" className={inputClass} />
-              </Field>
-              <Field id="q-asigurare" label="Asigurare" required>
-                <select id="q-asigurare" name="asigurare" required defaultValue="nu doresc asigurare" className={inputClass}>
-                  <option>nu doresc asigurare</option>
-                  <option>Asigurare medicală</option>
-                  <option>Asigurare storno</option>
-                  <option>Medicală + storno</option>
-                </select>
+                <input id="q-buget" name="buget" type="number" min={0} className={inputClass} />
               </Field>
             </div>
 
-            <Field id="q-detalii" label="Alte detalii / Informații">
+            <Field id="q-detalii" label="Alte detalii / Informații / Cerințe speciale">
               <textarea
                 id="q-detalii"
                 name="detalii"
                 rows={3}
                 maxLength={2000}
-                placeholder="Adaugă aici detalii suplimentare, preferințe sau cerințe speciale. Ex: pătuț pentru copil, pat matrimonial, hotel cu Aqua Park etc."
                 className={`${inputClass} h-auto resize-y py-3 leading-relaxed`}
               />
             </Field>
