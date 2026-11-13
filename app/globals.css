@@ -140,6 +140,48 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes sea-drift {
+  0% {
+    transform: scale(1.15) translate3d(-3%, -2%, 0);
+  }
+  50% {
+    transform: scale(1.22) translate3d(3%, 2%, 0);
+  }
+  100% {
+    transform: scale(1.15) translate3d(-3%, -2%, 0);
+  }
+}
+
+@keyframes sea-swell {
+  0%,
+  100% {
+    transform: scale(1.2) translate3d(2%, 0, 0);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.25) translate3d(-2%, 3%, 0);
+    opacity: 0.6;
+  }
+}
+
+.sea-drift {
+  animation: sea-drift 28s ease-in-out infinite;
+  will-change: transform;
+}
+
+.sea-swell {
+  animation: sea-swell 14s ease-in-out infinite;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sea-drift,
+  .sea-swell {
+    animation: none;
+  }
+}
+
 /* Hide Google Translate's default banner/tooltip; the custom LanguageSwitcher drives it */
 .goog-te-banner-frame,
 iframe.skiptranslate,
