@@ -15,11 +15,7 @@ export const footerPages: FooterPage[] = [
     href: "https://www.politiadefrontiera.ro/ro/main/pg-conditii-de-iesire-din-tara-pentru-cetatenii-romani-minori-59.html",
   },
   { slug: "ministerul-turismului", title: "Ministerul Turismului", href: "https://turism.gov.ro/web/" },
-  {
-    slug: "politica-de-confidentialitate",
-    title: "Politică de confidențialitate",
-    href: "/politica-de-confidentialitate.pdf",
-  },
+  { slug: "politica-de-confidentialitate", title: "Politică de confidențialitate" },
   { slug: "documente-de-identificare", title: "Documente de identificare" },
   { slug: "contract-cu-turistul", title: "Contract cu turistul" },
 ]
