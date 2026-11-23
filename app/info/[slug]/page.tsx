@@ -2,7 +2,9 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { IdentificationDocuments } from "@/components/identification-documents"
 import { ComingSoon, LightSeaPage } from "@/components/light-sea-page"
+import { LegalDocument } from "@/components/legal-document"
 import { TermsContent } from "@/components/terms-content"
+import { cookiePolicyHtml, privacyPolicyHtml } from "@/lib/legal-documents"
 import { footerPages, getFooterPage } from "@/lib/footer-pages"
 
 export function generateStaticParams() {
@@ -24,6 +26,10 @@ export default async function FooterInfoPage({ params }: { params: Promise<{ slu
         <IdentificationDocuments title={page.title} />
       ) : page.slug === "termeni-si-conditii" ? (
         <TermsContent />
+      ) : page.slug === "politica-de-cookies" ? (
+        <LegalDocument title={page.title} html={cookiePolicyHtml} />
+      ) : page.slug === "politica-de-confidentialitate" ? (
+        <LegalDocument title={page.title} html={privacyPolicyHtml} />
       ) : page.slug === "modalitati-de-plata" ? (
         <div className="mx-auto flex max-w-3xl flex-col gap-6 px-6 pb-20 pt-40 lg:px-8 lg:pt-48">
           <h1 className="text-3xl font-bold uppercase tracking-wide md:text-4xl">{page.title}</h1>
