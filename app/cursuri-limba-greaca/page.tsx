@@ -94,8 +94,7 @@ export default function CursuriLimbaGreacaPage() {
             />
 
             <div className="flex flex-col gap-1 text-base leading-relaxed lining-nums">
-              <p>Niveluri disponibile: A0 – B1</p>
-              <p className="text-pretty">Învață greaca și apropie-te și mai mult de locul pe care îl iubești!</p>
+
               <p className="text-pretty">
                 Informații și înscrieri –{" "}
                 <a href="mailto:contact@greeksteps.ro" className="underline underline-offset-4">
