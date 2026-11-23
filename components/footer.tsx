@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Facebook, Instagram, Mail, Phone } from "lucide-react"
 import { externalFooterLinks, footerPages } from "@/lib/footer-pages"
+import { CookieSettingsButton } from "@/components/cookie-settings-button"
 
 const socialLinks = [
   { icon: Instagram, label: "Instagram", href: "#" },
@@ -38,13 +39,14 @@ export function Footer() {
                     <a href={link.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
                       {link.title}
                     </a>
-                    {index < externalFooterLinks.length - 1 && (
-                      <span aria-hidden="true" className="text-background/40">
-                        |
-                      </span>
-                    )}
+                    <span aria-hidden="true" className="text-background/40">
+                      |
+                    </span>
                   </li>
                 ))}
+                <li>
+                  <CookieSettingsButton className={linkClass} />
+                </li>
               </ul>
             </nav>
           </div>
