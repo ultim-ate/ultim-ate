@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Facebook, Instagram, Mail, Phone } from "lucide-react"
 import { externalFooterLinks, footerPages } from "@/lib/footer-pages"
@@ -53,6 +54,14 @@ export function Footer() {
 
           <div className="flex flex-col gap-4 lg:items-end lg:text-right">
             <p className="font-serif text-2xl font-semibold tracking-wide">Greek Steps</p>
+            <Image
+              src="/images/greek-steps-logo.jpg"
+              alt="Greek Steps – Pentru cei cu suflet Elen. Travel – Language"
+              width={1440}
+              height={486}
+              sizes="288px"
+              className="h-auto w-full max-w-72 rounded-md"
+            />
             <div className="flex items-center gap-3 text-base text-background/80">
               <a href="tel:+40726803296" className="flex items-center gap-2 transition-colors hover:text-background">
                 <Phone className="size-4" aria-hidden="true" />
