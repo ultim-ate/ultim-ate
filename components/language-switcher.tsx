@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import Script from "next/script"
 import { ChevronDown } from "lucide-react"
+import { openCookiePreferences, useConsent } from "@/lib/consent"
 
 const languages = [
   { code: "ro", short: "RO", label: "Română" },
@@ -37,6 +38,7 @@ function setTranslateCookie(value: string | null) {
 }
 
 export function LanguageSwitcher({ className = "" }: { className?: string }) {
+  const consent = useConsent()
   const [current, setCurrent] = useState("ro")
   const [open, setOpen] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -63,6 +65,11 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
 
   const selectLanguage = (code: string) => {
     if (code === current) return
+    if (!consent?.translate) {
+      setOpen(false)
+      openCookiePreferences()
+      return
+    }
     setTranslateCookie(code === "ro" ? null : `/ro/${code}`)
     window.location.reload()
   }
@@ -116,10 +123,12 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
       )}
 
       <div id="google_translate_element" className="hidden" aria-hidden="true" />
-      <Script
-        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-        strategy="afterInteractive"
-      />
+      {consent?.translate && (
+        <Script
+          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+          strategy="afterInteractive"
+        />
+      )}
     </div>
   )
 }
