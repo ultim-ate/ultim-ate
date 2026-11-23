@@ -70,14 +70,26 @@ export default function CursuriLimbaGreacaPage() {
               Cursurile sunt susținute de un formator autorizat ANC, licențiată în Geografia Turismului, cu pregătire
               psihopedagogică și certificări Ellinomatheia Thessaloniki, Cambridge, English for Tourism, TESOL/TEFL și TEYL.
             </p>
-            <Image
-              src="/images/formator.jpg"
-              alt="Formatoarea Greek Steps pe o străduță albă din Grecia, sub o bougainvillea"
-              width={900}
-              height={1600}
-              sizes="(min-width: 640px) 360px, 100vw"
-              className="h-auto w-full max-w-sm rounded-lg shadow-md"
-            />
+            <div className="flex w-full max-w-3xl gap-3 sm:gap-4">
+              <div className="relative aspect-[9/16] flex-1 overflow-hidden rounded-lg shadow-md">
+                <Image
+                  src="/images/formator-2.png"
+                  alt="Portret al formatoarei Greek Steps, într-o ținută albastru cu alb cu motive grecești"
+                  fill
+                  sizes="(min-width: 768px) 384px, 50vw"
+                  className="object-cover object-top"
+                />
+              </div>
+              <div className="relative aspect-[9/16] flex-1 overflow-hidden rounded-lg shadow-md">
+                <Image
+                  src="/images/formator.jpg"
+                  alt="Formatoarea Greek Steps pe o străduță albă din Grecia, sub o bougainvillea"
+                  fill
+                  sizes="(min-width: 768px) 384px, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
             <p className="text-base leading-relaxed">
               Lecțiile combină experiența în predarea limbilor străine cu materiale proprii, exerciții interactive și
               resurse autentice, adaptate vârstei, nivelului și obiectivelor fiecărui cursant.
