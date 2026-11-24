@@ -70,7 +70,7 @@ export function IdentificationDocuments({ title }: { title: string }) {
     <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-20 pt-40 lg:px-8 lg:pt-48">
       <h1 className="text-3xl font-bold uppercase tracking-wide md:text-4xl">{title}</h1>
 
-      <div className="flex flex-col items-start justify-center gap-6 sm:flex-row">
+      <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
         <div className="w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
           <DocumentCard doc={brevet} priority />
         </div>
