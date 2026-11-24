@@ -67,7 +67,7 @@ export default function CursuriLimbaGreacaPage() {
               Despre formator
             </h2>
             <p className="text-base leading-relaxed">
-              Cursurile sunt susținute de un formator autorizat ANC, licențiată în Geografia Turismului, cu pregătire
+              Cursurile sunt susținute de un formator autorizat ANC, licențiată în Geografia Turismului, cu experiență profesională în aviație, cu pregătire
               psihopedagogică și certificări Ellinomatheia Thessaloniki, Cambridge, English for Tourism, TESOL/TEFL și TEYL.
             </p>
             <div className="relative aspect-[9/16] w-full max-w-sm overflow-hidden rounded-lg shadow-md">

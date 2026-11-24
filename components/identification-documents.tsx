@@ -9,6 +9,13 @@ const brevet: DocumentImage = {
   height: 2048,
 }
 
+const registrationCertificate: DocumentImage = {
+  src: "/images/documente/certificat-inregistrare-onrc.jpeg",
+  alt: "Certificat de înregistrare ONRC pentru GREEK STEPS S.R.L., CUI 55171636, activitatea principală 7911 – Activități ale agențiilor turistice",
+  width: 1200,
+  height: 848,
+}
+
 const certificates: DocumentImage[] = [
   {
     src: "/images/documente/diploma-iata-uftaa.jpg",
@@ -63,8 +70,13 @@ export function IdentificationDocuments({ title }: { title: string }) {
     <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-20 pt-40 lg:px-8 lg:pt-48">
       <h1 className="text-3xl font-bold uppercase tracking-wide md:text-4xl">{title}</h1>
 
-      <div className="mx-auto w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
-        <DocumentCard doc={brevet} priority />
+      <div className="flex flex-col items-start justify-center gap-6 sm:flex-row">
+        <div className="w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
+          <DocumentCard doc={brevet} priority />
+        </div>
+        <div className="w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]">
+          <DocumentCard doc={registrationCertificate} priority />
+        </div>
       </div>
 
       <ul className="grid grid-cols-1 items-start gap-6 sm:grid-cols-2 lg:grid-cols-4">
