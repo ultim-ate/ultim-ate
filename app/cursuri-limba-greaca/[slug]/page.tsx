@@ -39,15 +39,17 @@ export default async function GreekCoursePage({ params }: { params: Promise<{ sl
             Cursuri limba greacă
           </Link>
 
-          <header className="flex flex-col gap-1">
+          <header className="flex flex-col gap-4 pb-6 pt-2">
             <h1 lang="el" className="text-2xl font-semibold tracking-wide text-[var(--culture-heading)] md:text-3xl">
               {course.greek}
             </h1>
-            {course.lines.map((line) => (
-              <p key={line} className="text-base leading-relaxed">
-                {line}
-              </p>
-            ))}
+            <div className="flex flex-col gap-1">
+              {course.lines.map((line) => (
+                <p key={line} className="text-base leading-relaxed">
+                  {line}
+                </p>
+              ))}
+            </div>
           </header>
 
           <p className="text-pretty text-lg font-semibold leading-relaxed text-[var(--culture-heading)]">
