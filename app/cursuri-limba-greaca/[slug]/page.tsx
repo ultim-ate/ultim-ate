@@ -39,7 +39,7 @@ export default async function GreekCoursePage({ params }: { params: Promise<{ sl
             Cursuri limba greacă
           </Link>
 
-          <header className="flex flex-col gap-4 pb-6 pt-2">
+          <header className="flex flex-col gap-10 pb-6 pt-2">
             <h1 lang="el" className="text-2xl font-semibold tracking-wide text-[var(--culture-heading)] md:text-3xl">
               {course.greek}
             </h1>
